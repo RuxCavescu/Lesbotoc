@@ -29,3 +29,15 @@ Route::get('/events/{id}', [
 Route::get('/contacts', 
 [ContactController::class, 
 'index'])->name('contacts.index');
+
+Route::get('/contacts/{id}/edit', 
+[ContactController::class, 
+'detail'])->name('edit-detail');
+
+Route::post('/contacts/{id}/edit', 
+[ContactController::class, 
+'update'])->name('update-contact');
+
+Route::delete('/contacts/{id}/delete', 
+[ContactController::class, 
+'destroy'])->name('delete-contact');
