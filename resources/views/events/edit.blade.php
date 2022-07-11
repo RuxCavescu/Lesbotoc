@@ -6,16 +6,10 @@
 @section('content')
 
 
-@if ($event->id)
 <h1>UPDATE event details(edaitable)</h1>
-<form action="{{route("events.store")}}" method="POST">
+<form action="{{route("events.update", $event->id)}}" method="POST">
   @csrf
   @method("PATCH")
-@else
-<h1>CREATE a new event</h1>
-<form action="{{route("events.update")}}" method="POST">
-  @csrf
-@endif
   {{-- CZE TITLE --}}
   <label for="title_cz">CZE Title:</label>
   <input
@@ -30,7 +24,7 @@
       type="text"
       id="title_en"
       name="title_en"
-      value="{{ old('title_cz', $event->title_en) }}"
+      value="{{ old('title_en', $event->title_en) }}"
   ><br><br>
   {{-- START DATE --}}
   <label for="start_date">Start date:</label>
@@ -134,36 +128,16 @@
   ><br><br>
   {{-- CZE DESCRIPTION --}}
   <label for="description_cz">CZ description: </label>
-  <input
-      id="description_cz"  
-      type="text"
-      name="description_cz"
-      value="{{ old('description_cz', $event->descriprion_cz) }}"
-  ><br><br>
+  <textarea id="description_cz" name="description_cz" >{{ old('description_cz', $event->descriprion_cz) }}</textarea><br><br>
   {{-- ENG DESCRIPTION --}}
   <label for="description_en">EN description: </label>
-  <input
-      id="description_en"  
-      type="text"
-      name="description_en"
-      value="{{ old('description_en', $event->descriprion_en) }}"
-  ><br><br>
+  <textarea id="description_en" name="description_en" >{{ old('description_en', $event->descriprion_en) }}</textarea><br><br>
   {{-- CZE INSTRUCTIONS --}}
   <label for="instructions_cz">CZ instructions: </label>
-  <input
-      id="instructions_cz"  
-      type="text"
-      name="instructions_cz"
-      value="{{ old('instructions_cz', $event->instructions_cz) }}"
-  ><br><br>
-  {{-- ENG DESCRIPTION --}}
+  <textarea id="instructions_cz" name="instructions_cz" >{{ old('instructions_cz', $event->instructions_cz) }}</textarea><br><br>
+  {{-- ENG INSTRUCTIONS --}}
   <label for="instructions_en">EN instructions: </label>
-  <input
-      id="instructions_en"  
-      type="text"
-      name="instructions_en"
-      value="{{ old('instructions_en', $event->instructions_en) }}"
-  ><br><br>
+  <textarea id="instructions_en" name="instructions_en" >{{ old('instructions_en', $event->instructions_en) }}</textarea><br><br>
   {{-- IS PHONE REQUIRED --}}
   <label>Is phone required for registration?</label>
   

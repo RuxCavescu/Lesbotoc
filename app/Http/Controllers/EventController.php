@@ -12,8 +12,11 @@ class EventController extends Controller
     public function index()
     {
       $events = Event::get();
+      $event = new Event;
+      $locations = Location::get();
+      $categories = Category::get();
 
-      return view("events/index", compact("events"));
+      return view("events/index", compact("events", "event", "locations", "categories"));
     }
 
     public function show($id)
@@ -24,6 +27,12 @@ class EventController extends Controller
       return view("events/show", compact("event"));
     }
 
+    // public function create()
+    // {
+    //   $event = new Event;
+
+    //   return view("events/create", compact("event"))
+    // }
 
 
     public function edit($id)
@@ -50,6 +59,8 @@ class EventController extends Controller
     // ]);
 
       $event = new Event;
+
+      dump($request);
 
       Event::create($request->all());
 

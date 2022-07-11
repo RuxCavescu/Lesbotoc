@@ -33,7 +33,7 @@ return new class extends Migration
             $table->text("instructions_en")->nullable();
             $table->boolean("is_phone_required");
             $table->boolean("is_recurring")->nullable();
-            $table->boolean("is_active");
+            $table->boolean("is_active")->nullable();
             $table->boolean("is_featured");
             $table->timestamps();
         });
