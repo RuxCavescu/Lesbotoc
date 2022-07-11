@@ -21,7 +21,7 @@ class ImagesSeeder extends Seeder
                 "id" => "1",
                 "alt" => "notebook and pen on a table",
                 "path" => "/images/lesbotoc_photos/lesbotoc_preparation.jpg",
-                "alt"
+
             ],
             [
                 "id" => "2",
