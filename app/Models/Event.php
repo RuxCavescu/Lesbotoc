@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Location;
 use App\Models\Image;
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\Registration;
 
 class Event extends Model
@@ -31,8 +32,11 @@ class Event extends Model
 
     public function registrations()
     {
-      return $this->hasMany(Category::class);
+      return $this->hasMany(Registrtion::class);
     }
 
-
+    public function contacts()
+    {
+      return $this->hasMany(Contact::class);
+    }
 }
