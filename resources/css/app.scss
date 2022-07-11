@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;700&display=swap');
+
+$header-bg1: 809AFF;
+$header-bg2: 142566;
+$body-bg: F5F5F5;
+$text-dark: 4B4B4B;
+$form-bg: EFEFEF;       //notes: variables for color!! (so we can change them later)
+$input-color: black;
+
+.App{
+    font-family: Inter;
+    font-style: normal;
+    background-color: #142566; //just for the time being, so i can see the white color too
+
+}
+
+.admin{
+    &-link{
+        color: white;
+        font-weight: 400;
+        font-size: 20px;
+    }
+
+    &-link__active{
+        color: #142566;
+        font-weight: 400;
+        font-size: 20px; 
+    }
+
+    &-h1{
+        color: white;
+        font-weight: 700;
+        font-size: 70px;  
+        background-color: green;
+    }
+    &-h2{
+        color: #4B4B4B;
+        font-weight: 700;
+        font-size: 36px; 
+    }
+    &-p{
+        color: #0A0A0A;
+        font-weight: 300;
+        font-size: 20px; 
+    }
+    &-input--label{
+        color: $input-color;
+        font-weight: 700;
+        font-size: 16px;  
+    }
+    &-input--text{
+        color: $input-color;
+        font-weight: 300;
+        font-size: 12px;
+    }
+    &-admin-lists{
+        color: $input-color;
+        font-weight: 700;
+        font-size: 16px;        
+    }
+}
+
+.users{
+
+    
+}
