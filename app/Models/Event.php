@@ -14,9 +14,11 @@ class Event extends Model
 {
     use HasFactory;
 
+    public $fillable = ['title_cz', 'title_en', 'start_date', 'time', 'end_date', "is_paid", "price", "capacity", "qr_code_image", "description_cz", "description_en", "instructions_cz", "instructions_en", "is_phone_required", "is_recurring", "is_featured"];
+
     public function location()
     {
-      return $this->hasOne(Location::class);
+      return $this->belongsTo(Location::class);
     }
 
     public function images()
@@ -26,7 +28,7 @@ class Event extends Model
 
     public function category()
     {
-      return $this->hasOne(Category::class);
+      return $this->belongsTo(Category::class);
     }
 
 
