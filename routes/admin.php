@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,10 @@ Route::get('/events', [
 Route::get('/events/{id}', [
   EventController::class, "show"
 ])->whereNumber("id")->name("events.show");
+
+
+// Admin/Contacts routes
+
+Route::get('/contacts', 
+[ContactController::class, 
+'index'])->name('contacts.index');
