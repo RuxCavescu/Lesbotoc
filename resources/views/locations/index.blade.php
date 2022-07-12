@@ -2,5 +2,7 @@
 
 @include('locations/list')
 
+@include('locations/form')
+
 
 
