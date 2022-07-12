@@ -19,5 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/footer', function () {     //just to try-out footer - can be removed!
-    return view('footer');
+    return view('layouts.footer');
 });

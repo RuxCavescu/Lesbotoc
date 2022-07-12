@@ -10,6 +10,7 @@ $form-bg: #efefef;
 $input-color: black;
 $link-dark: #142566;
 $h2-dark: #4b4b4b;
+$primary-font: Inter;
 
 html {
     box-sizing: border-box;
@@ -89,34 +90,9 @@ h2 {
 .img-logo {
     height: 50px;
 }
-footer {
-    background-color: $header-bg2;
-}
-.footer-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 1000px;
-    height: 250px;
-    margin: auto;
-}
-.line {
-    display: flex;
-    border-bottom: 2px;
-}
-.social-med--cont {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
-.a-footer {
-    color: white;
-    font-family: Inter;
-    text-decoration: none;
-}
 
 @import "./event.scss";
 @import "./contacts.scss";
+@import "./footer.scss";
+@import "./locations.scss";
