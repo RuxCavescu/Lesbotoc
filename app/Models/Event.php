@@ -12,9 +12,10 @@ use App\Models\Registration;
 
 class Event extends Model
 {
+
     use HasFactory;
 
-    public $fillable = ['title_cz', 'title_en', 'start_date', 'time', 'end_date', "is_paid", "price", "capacity", "qr_code_image", "description_cz", "description_en", "instructions_cz", "instructions_en", "is_phone_required", "is_recurring", "is_featured"];
+    public $fillable = ['title_cz', 'title_en', 'start_date', 'time', 'end_date', 'location_id', 'category_id', "is_paid", "price", "capacity", "qr_code_image", "description_cz", "description_en", "instructions_cz", "instructions_en", "is_phone_required", "is_recurring", "is_featured", "is_active"];
 
     public function location()
     {

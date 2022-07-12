@@ -14,6 +14,9 @@ use App\Http\Controllers\ContactController;
 |
 */
 
+// Admin/ Events routes
+
+
 Route::get('/events', [
   EventController::class, "index"
 ])->name("events.index");
@@ -23,9 +26,9 @@ Route::get('/events/{id}', [
   EventController::class, "show"
 ])->whereNumber("id")->name("events.show");
 
-Route::get('/events/create', [
-  EventController::class, "create"
-])->name("events.create");
+// Route::get('/events/create', [
+//   EventController::class, "create"
+// ])->name("events.create");
 
 Route::get('/events/{id}/edit', [
   EventController::class, "edit"
@@ -39,6 +42,11 @@ Route::post('/events', [
 Route::patch('/events/{id}', [
   EventController::class, "update"
 ])->whereNumber("id")->name("events.update");
+
+
+Route::delete('/events/{id}', [
+  EventController::class, "destroy"
+])->whereNumber("id")->name("events.destroy");
 
 
 
