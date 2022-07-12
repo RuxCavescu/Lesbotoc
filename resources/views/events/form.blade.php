@@ -48,7 +48,6 @@
       name="start_date"
       value="{{ old('start_date', $event->start_date) }}"
       required
-  ><br><br>
   {{-- START TIME --}}
   <label for="time">Start time:</label>
   <input
@@ -120,63 +119,6 @@
 
 
 
-  {{-- PAID EVENT? --}}
-  <label>Paid event *?</label>
-  <input
-      id="paid_yes"  
-      type="radio"
-      name="is_paid"
-      value="1"
-      required
-
-      @if ($event->id && $event->is_paid === 1)
-        checked
-      @endif
-
-
-  ><label for="paid_yes">Yes</label>
-  
-  <input
-      id="paid_no"  
-      type="radio"
-      name="is_paid"
-      value="0"
-      @if ($event->id && $event->is_paid === 0)
-        checked
-      @elseif (!$event->id)
-        checked
-      @endif
-
-  ><label for="paid_no">No</label>
-  <br><br>
-  
-  {{-- PRICE --}}
-  <label for="price">Price: </label>
-  <input
-      id="price"  
-      type="number"
-      min="1"
-      name="price"
-      value="{{ old('price', $event->price) }}"
-  ><br><br>
-  {{-- CAPACITY --}}
-  <label for="capacity">Capacity: </label>
-  <input
-      id="capacity"  
-      type="number"
-      min="1"
-      name="capacity"
-      value="{{ old('capacity', $event->capacity) }}"
-  ><br><br>
-  {{-- QR code URL --}}
-  <label for="qr_code_image">QR code URL: </label>
-  <input
-      id="qr_code_image"  
-      type="text"
-      name="qr_code_image"
-      value="{{ old('qr_code_image', $event->qr_code_image) }}"
-  ><br><br>
-
   {{-- CZE DESCRIPTION --}}
   <label for="description_cz">CZ description: </label>
   <textarea id="description_cz" name="description_cz" >{{ old('description_cz', $event->descriprion_cz) }}</textarea><br><br>
@@ -192,6 +134,63 @@
   {{-- ENG INSTRUCTIONS --}}
   <label for="instructions_en">EN instructions *: </label>
   <textarea id="instructions_en" name="instructions_en" required>{{ old('instructions_en', $event->instructions_en) }}</textarea><br><br>
+
+    {{-- PAID EVENT? --}}
+    <label>Paid event *?</label>
+    <input
+        id="paid_yes"  
+        type="radio"
+        name="is_paid"
+        value="1"
+        required
+  
+        @if ($event->id && $event->is_paid === 1)
+          checked
+        @endif
+  
+  
+    ><label for="paid_yes">Yes</label>
+    
+    <input
+        id="paid_no"  
+        type="radio"
+        name="is_paid"
+        value="0"
+        @if ($event->id && $event->is_paid === 0)
+          checked
+        @elseif (!$event->id)
+          checked
+        @endif
+  
+    ><label for="paid_no">No</label>
+    <br><br>
+    
+    {{-- PRICE --}}
+    <label for="price">Price: </label>
+    <input
+        id="price"  
+        type="number"
+        min="1"
+        name="price"
+        value="{{ old('price', $event->price) }}"
+    ><br><br>
+    {{-- CAPACITY --}}
+    <label for="capacity">Capacity: </label>
+    <input
+        id="capacity"  
+        type="number"
+        min="1"
+        name="capacity"
+        value="{{ old('capacity', $event->capacity) }}"
+    ><br><br>
+    {{-- QR code URL --}}
+    <label for="qr_code_image">QR code URL: </label>
+    <input
+        id="qr_code_image"  
+        type="text"
+        name="qr_code_image"
+        value="{{ old('qr_code_image', $event->qr_code_image) }}"
+    ><br><br>
 
   {{-- IS PHONE REQUIRED --}}
   <label>Is phone required for registration? *</label>
