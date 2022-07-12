@@ -37,6 +37,13 @@ class ContactController extends Controller
     public function update(Request $request, $id) 
     {
 
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'email' => 'required|email:rfc,dns',
+            'phone' => 'nullable|numeric',
+            'is_subscribed' => 'required|boolean'
+        ]);
+
         // find contact for editing
         $contact = Contact::findOrFail($id);
 
@@ -44,6 +51,7 @@ class ContactController extends Controller
         $contact->name = $request->name ?? null;
         $contact->email = $request->email ?? null;
         $contact->phone = $request->phone ?? null;
+        $contact->is_subscribed = $request->is_subscribed ?? false;
 
         // saves the object to the DB
         $contact->save();
@@ -87,6 +95,14 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {   
+
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'email' => 'required|email:rfc,dns',
+            'phone' => 'nullable|numeric',
+            'is_subscribed' => 'required|boolean'
+        ]);
+
         // prepares the empty object
         $contact = new Contact;
 
@@ -102,7 +118,16 @@ class ContactController extends Controller
         session()->flash('success_message', 'Success, contact added!');
 
         // redirects to the list of contacts
-        return redirect( route('contacts.index') );
+        return redirect( route('contacts-index') );
+    }
+
+    public function showSubscribed() 
+    {
+        $subscribedContacts = Contact::query()
+            ->where('is_subscribed', 'like', '1')
+            ->get();
+
+        return view('contacts.show-subscribed', compact('subscribedContacts'));
     }
 
 }

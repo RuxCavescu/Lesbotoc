@@ -4,6 +4,7 @@
     <form action="{{route("save-contact")}}" method="POST">
         @csrf
         <h2> Add a new contact: </h2>
+        @include('contacts/messages')
         <tr class="contact__row">
              <input type="text" name="name" value="{{$contact->name}}" placeholder="Name"> 
              <input type="text" name="email" value="{{$contact->email}}" placeholder="Email">

@@ -22,6 +22,7 @@
     </div> --}}
 
     <button><a href="{{route("create-contact")}}">Manually create contact</a></button>
+    <button><a href="{{route("subscribed-users")}}">See all subscribed users</a></button>
 
     @include('contacts/show-all-contacts')
 
