@@ -21,24 +21,25 @@
   > 
 
 
+    {{-- ENG TITLE --}}
+    <label for="title_en">Title in English*</label>
+    <input
+        type="text"
+        id="title_en"
+        name="title_en"
+        value="{{ old('title_en', $event->title_en) }}"
+        required
+    ><br><br>
 
   {{-- CZE TITLE --}}
-  <label for="title_cz">CZE Title:</label>
+  <label for="title_cz">Title in Czech </label>
   <input
       type="text"
       id="title_cz"
       name="title_cz"
       value="{{ old('title_cz', $event->title_cz) }}"
   ><br><br>
-  {{-- ENG TITLE --}}
-  <label for="title_en">EN Title *:</label>
-  <input
-      type="text"
-      id="title_en"
-      name="title_en"
-      value="{{ old('title_en', $event->title_en) }}"
-      required
-  ><br><br>
+
 
   {{-- START DATE --}}
   <label for="start_date">Start date *:</label>
