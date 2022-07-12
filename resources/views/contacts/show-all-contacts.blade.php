@@ -6,9 +6,9 @@
             </tr>
         @foreach ($contacts as $contact)
             <tr class="contact__row">
-                <td>{{$contact->name}} </td>
-                <td>{{$contact->email}} </td>
-                <td>{{$contact->phone}} </td>
+                <td class="contact__columns-name"> {{$contact->name}} </td>
+                <td class="contact__columns-email"> {{$contact->email}} </td>
+                <td class="contact__columns-phone"> {{$contact->phone ? $contact->phone : '-'}} </td>
                 <td>        
                 <form action="{{ route('delete-contact', ['id' => $contact->id])}}" method="post">
                     @csrf

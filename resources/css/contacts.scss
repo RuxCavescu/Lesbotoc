@@ -24,6 +24,23 @@
 // .contacts {
 // }
 
-.contact__row tr {
-    margin: 20px 0;
+.contacts__columns {
+    font-weight: 800;
+    text-transform: uppercase;
+
+    &-phone {
+        text-align: center;
+    }
+}
+
+.contact__row {
+    height: 30px;
+    padding: 40px 0;
+
+    & td {
+        padding: 0 20px;
+    }
+    &:nth-child(odd) {
+        background-color: #eeeeee;
+    }
 }
