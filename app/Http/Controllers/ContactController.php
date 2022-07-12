@@ -67,6 +67,41 @@ class ContactController extends Controller
         session()->flash('success_message', 'Success, contact deleted!');
 
         // redirect to the list of available contacts
+        return redirect( url('admin/contacts') );
+    }
+
+
+
+    public function create()
+    {
+        // prepare the empty object
+        $contact = new Contact;
+        $contacts = Contact::get();
+
+        // display the form and pass the contact and contacts variables
+        return view('contacts.create', compact('contact', 'contacts'));
+
+    }
+
+
+
+    public function store(Request $request)
+    {   
+        // prepares the empty object
+        $contact = new Contact;
+
+        // fills in the properties of the new object with values coming in from the form
+        $contact->name = $request->name ?? null;
+        $contact->email = $request->email ?? null;
+        $contact->phone = $request->phone ?? null;
+        $contact->is_subscribed = $request->is_subscribed ?? false;
+
+        // saves the object to the DB
+        $contact->save();
+
+        session()->flash('success_message', 'Success, contact added!');
+
+        // redirects to the list of contacts
         return redirect( route('contacts.index') );
     }
 

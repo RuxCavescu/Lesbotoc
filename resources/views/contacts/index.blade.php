@@ -1,14 +1,11 @@
 @extends('layouts/main')
 
 @section('content')
-<h1>List of contacts:</h1>
-    @if(Session::has('success_message'))
-        <div class="alert alert-success">
-            {{ Session::get('success_message') }}
-        </div>
-    @endif
+    <h1>List of contacts:</h1>
 
-    <div class="contacts">
+    @include('contacts/messages')
+
+    {{-- <div class="contacts">
         @foreach ($contacts as $contact)
     
             <div class="contacts__card">
@@ -22,24 +19,27 @@
             </div>
     
         @endforeach
-    </div>
+    </div> --}}
 
-    
-    <table>
-        <tr>
+    <button><a href="{{route("create-contact")}}">Manually create contact</a></button>
+
+    @include('contacts/show-all-contacts')
+
+    {{-- <table>
+        <tr class="contacts__columns">
             <td>Name</td>
             <td>Email</td>
             <td>Phone Number</td>
         </tr>
     @foreach ($contacts as $contact)
-        <tr>
+        <tr class="contact__row">
             <td>{{$contact->name}} </td>
             <td>{{$contact->email}} </td>
             <td>{{$contact->phone}} </td>
-            <td><i class="fa fa-trash"></i>Edit</td>
+            <td><i class="fa fa-trash"></i></td>
             <td><a href="contacts/{{$contact->id}}/edit"><i class="fa fa-edit"></a></td>
         </tr>
     @endforeach
-    </table>
+    </table> --}}
         
 @endsection

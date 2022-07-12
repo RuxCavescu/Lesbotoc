@@ -56,6 +56,14 @@ Route::get('/contacts',
 [ContactController::class, 
 'index'])->name('contacts.index');
 
+Route::get('/contacts/create', 
+[ContactController::class, 
+'create'])->name('create-contact');
+
+Route::post('/contacts/create', 
+[ContactController::class, 
+'store'])->name('save-contact');
+
 Route::get('/contacts/{id}/edit', 
 [ContactController::class, 
 'detail'])->name('edit-detail');

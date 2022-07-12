@@ -3,13 +3,27 @@
     margin: 0 auto;
 }
 
-.contacts {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+// styling for wrap view:
+//
+// .contacts {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-around;
 
-    &__card {
-        width: 300px;
-        margin: 20px 0;
-    }
+//     &__card {
+//         width: 300px;
+//         margin: 20px 0;
+//     }
+//     &:nth-child(odd) {
+//         background-color: #eeeeee;
+//     }
+// }
+
+//styling for table view:
+//
+// .contacts {
+// }
+
+.contact__row tr {
+    margin: 20px 0;
 }
