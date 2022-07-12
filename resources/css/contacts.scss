@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.contacts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    &__card {
+        width: 300px;
+        margin: 20px 0;
+    }
+}
