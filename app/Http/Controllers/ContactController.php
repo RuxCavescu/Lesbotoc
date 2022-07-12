@@ -20,11 +20,9 @@ class ContactController extends Controller
 
     public function export() 
     {
-        $date = Carbon::today()->setTimezone('Europe/Prague');
-        $date->toDateString();
-        echo $date;
-        $time = Carbon::now()->toDateTimeString();
-        return Excel::download(new ContactsExport, 'subscribed_contacts_'.$date.$time.'.xlsx');
+        $date = Carbon::today()->setTimezone('Europe/Prague')->toDateString();
+        $time = Carbon::now()->toTimeString();
+        return Excel::download(new ContactsExport, 'subscribed_contacts_'.$date.'_'.$time.'.xlsx');
     }
 
 
