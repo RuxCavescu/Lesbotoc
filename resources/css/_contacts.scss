@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+// styling for wrap view:
+//
+// .contacts {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-around;
+
+//     &__card {
+//         width: 300px;
+//         margin: 20px 0;
+//     }
+//     &:nth-child(odd) {
+//         background-color: #eeeeee;
+//     }
+// }
+
+//styling for table view:
+//
+// .contacts {
+// }
+
+.contacts__columns {
+    font-weight: 800;
+    text-transform: uppercase;
+
+    &-phone {
+        text-align: center;
+    }
+}
+
+.contact__row {
+    height: 30px;
+    padding: 40px 0;
+
+    & td {
+        padding: 0 20px;
+    }
+    &:nth-child(odd) {
+        background-color: #eeeeee;
+    }
+}
+
+.alert-success {
+    background-color: green;
+}
+
+.error__message {
+    background-color: red;
+}

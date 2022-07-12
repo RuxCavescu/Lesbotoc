@@ -1,95 +1,98 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;700&display=swap");
 
-$lesbotoc: 7AB7CC;
-$header-bg1: 809AFF;
-$header-bg2: 142566;
-$body-bg: F5F5F5;
-$titles-dark: 4B4B4B;
-$text-dark: 0A0A0A;
-$form-bg: EFEFEF;       
+$lesbotoc: #7ab7cc;
+$header-bg1: #809aff;
+$header-bg2: #142566;
+$body-bg: #f5f5f5;
+$titles-dark: #4b4b4b;
+$text-dark: #0a0a0a;
+$form-bg: #efefef;
 $input-color: black;
-$link-dark:#142566;
-$h2-dark: #4B4B4B;
+$link-dark: #142566;
+$h2-dark: #4b4b4b;
 
 html {
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+}
 *,
 *:before,
 *:after {
     box-sizing: inherit;
 }
 
-.App{
+.App {
     font-family: Inter;
     font-style: normal;
 }
 
-p{
+p {
     color: $text-dark;
     font-weight: 300;
-    font-size: 20px;  
-}    
-
-.a-light{
-        color: white;
-        font-weight: 400;
-        font-size: 20px;
+    font-size: 20px;
 }
 
-.a-dark{
-        color: $link-dark;
-        font-weight: 400;
-        font-size: 20px; 
+.a-light {
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
 }
 
-h1{
-        color: white;
-        font-weight: 700;
-        font-size: 70px;  
-        background-color: black;
+
+.a-dark {
+    color: $link-dark;
+    font-weight: 400;
+    font-size: 20px;
 }
 
-h2{
-        color: $h2-dark;
-        font-weight: 700;
-        font-size: 36px; 
+h1 {
+    color: white;
+    font-weight: 700;
+    font-size: 70px;
 }
 
-.admin{
-    &-input--label{
+h2 {
+    color: $h2-dark;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.admin {
+    &-input--label {
         color: $input-color;
         font-weight: 700;
-        font-size: 16px;  
+        font-size: 16px;
     }
-    &-input--text{
+    &-input--text {
         color: $input-color;
         font-weight: 300;
         font-size: 12px;
     }
-    &-admin--lists{
+    &-admin--lists {
         color: $input-color;
         font-weight: 700;
-        font-size: 16px;        
+        font-size: 16px;
     }
 }
 
-.user{
-    &-input-label{
+.user {
+    &-input-label {
         color: $input-color;
         font-weight: 400;
         font-size: 20px;
     }
 }
 
-.img-logo{
+.img-logo {
     height: 50px;
 }
-footer{
+footer {
     background-color: $header-bg2;
 }
-.footer-container{
+.footer-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,21 +100,23 @@ footer{
     width: 1000px;
     height: 250px;
     margin: auto;
-
 }
-.line{
+.line {
     display: flex;
     border-bottom: 2px;
 }
-.social-med--cont{
+.social-med--cont {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.a-footer{
+.a-footer {
     color: white;
     font-family: Inter;
     text-decoration: none;
 }
+
+@import "./event.scss";
+@import "./contacts.scss";

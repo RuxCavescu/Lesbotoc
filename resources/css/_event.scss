@@ -1,0 +1,180 @@
+// EVENT LIST STYLING
+
+.events {
+    font-family: "Inter";
+    &__main {
+        width: 90%;
+        margin: 5em auto;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+
+    &__intro {
+        width: 80%;
+        margin: auto;
+        text-align: center;
+    }
+
+    &__list {
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item {
+        list-style-type: none;
+        padding: 0 10px;
+        width: 340px;
+        height: 50px;
+        margin-bottom: 20px;
+
+        background: #809aff;
+        border-radius: 5px;
+    }
+
+    &__link {
+        text-decoration: none;
+
+        width: 295px;
+        height: 50px;
+
+        /* Button Text Style */
+
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 35px;
+        /* or 219% */
+
+        display: flex;
+        align-items: center;
+
+        color: #ffffff;
+    }
+
+    &__title {
+        color: black;
+    }
+
+    h1 {
+        color: black;
+    }
+
+    // FORM STYLING
+
+    &__form {
+        width: 70%;
+        height: fit-content;
+        padding: 2em 1em;
+
+        background: #efefef;
+        border-radius: 10px;
+    }
+
+    &__fieldset {
+        border: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__input {
+        width: 100%;
+        height: 52px;
+        border: none;
+        background: #ffffff;
+        border-radius: 5px;
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 15px;
+
+        &--radio {
+            margin-top: 25px;
+            // margin-bottom: 20px;
+        }
+
+        // &--half {
+        //     width: 50%;
+        // }
+    }
+
+    &__radio {
+        width: 47%;
+    }
+
+    &__textarea {
+        width: 100%;
+        height: 150px;
+        background: #ffffff;
+        border: 1px solid #e9e9e9;
+        border-radius: 5px;
+        resize: none;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+    &__label {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        // line-height: 75px;
+        /* or 469% */
+
+        display: block;
+        // align-items: center;
+        // margin-bottom: 10px;
+        width: fit-content;
+
+        &--half {
+            width: 47%;
+        }
+
+        &--radio {
+            display: inline;
+            font-weight: normal;
+        }
+    }
+
+    &__lang {
+        width: 47%;
+        gap: 1em;
+        margin: 0;
+    }
+
+    &__common {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        // align-items: center;
+    }
+}
+
+// ADMIN BAR STYLING
+.admin {
+    &__bar {
+        width: 100%;
+        height: 250px;
+
+        background: #142566;
+        display: flex;
+        align-items: center;
+    }
+
+    &__title {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 70px;
+        line-height: 75px;
+        width: 80%;
+        margin: auto;
+
+        /* or 107% */
+
+        color: #ffffff;
+    }
+}

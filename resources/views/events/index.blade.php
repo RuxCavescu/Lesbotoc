@@ -1,18 +1,24 @@
-<?php
-
-use Carbon\Carbon;
-
-?>
 
 @extends('layouts/main')
 
 @section('content')
-<h1>List of events</h1>
-<ul>
-  @foreach ($events as $event)
-    <li>{{Carbon::parse($event->start_date)->format('d.m')}} {{$event->title_en}}</li>
-      
-  @endforeach
-</ul>
-    
+
+@include('events/adminbar')
+
+<div class="events">
+
+  <div class="events__intro">
+<h2>You can create, edit, delete events here.</h2>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea provident expedita vitae error atque nobis iste tempore cumque unde placeat dolorem et, aspernatur eos repudiandae, fugit alias facere laudantium ad.</p>
+</div>
+
+  <div class="events__main">
+  @include('events/eventlist')
+  @include('events/form')
+</div>
+</div>
+
+  
+
 @endsection
+

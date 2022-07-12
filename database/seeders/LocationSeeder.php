@@ -88,6 +88,14 @@ class LocationSeeder extends Seeder
             'longtitude' => '14.442607286409972',
             'location_website' => 'https://bowlingvtovarne.cz/',
         ],
+        [
+            'id' => 8,
+            'name' => 'TBD',
+            'address' => '',
+            'latitude' => '',
+            'longtitude' => '',
+            'location_website' => '',
+        ],
 ];
 
         foreach ($locations as $location) {

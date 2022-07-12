@@ -15,6 +15,9 @@ use App\Http\Controllers\LocationController;
 |
 */
 
+// Admin/ Events routes
+
+
 Route::get('/events', [
   EventController::class, "index"
 ])->name("events.index");
@@ -24,9 +27,11 @@ Route::get('/events/{id}', [
   EventController::class, "show"
 ])->whereNumber("id")->name("events.show");
 
-Route::get('/events/create', [
-  EventController::class, "create"
-])->name("events.create");
+Route::get('/events/{id}/participants', [
+  EventController::class, "display"
+])->whereNumber("id")->name("events.display");
+
+
 
 Route::get('/events/{id}/edit', [
   EventController::class, "edit"
@@ -42,6 +47,11 @@ Route::patch('/events/{id}', [
 ])->whereNumber("id")->name("events.update");
 
 
+Route::delete('/events/{id}', [
+  EventController::class, "destroy"
+])->whereNumber("id")->name("events.destroy");
+
+
 
 // Admin/Contacts routes
 
@@ -51,7 +61,39 @@ Route::get(
     ContactController::class,
     'index'
   ]
-)->name('contacts.index');
+)->name('contacts-index');
+
+Route::get(
+  '/contacts/subscribed',
+  [
+    ContactController::class,
+    'showSubscribed'
+  ]
+)->name('subscribed-users');
+
+Route::get(
+  '/contacts/subscribed/export',
+  [
+    ContactController::class,
+    'export'
+  ]
+)->name('contacts-export');
+
+Route::get(
+  '/contacts/create',
+  [
+    ContactController::class,
+    'create'
+  ]
+)->name('create-contact');
+
+Route::post(
+  '/contacts/create',
+  [
+    ContactController::class,
+    'store'
+  ]
+)->name('save-contact');
 
 Route::get(
   '/contacts/{id}/edit',
