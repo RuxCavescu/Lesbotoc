@@ -4,10 +4,13 @@ use Carbon\Carbon;
 
 ?>
 
-<h1>List of events</h1>
-<ul>
+<ul class="events__list">
   @foreach ($events as $event)
-  <a href="{{route('events.show', $event->id)}}">    <li>{{Carbon::parse($event->start_date)->format('d.m')}} {{$event->title_en}}</li></a>
+  
+
+  <li class="events__item"><a class="events__link" href="{{route('events.show', $event->id)}}">{{Carbon::parse($event->start_date)->format('d.m')}} - {{$event->title_en}}</a></li>
+
+
       
   @endforeach
 </ul>
