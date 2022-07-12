@@ -27,6 +27,6 @@
             </tr>
         @endforeach
     </table>
-
+    <button><a href="{{route("contacts-export")}}">Download subscribed data</a></button>
     @endsection
 

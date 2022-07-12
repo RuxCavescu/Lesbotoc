@@ -29,16 +29,5 @@
             {{-- <td><a href="contacts/{{$contact->id}}/edit"><i class="fa fa-edit"></a></td> --}}
         </tr>
     </form>
-
-    {{-- <form action="{{route("save-contact")}}" method="POST">
-        @csrf
-        <label for="name">Name:</label>
-            <input type="text" name="name" value="{{$contact->name}}" >
-        <label for="name">Email:</label>
-            <input type="text" name="email" value="{{$contact->email}}" >
-        <label for="name">Phone Number:</label>
-            <input type="text" name="phone" value="{{$contact->phone}}" >
-            <button>Save</button>
-    </form> --}}
     @include('contacts/show-all-contacts')
 @endsection

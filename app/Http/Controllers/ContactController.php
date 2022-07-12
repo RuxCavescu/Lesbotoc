@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ContactsExport;
+use Carbon\Carbon;
 
 class ContactController extends Controller
 {
@@ -11,6 +14,17 @@ class ContactController extends Controller
         $contacts = Contact::get();
 
         return view('contacts.index', compact('contacts'));
+    }
+
+
+
+    public function export() 
+    {
+        $date = Carbon::today()->setTimezone('Europe/Prague');
+        $date->toDateString();
+        echo $date;
+        $time = Carbon::now()->toDateTimeString();
+        return Excel::download(new ContactsExport, 'subscribed_contacts_'.$date.$time.'.xlsx');
     }
 
 

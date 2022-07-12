@@ -60,6 +60,10 @@ Route::get('/contacts/subscribed',
 [ContactController::class, 
 'showSubscribed'])->name('subscribed-users');
 
+Route::get('/contacts/subscribed/export', 
+[ContactController::class, 
+'export'])->name('contacts-export');
+
 Route::get('/contacts/create', 
 [ContactController::class, 
 'create'])->name('create-contact');
