@@ -14,4 +14,17 @@
 
 
 </div>
+        <style>
+            body {
+                font-family: 'Nunito', sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+       <button><a href="admin/events">Events</button>
+       <button><a href="admin/contacts">Contacts</button>
+       <button><a href="admin/locations">Locations</button>
+       <button><a href="admin/events/1/edit">Edit first event</button>
+       <button><a href="admin/contacts/1/edit">Edit first contact</button>
+    </body>
 </html>

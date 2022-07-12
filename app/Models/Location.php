@@ -11,6 +11,6 @@ class Location extends Model
     use HasFactory;
 
     public function events() {
-        return $this->belongsToMany(Event::class);
+        return $this->hasMany(Event::class);
     }
 }
