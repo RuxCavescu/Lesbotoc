@@ -18,8 +18,8 @@
         <td>{{$contact->name}} </td>
         <td>{{$contact->email}} </td>
         <td>{{$contact->phone}} </td>
-        <td><button>Delete Contact</button></td>
-        <td><button><a href="contacts/{{$contact->id}}/edit">Edit Contact</a></button></td>
+        <td><button>X</button></td>
+        <td><button><a href="contacts/{{$contact->id}}/edit">Edit</a></button></td>
     </tr>
   @endforeach
 </table>
