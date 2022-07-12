@@ -56,7 +56,23 @@ Route::delete('/events/{id}', [
 
 Route::get('/contacts', 
 [ContactController::class, 
-'index'])->name('contacts.index');
+'index'])->name('contacts-index');
+
+Route::get('/contacts/subscribed', 
+[ContactController::class, 
+'showSubscribed'])->name('subscribed-users');
+
+Route::get('/contacts/subscribed/export', 
+[ContactController::class, 
+'export'])->name('contacts-export');
+
+Route::get('/contacts/create', 
+[ContactController::class, 
+'create'])->name('create-contact');
+
+Route::post('/contacts/create', 
+[ContactController::class, 
+'store'])->name('save-contact');
 
 Route::get('/contacts/{id}/edit', 
 [ContactController::class, 

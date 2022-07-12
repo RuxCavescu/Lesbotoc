@@ -1,20 +1,15 @@
 @extends('layouts/main')
-
 @section('content')
-<h1>Please edit the contact:</h1>
-<table>
-    <tr>
-        <td>Name</td>
-        <td>Email</td>
-        <td>Phone Number</td>
-    </tr>
-    <form action="{{ route('update-contact', ['id' => $contact->id]) }}" method="post">
+
+    <form action="{{route("save-contact")}}" method="POST">
         @csrf
-        <td><input type='text' name='name' value='{{$contact->name}}' ></td>
-        <td><input type='email' name='email' value='{{$contact->email}}' ></td>
-        <td><input type='tel' name='phone' value='{{$contact->phone}}' ></td>
-        <td>
-            <div>
+        <h2> Add a new contact: </h2>
+        @include('contacts/messages')
+        <tr class="contact__row">
+             <input type="text" name="name" value="{{$contact->name}}" placeholder="Name"> 
+             <input type="text" name="email" value="{{$contact->email}}" placeholder="Email">
+             <input type="text" name="phone" value="{{$contact->phone}}" placeholder="Phone">
+             <div>
                  <p>Is the Contact subscribed?</p>
                  <label for="subscribed_yes">Yes</label>
                  <input id="is_subscribed_yes"  type="radio" name="is_subscribed" value="1" required         
@@ -30,9 +25,9 @@
                         checked
                     @endif>
              </div>
-        </td>
-        <td><button>Save</button></td></td>
-    </tr>
-</table>
-@include('contacts/messages')
+            <button>Save</button>
+            {{-- <td><a href="contacts/{{$contact->id}}/edit"><i class="fa fa-edit"></a></td> --}}
+        </tr>
+    </form>
+    @include('contacts/show-all-contacts')
 @endsection
