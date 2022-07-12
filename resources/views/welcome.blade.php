@@ -11,10 +11,7 @@
 
 <div class="App">
 <div id="root"></div>
-    <h1 class="admin-h1">Hello world!</h1>
-    <h2>this is it</h2>
-    <a class="admin-link" href="'">Hello again</a>
-    <div class="a_active">sorry cant hear you</div>
+
 
 </div>
 </html>
