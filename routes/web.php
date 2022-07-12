@@ -23,8 +23,8 @@ Route::get('/footer', function () {     //just to try-out footer - can be remove
 });
 
 Route::get('admin/locations', [LocationController::class, 'index']);
-Route::get('admin/locations/{id}', [LocationController::class, 'show']);
-Route::get('admin/locations{id}/edit', [LocationController::class, 'edit']);
+Route::get('admin/locations/details/{id}', [LocationController::class, 'show']);
+
 
 
 // Route::get('/movies/{movieId}/edit', ['App\Http\Controllers\MovieController', 'edit'])->name('movie.edit');
