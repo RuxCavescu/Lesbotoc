@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;700&display=swap');
+
+$lesbotoc: 7AB7CC;
+$header-bg1: 809AFF;
+$header-bg2: 142566;
+$body-bg: F5F5F5;
+$titles-dark: 4B4B4B;
+$text-dark: 0A0A0A;
+$form-bg: EFEFEF;       
+$input-color: black;
+$link-dark:#142566;
+$h2-dark: #4B4B4B;
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.App{
+    font-family: Inter;
+    font-style: normal;
+}
+
+p{
+    color: $text-dark;
+    font-weight: 300;
+    font-size: 20px;  
+}    
+
+.a-light{
+        color: white;
+        font-weight: 400;
+        font-size: 20px;
+}
+
+.a-dark{
+        color: $link-dark;
+        font-weight: 400;
+        font-size: 20px; 
+}
+
+h1{
+        color: white;
+        font-weight: 700;
+        font-size: 70px;  
+}
+
+h2{
+        color: $h2-dark;
+        font-weight: 700;
+        font-size: 36px; 
+}
+
+.admin{
+    &-input--label{
+        color: $input-color;
+        font-weight: 700;
+        font-size: 16px;  
+    }
+    &-input--text{
+        color: $input-color;
+        font-weight: 300;
+        font-size: 12px;
+    }
+    &-admin--lists{
+        color: $input-color;
+        font-weight: 700;
+        font-size: 16px;        
+    }
+}
+
+.user{
+    &-input-label{
+        color: $input-color;
+        font-weight: 400;
+        font-size: 20px;
+    }
+}
+
+.img-logo{
+    height: 50px;
+}
+footer{
+    background-color: $header-bg2;
+}
+.footer-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    height: 250px;
+    margin: auto;
+
+}
+.line{
+    display: flex;
+    border-bottom: 2px;
+}
+.social-med--cont{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.a-footer{
+    color: white;
+    font-family: Inter;
+    text-decoration: none;
+}
