@@ -21,10 +21,3 @@ Route::get('/', function () {
 Route::get('/footer', function () {     //just to try-out footer - can be removed!
     return view('footer');
 });
-
-Route::get('admin/locations', [LocationController::class, 'index']);
-Route::get('admin/locations/details/{id}', [LocationController::class, 'show']);
-
-
-
-// Route::get('/movies/{movieId}/edit', ['App\Http\Controllers\MovieController', 'edit'])->name('movie.edit');

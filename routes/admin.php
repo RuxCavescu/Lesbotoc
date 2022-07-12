@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,18 +45,41 @@ Route::patch('/events/{id}', [
 
 // Admin/Contacts routes
 
-Route::get('/contacts', 
-[ContactController::class, 
-'index'])->name('contacts.index');
+Route::get(
+  '/contacts',
+  [
+    ContactController::class,
+    'index'
+  ]
+)->name('contacts.index');
 
-Route::get('/contacts/{id}/edit', 
-[ContactController::class, 
-'detail'])->name('edit-detail');
+Route::get(
+  '/contacts/{id}/edit',
+  [
+    ContactController::class,
+    'detail'
+  ]
+)->name('edit-detail');
 
-Route::post('/contacts/{id}/edit', 
-[ContactController::class, 
-'update'])->name('update-contact');
+Route::post(
+  '/contacts/{id}/edit',
+  [
+    ContactController::class,
+    'update'
+  ]
+)->name('update-contact');
 
-Route::delete('/contacts/{id}/delete', 
-[ContactController::class, 
-'destroy'])->name('delete-contact');
+Route::delete(
+  '/contacts/{id}/delete',
+  [
+    ContactController::class,
+    'destroy'
+  ]
+)->name('delete-contact');
+
+//admin location routes
+
+Route::get('/locations', [LocationController::class, 'index'])->name('locations.index');
+
+Route::get('/locations/detail/{id}', [LocationController::class, 'details'])->name('locations.details');
+Route::get('/locations/create', [LocationController::class, 'create'])->name('locations.create');

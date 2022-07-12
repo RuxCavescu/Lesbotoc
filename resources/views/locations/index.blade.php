@@ -2,7 +2,7 @@
 
 @include('locations/list')
 
-@include('locations/form')
+{{-- @include('locations/form') --}}
 
 
 

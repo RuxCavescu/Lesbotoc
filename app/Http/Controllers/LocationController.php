@@ -15,9 +15,17 @@ class LocationController extends Controller
         return view("locations.index", compact("locations"));
     }
 
-    public function show($id)
+    public function details($id)
     {
         $location = Location::findOrFail($id);
-        return view("locations.details.{$id}", compact("location"));
+        return view("locations.details", compact("location"));
+    }
+
+    public function create()
+    //$id
+    {
+        // $location = Location::findOrFail($id);
+        // return view("locations.create", compact("location"));
+        return view("locations.create");
     }
 }
