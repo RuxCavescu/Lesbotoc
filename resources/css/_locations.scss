@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;700&display=swap");
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.admin-title--container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 250px;
+    background-color: $header-bg2;
+
+
+}
+.admin-title{
+    width: 1000px;
+    color: white;
+    margin: auto;
+    font-family: Inter;
+    font-size: 70px;
+    font-weight: 700;
+}
+.index-container{
+    background-color: $body-bg;
+}
+.locations-intro{
+    width: 100%;
+    padding: 80px;
+    text-align: center;
+    font-family: $primary-font;
+}
+.locations-container{
+    width: 1000px;
+}
+.location-data{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.list-btn{
+    background-color: $admin-btn;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-table;
+    font-size: 16px;
+    width: 340px;
+    height: 50px;
+    margin: 4px;
+    border-radius: 3px;
+}
+ul{
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+input[type=text],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}

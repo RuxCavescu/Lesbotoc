@@ -22,10 +22,28 @@ class LocationController extends Controller
     }
 
     public function create()
-    //$id
+
     {
-        // $location = Location::findOrFail($id);
-        // return view("locations.create", compact("location"));
-        return view("locations.create");
+        $location =  new Location;
+        $locations = Location::get();
+
+        return view("locations.create", compact("location"));
+        // return view("locations.create");
+    }
+
+    public function store(Request $request)
+
+    {
+        $location = new Location;
+
+        $location->name = $request->input('location_name');
+        $location->address = $request->input('address');
+        $location->latitude = $request->input('latitude');
+        $location->longtitude = $request->input('longtitude');
+        $location->location_website = $request->input('website');
+
+        session()->flash('success_message', 'New location registered.');
+
+        return redirect(url('locations.index' . $location->id));
     }
 }
