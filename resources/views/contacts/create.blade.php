@@ -33,7 +33,7 @@
                  </div>
                 <div class="create__contact-buttons">
                     <button class="create__contact-save">Save</button>
-                    <button class="create__contact-cancel">Cancel</button>
+                    <button class="create__contact-cancel"><a href="javascript:history.back()">Cancel</a></button>
                 </div>
                 {{-- <td><a href="contacts/{{$contact->id}}/edit"><i class="fa fa-edit"></a></td> --}}
             </tr>
