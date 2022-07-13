@@ -1,4 +1,4 @@
-    <table>
+    <table class="contacts__list">
             <tr class="contacts__columns">
                 <td>Name</td>
                 <td>Email</td>

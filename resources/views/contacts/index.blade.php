@@ -1,7 +1,7 @@
 @extends('layouts/main')
 
 @section('content')
-    <h1>List of contacts:</h1>
+    <div class="admin__bar"><h1 class="admin__title">Contacts Administration</h1></div>
 
     @include('contacts/messages')
 
@@ -21,8 +21,12 @@
         @endforeach
     </div> --}}
 
-    <button><a href="{{route("create-contact")}}">Manually create contact</a></button>
-    <button><a href="{{route("subscribed-users")}}">See all subscribed users</a></button>
+<div class="buttons">
+        <ul>
+            <li class="contacts__item"><a href="{{route("create-contact")}}">Manually create contact</a></li>
+            <li class="contacts__item"><a href="{{route("subscribed-users")}}">See all subscribed users</a></li>
+        </u>
+</div>
 
     @include('contacts/show-all-contacts')
 

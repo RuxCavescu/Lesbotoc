@@ -17,7 +17,7 @@ use App\Http\Controllers\ContactController;
 // Admin/ Events routes
 
 Route::get('/', [function () {
-  return view('layouts/main');
+  return view('homepage.admin-homepage');
 }])->name("homepage");
 
 Route::get('/events', [

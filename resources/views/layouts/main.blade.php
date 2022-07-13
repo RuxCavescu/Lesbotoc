@@ -13,9 +13,28 @@
   <title>Document</title>
 </head>
 <body>
-  @yield('navbar')
+  @include('layouts/navbar')
   @yield('content')
 
-  
+  {{-- <script> 
+      console.log('works');
+      const navbar = document.querySelector(".navbar");
+
+      // Get all buttons with class="link" inside the navbar
+      let links = navbar.querySelectorAll(".link");
+
+      // Loop through the links and add the active class to the current/clicked button
+
+      for (let i = 0; i < links.length; i++) {
+          links[i].addEventListener("click", function (e) {
+              let current = document.querySelector(".link-active");
+              if (current) {
+                  // add/remove class names:
+                  current.classList.remove("link-active");
+              }
+              e.target.classList.add("link-active");
+          });
+      }
+ </script> --}}
 </body>
 </html>
