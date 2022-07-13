@@ -40,6 +40,7 @@
                 @include('locations/form')
             </div>
         </div>
+
     </div>
 
     

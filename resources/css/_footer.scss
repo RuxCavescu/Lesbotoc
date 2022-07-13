@@ -31,6 +31,7 @@ body {
     font-family: $primary-font, Arial, Helvetica, sans-serif;
     font-weight: 100;
     font-size: 16px;
+    margin-top: 15px;
 }
 
 footer {
@@ -67,7 +68,7 @@ i{
 .social-med--cont{
     display: flex;
     flex-direction: row;
-    width: 30%;
+    width: 25%;
     justify-content: space-evenly;
     padding: 0 20px;
 }
