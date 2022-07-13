@@ -10,6 +10,7 @@ use App\Models\Registration;
 use App\Models\Image;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\EventRegistrationsExport;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -38,6 +39,13 @@ class EventController extends Controller
       $registrations = Registration::with("contact")
                                   ->where("event_id", $id)
                                   ->get();
+
+
+      if ($event->capacity && $event->capacity > 0) {
+        $already_registered = Registration::where("event_id", $event->id)->count();
+
+      }
+
 
       return view("events/show", compact("event", "events", "locations", "categories", "images", "registrations"));
     }
@@ -76,24 +84,24 @@ class EventController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-        "title_cz" => "sometimes|nullable|max:255",
-        "title_en" => "required|max:255",
+        "title_cz" => "nullable",
+        "title_en" => "required",
         "start_date" => "required|date",
-        "end_date" => "sometimes|nullable|date",
-        // "time" => "time",
+        "end_date" => "nullable|date",
         "location_id" => "required|numeric",
         "category_id" => "numeric|nullable",
         "is_paid" => "required|boolean",
         "price" => "sometimes|nullable|numeric",
         "capacity" => "sometimes|nullable|numeric",
         "qr_code_image" => "sometimes|nullable|url",
-        "description_cz" => "sometimes|nullable|min:10",
+        "description_cz" => "sometimes|nullable",
         "description_en" => "required",
-        "instructions_cz" => "sometimes|nullable|min:10",
-        "instructions_en" => "required|min:10",
+        "instructions_cz" => "nullable",
+        "instructions_en" => "required",
         "is_phone_required" => "required|boolean",
         "is_recurring" => "boolean|nullable",
         "is_featured" => "required|boolean",
+        // "image_id[]" => "required"
 
       ]);
 
@@ -117,6 +125,7 @@ class EventController extends Controller
       $event->is_phone_required = $request->input("is_phone_required") ?? null;
       $event->is_recurring = $request->input("is_recurring") ?? null;
       $event->is_featured = $request->input("is_featured") ?? null;
+      $event->is_active;
       
 
 
@@ -139,6 +148,29 @@ class EventController extends Controller
 
     public function update(Request $request, $id)
     {
+
+      $this->validate($request, [
+        "title_cz" => "nullable",
+        "title_en" => "required",
+        "start_date" => "required|date",
+        "end_date" => "nullable|date",
+        "location_id" => "required|numeric",
+        "category_id" => "numeric|nullable",
+        "is_paid" => "required|boolean",
+        "price" => "sometimes|nullable|numeric",
+        "capacity" => "sometimes|nullable|numeric",
+        "qr_code_image" => "sometimes|nullable|url",
+        "description_cz" => "sometimes|nullable",
+        "description_en" => "required",
+        "instructions_cz" => "nullable",
+        "instructions_en" => "required",
+        "is_phone_required" => "required|boolean",
+        "is_recurring" => "boolean|nullable",
+        "is_featured" => "required|boolean",
+        // "image_id[]" => "required"
+
+      ]);
+      
       $event = Event::with("location", "category")
                     ->findOrFail($id);
 

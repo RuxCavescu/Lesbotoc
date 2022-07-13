@@ -9,6 +9,8 @@ use App\Models\Image;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Registration;
+use Carbon\Carbon;
+use DB;
 
 class Event extends Model
 {
@@ -35,11 +37,37 @@ class Event extends Model
 
     public function registrations()
     {
-      return $this->hasMany(Registrtion::class);
+      return $this->hasMany(Registration::class);
     }
 
     public function contacts()
     {
       return $this->hasMany(Contact::class);
     }
+
+    // When seeding Event table, I automatically put values into IS ACTIVE column based on current time and start date of event
+    protected static function boot() {
+      parent::boot();
+  
+      static::saving(function($model){
+
+        if ($model->start_date > Carbon::now()) {
+          $model->is_active = true;
+        } else {
+          $model->is_active = false;
+        }
+      }); 
+
+      // static::saving(function($model){
+
+      //   if ($model->capacity) {
+      //     $model->already_registered = 0;
+      //   } else {
+      //     $model->already_registered = null;
+      //   }
+      // }); 
+
+  }
+
+    
 }

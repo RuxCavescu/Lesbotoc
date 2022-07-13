@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\RegistrationController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +22,13 @@ Route::get('/', function () {
 Route::get('/footer', function () {     //just to try-out footer - can be removed!
     return view('footer');
 });
+
+
+Route::get("/events/register", [
+  RegistrationController::class, "create"
+])->name("registration.create");
+
+
+Route::post("/events/store", [
+  RegistrationController::class, "store"
+])->name("registration.store");

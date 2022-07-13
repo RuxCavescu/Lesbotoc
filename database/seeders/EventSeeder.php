@@ -28,7 +28,9 @@ class EventSeeder extends Seeder
         [
             'title_en' => 'Book Club',
             'title_cz' => 'Knižní klub',
-            'start_date' => Carbon::create('2022', '09', '27'),
+            // changed for testing to June, return back to sept
+            'start_date' => Carbon::create('2022', '06', '27'),
+            // 'start_date' => Carbon::create('2022', '09', '27'),
             'end_date' => null,
             'time' => Carbon::parse('09:00:00'),
             'location_id' => 1, //Q Cafe - address: Opatovická 12, Praha 1
@@ -41,16 +43,18 @@ class EventSeeder extends Seeder
             'instructions_cz' => 'Národní třída - Tram 2, 9, 18, 22, Metro B. Myslíkova - tram 2, 5.',
             'instructions_en' => 'Národní třída - Tram 2, 9, 18, 22, Metro B. Myslíkova - tram 2, 5.',
             'is_recurring' => true, //1 per month
-            'is_active' => true,
+            // 'is_active' => true,
            'is_featured'=> true,
-            'capacity' => null,
+            'capacity' => 30,
             "is_phone_required" => false, 
-            "already_registered" => null
+            // "already_registered" => null
         ],
         [
           'title_en' => 'Camp',
           'title_cz' => 'Tábor',
-          'start_date' => Carbon::create('2022', '07', '22'),
+          // changed for testing to June, return back to July
+          'start_date' => Carbon::create('2022', '06', '22'),
+          // 'start_date' => Carbon::create('2022', '07', '22'),
           'end_date' => Carbon::create('2022', '07', '24'),
           'time' => Carbon::parse('19:00:00'),
           'location_id' => 2, // Apartmány Na Kopečku - address: Čistá v Krkonoších 206, 543 44 Černý Důl
@@ -63,11 +67,11 @@ class EventSeeder extends Seeder
           'instructions_cz' => '',
           'instructions_en' => '',
           'is_recurring' => true, //1 per year
-          'is_active' => true,
+          // 'is_active' => true,
          'is_featured'=> false,
           'capacity' => 15,
           "is_phone_required" => true,
-          "already_registered" => null
+          // "already_registered" => null
       ],
       [
         'title_en' => 'Tour de Svařák',
@@ -85,11 +89,11 @@ class EventSeeder extends Seeder
         'instructions_cz' => 'Tram 22',
         'instructions_en' => 'Tram 22',
         'is_recurring' => true, //1 per year
-        'is_active' => true,
+        // 'is_active' => true,
        'is_featured'=> false,
-        'capacity' => null,
+        'capacity' => 20,
         "is_phone_required" => false,
-        "already_registered" => null
+        // "already_registered" => null
     ],
     [
       'title_en' => 'Grilling with Lesbotoč',
@@ -111,11 +115,11 @@ class EventSeeder extends Seeder
       'instructions_cz' => 'Výstaviště - Tram 6, 12, 17',
       'instructions_en' => 'Výstaviště - Tram 6, 12, 17',
       'is_recurring' => true, //1 per year
-      'is_active' => true,
+      // 'is_active' => true,
      'is_featured'=> false,
-      'capacity' => null,
+      'capacity' => 10,
       "is_phone_required" => false,
-      "already_registered" => null
+      // "already_registered" => null
   ],
   [
     'title_cz' => 'Deskovky',
@@ -135,11 +139,11 @@ class EventSeeder extends Seeder
     'instructions_cz' => 'Krymská - Tram 4, 12, 22; Bus - 135',
     'instructions_en' => 'Krymská - Tram 4, 12, 22; Bus - 135',
     'is_recurring' => true, //1 per year
-    'is_active' => true,
+    // 'is_active' => true,
    'is_featured'=> false,
     'capacity' => null,
     "is_phone_required" => false,
-    "already_registered" => null
+    // "already_registered" => null
 ],
 [
   'title_cz' => 'Speed Dating',
@@ -160,11 +164,11 @@ class EventSeeder extends Seeder
   'instructions_cz' => 'Národní divadlo - tram - 2, 9, 18, 22. Újezd - 9, 12, 15, 20, 22.',
   'instructions_en' => 'Národní divadlo - tram - 2, 9, 18, 22. Újezd - 9, 12, 15, 20, 22.',
   'is_recurring' => true, //4 times per year
-  'is_active' => true,
+  // 'is_active' => true,
  'is_featured'=> false,
   'capacity' => 36,
   "is_phone_required" => true,
-  "already_registered" => null
+  // "already_registered" => null
 ],
 [
   'title_cz' => 'Bowling a Pool',
@@ -182,11 +186,11 @@ class EventSeeder extends Seeder
   'instructions_cz' => 'Náměstí bratří Synků - tram - 11, 14, 18, 19, 24; bus 193',
   'instructions_en' => 'Náměstí bratří Synků - tram - 11, 14, 18, 19, 24; bus 193',
   'is_recurring' => true, //1 per year
-  'is_active' => true,
+  // 'is_active' => true,
  'is_featured'=> false,
   'capacity' => null,
   "is_phone_required" => false,
-  "already_registered" => null
+  // "already_registered" => null
 ],
 [
   'title_cz' => 'Halloween',
@@ -204,11 +208,11 @@ class EventSeeder extends Seeder
   'instructions_cz' => 'Náměstí bratří Synků - tram - 11, 14, 18, 19, 24; bus 193',
   'instructions_en' => 'Náměstí bratří Synků - tram - 11, 14, 18, 19, 24; bus 193',
   'is_recurring' => true, //1 per year
-  'is_active' => true,
+  // 'is_active' => true,
  'is_featured'=> false,
   'capacity' => null,
   "is_phone_required" => false,
-  "already_registered" => null
+  // "already_registered" => null
 ],
 [
   'title_cz' => 'Na pivo s Lesbotočem',
@@ -226,11 +230,11 @@ class EventSeeder extends Seeder
   'instructions_cz' => 'Krymská - Tram 4, 12, 22; Bus - 135',
   'instructions_en' => 'Krymská - Tram 4, 12, 22; Bus - 135',
   'is_recurring' => true, //1 per year
-  'is_active' => true,
+  // 'is_active' => true,
  'is_featured'=> false,
   'capacity' => null,
   "is_phone_required" => false,
-  "already_registered" => null
+  // "already_registered" => null
 ],
 [
   'title_cz' => 'Hudební kvíz',
@@ -248,11 +252,11 @@ class EventSeeder extends Seeder
   'instructions_cz' => 'Krymská - Tram 4, 12, 22; Bus - 135',
   'instructions_en' => 'Krymská - Tram 4, 12, 22; Bus - 135',
   'is_recurring' => true, //1 per year
-  'is_active' => true,
+  // 'is_active' => true,
  'is_featured'=> false,
   'capacity' => null,
   "is_phone_required" => false,
-  "already_registered" => null
+  // "already_registered" => null
 ]
 ];
 

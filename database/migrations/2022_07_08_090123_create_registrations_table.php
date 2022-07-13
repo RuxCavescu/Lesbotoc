@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('event_id');
             $table->foreignId('contact_id');
-            $table->string('auth_token');
+            $table->string('auth_token')->nullable();
             $table->boolean('is_confirmed');
             $table->timestamps();
         });

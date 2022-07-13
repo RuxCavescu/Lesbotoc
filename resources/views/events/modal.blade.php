@@ -1,5 +1,3 @@
-
-
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
@@ -9,7 +7,7 @@
       <h1>Participants</h1>
       <span class="modal__close">&times;</span>
     </div>
-    
+
     @if (count($registrations) > 0)
     {{-- @dump($registrations) --}}
     <table class="modal__table">
@@ -27,10 +25,10 @@
     <a href="{{route('events.export', $event->id)}}" class="modal__button">Download xls</a>
     @else
     <p class="modal__info">No registations for this event were made so far.</p>
-  
-  
+
+
     @endif
-  
+
   </div>
 
 </div>
