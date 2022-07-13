@@ -1,6 +1,10 @@
 // EVENT LIST STYLING
 
 .events {
+    a {
+        text-decoration: none;
+    }
+
     font-family: "Inter";
     &__main {
         width: 90%;
@@ -175,6 +179,12 @@
         justify-content: space-between;
         // align-items: center;
     }
+
+    &__buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 2em;
+    }
 }
 
 // ADMIN BAR STYLING
@@ -298,14 +308,25 @@
 }
 
 .button {
-    background-color: #809aff;
+    background-color: #142566;
+    font-family: "Inter";
+    color: white;
+    font-size: 1em;
     border: none;
     outline: none;
-    padding: 1em;
+    padding: 10px;
     border-radius: 5px;
+
+    display: flex;
+    align-items: center;
 
     i {
         color: white;
-        font-size: 2em;
+        font-size: 1.5em;
+        margin-right: 10px;
+    }
+
+    &__link {
+        text-decoration: none;
     }
 }

@@ -3,13 +3,39 @@
 <form class="events__form" action="{{route('events.update', $event->id)}}" method="POST">
   @csrf
   @method("PATCH")
-  {{-- <h1 class="event__title">Edit an existing event </h1> --}}
   @else
 
   <form class="events__form" action="{{route('events.store')}}" method="POST">
     @csrf
     @endif
-    {{-- <h1 class="events__title">CREATE a new event</h1> --}}
+
+    <div class="events__buttons">
+      @if (Request::path() === "admin/events/" . $event->id)
+      <a class="button__link" href="{{route('events.edit', $event->id)}}"><button class="button"><i class="fa fa-pencil"
+            aria-hidden="true"></i>
+          <div class="button__text">Edit</div>
+        </button></a>
+      <a class="button__link" href="{{url()->previous()}}"><button class="button"><i class="fa fa-arrow-left"
+            aria-hidden="true"></i>
+          <div class="button__text">Back</div>
+        </button></a>
+      @elseif (Request::path() === "admin/events/" . $event->id . "/edit" || Request::path() === "admin/events/" .
+      $event->id . "/participants")
+      <a class="button__link" href="{{url()->previous()}}"><button class="button"><i class="fa fa-arrow-left"
+            aria-hidden="true"></i>
+          <div class="button__text">Back</div>
+        </button></a>
+      @endif
+
+      <button class="button events__participants"><i class="fa fa-users" aria-hidden="true"></i>
+        <div class="button__text">Participants</div>
+      </button>
+
+
+
+    </div>
+
+
 
     @include('events/messages')
 
@@ -247,21 +273,21 @@
             @endforeach
 
 
-                
+
             @foreach ($images as $image)
 
-            
-                <option value={{$image->id}}>{{$image->alt}}</option>
-                @endforeach 
+
+            <option value={{$image->id}}>{{$image->alt}}</option>
+            @endforeach
 
 
 
-                @else
-                <option selected disabled="disabled">Select image</option>
-                @foreach ($images as $image)
-                <option value={{$image->id}}>{{$image->alt}}</option>
-                @endforeach
-                @endif
+            @else
+            <option selected disabled="disabled">Select image</option>
+            @foreach ($images as $image)
+            <option value={{$image->id}}>{{$image->alt}}</option>
+            @endforeach
+            @endif
 
           </select></label>
 
@@ -269,25 +295,22 @@
     </fieldset>
 
 
-    
+
 
 
     @if (Request::path() === "admin/events/" . $event->id . "/edit" || Request::path() === "admin/events")
-    <button class="button" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+    <button class="button" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i>
+      <div class="button__text">Save</div>
+    </button>
     @endif
+
 
 
 
   </form>
 
 
-  @if (Request::path() === "admin/events/" . $event->id)
-  <a href="{{route('events.edit', $event->id)}}"><button class="button"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
-  <a href="{{url()->previous()}}"><button class="button"><i class="fa fa-arrow-left" aria-hidden="true"></i></button></a>
-  @elseif (Request::path() === "admin/events/" . $event->id . "/edit" || Request::path() === "admin/events/" .
-  $event->id . "/participants")
-  <a href="{{url()->previous()}}"><button class="button"><i class="fa fa-arrow-left" aria-hidden="true"></i></button></a>
-  @endif
+
 
 
 
@@ -303,23 +326,9 @@
     @method("DELETE")
     @csrf
 
-    <button class="button" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+    <button class="button" type="submit"><i class="fa fa-trash" aria-hidden="true"></i>
+      <div class="button__text">Delete</div>
+    </button>
   </form>
 
-  {{-- <form action="{{route(" events.destroy", $event->id)}}" method="POST">
-    @method("DELETE")
-    @csrf
-
-    <button type="submit">Delete</button>
-  </form> --}}
-
-  {{-- <a href="{{route('events.display', $event->id)}}"><button>See participants</button></a> --}}
-  <button class="button events__participants"><i class="fa fa-users" aria-hidden="true"></i></button>
-
-
-
-
   @endif
-
-
-
