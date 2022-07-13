@@ -10,43 +10,24 @@ html {
     box-sizing: inherit;
 }
 
-.admin-title--container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    height: 250px;
-    background-color: $header-bg2;
-
-
-}
-.admin-title{
-    width: 1000px;
-    color: white;
-    margin: auto;
-    font-family: Inter;
-    font-size: 70px;
-    font-weight: 700;
-}
 .index-container{
     background-color: $body-bg;
 }
-.locations-intro{
-    width: 100%;
-    padding: 80px;
+
+.locations-container{
+    // width: 1000px;    
+    width: 80%;
+    margin: auto;
     text-align: center;
     font-family: $primary-font;
-}
-.locations-container{
-    width: 1000px;
 }
 .location-data{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 .list-btn{
-    background-color: $admin-btn;
+    background-color: $header-bg1;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -54,7 +35,7 @@ html {
     text-decoration: none;
     display: inline-table;
     font-size: 16px;
-    width: 340px;
+    width: 400px;
     height: 50px;
     margin: 4px;
     border-radius: 3px;
@@ -73,6 +54,12 @@ select {
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
-    
+    box-sizing: border-box; 
+}
+.form-container{
+    background-color: $form-bg;
+    width: 60%;
+    margin: auto;
+    border-radius: 10px;
+    padding: 10px;
 }

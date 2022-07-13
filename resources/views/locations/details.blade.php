@@ -1,22 +1,10 @@
-{{-- <h1>Locations administration</h1>
+@extends('layouts/main')
 
-
-<div class="form-container">
-@include('locations.form')
-</div>
-
-<div class="list-container">
-    {{-- @include('locations.list') --}}
-{{-- </div> --}}
-
-
-<link rel="stylesheet" href="/css/app.css">
-
-
+@section('content')
 <div class="index-container">
 
-    <div class="admin-title--container">
-        <h2 class="admin-title">Locations administration</h2>
+    <div class="admin__bar">
+        <h2 class="admin__title">Locations administration</h2>
     </div>
     
 
@@ -45,5 +33,5 @@
 
     
 </div>
-
+@endsection
 

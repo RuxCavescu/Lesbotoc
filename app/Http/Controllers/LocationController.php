@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Event;
 use App\Models\Location;
 
 class LocationController extends Controller
@@ -12,13 +11,16 @@ class LocationController extends Controller
     {
 
         $locations = Location::get();
-        return view("locations.index", compact("locations"));
+        foreach ($locations as $location) {
+            return view('locations.index', compact('locations', 'location'));
+        }
     }
 
     public function details($id)
-    {
+    {       //pass variable to view - also use compact!
+        $locations = Location::get();
         $location = Location::findOrFail($id);
-        return view("locations.details", compact("location"));
+        return view('locations.details', compact('location', 'locations'));
     }
 
     public function create()
@@ -27,8 +29,7 @@ class LocationController extends Controller
         $location =  new Location;
         $locations = Location::get();
 
-        return view("locations.create", compact("location"));
-        // return view("locations.create");
+        return view('locations.create', compact('location', 'locations'));
     }
 
     public function store(Request $request)
@@ -42,8 +43,18 @@ class LocationController extends Controller
         $location->longtitude = $request->input('longtitude');
         $location->location_website = $request->input('website');
 
+        $location->save();
+
         session()->flash('success_message', 'New location registered.');
 
-        return redirect(url('locations.index' . $location->id));
+        return redirect(route('locations.index'));
+    }
+
+    public function delete($id)
+
+    {
+        $location = Location::findOrfail($id);
+
+        return view('/locations.delete', compact('location'));
     }
 }

@@ -127,7 +127,17 @@ Route::delete(
 
 //admin location routes
 
-Route::get('/locations', [LocationController::class, 'index'])->name('locations.index');
+Route::get('/locations', [LocationController::class, 'index'])
+  ->name('locations.index');
 
-Route::get('/locations/detail/{id}', [LocationController::class, 'details'])->name('locations.details');
-Route::get('/locations/create', [LocationController::class, 'create'])->name('locations.create');
+Route::get('/locations/detail/{id}', [LocationController::class, 'details'])
+  ->name('locations.details');
+
+Route::get('/locations/create', [LocationController::class, 'create'])
+  ->name('locations.create');
+
+Route::post('/locations/create', [LocationController::class, 'store'])
+  ->name('locations.store');
+
+Route::delete('/locations/delete/{id}', [LocationController::class, 'destroy'])
+  ->name('locations.delete');

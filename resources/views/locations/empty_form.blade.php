@@ -1,4 +1,4 @@
-<h4>create a new location</h4>
+<h4>Create a new location</h4>
 
 
 <form action="{{route("locations.create", $location->id)}}" method="POST">
@@ -29,7 +29,7 @@
     value="{{old('website', $location->location_website)}}">
     <br>
 
-<label for="latitude"></label>
+<label for="latitude">Latitude</label>
 <input 
     type="text"
     id="latitude"
@@ -37,7 +37,7 @@
     value="{{old('latitude', $location->location_latitude)}}">
     <br>
 
-<label for="longtitude"></label>
+<label for="longtitude">Longtitude</label>
 <input 
     type="text"
     id="longtitude"
@@ -45,6 +45,7 @@
     value="{{old('longtitude', $location->location_longtitude)}}">
     <br>
 
+<input type="submit" value="Save Location">
+
 </form>
 
-<button>Save</button>
