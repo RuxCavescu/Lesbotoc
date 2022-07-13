@@ -9,31 +9,7 @@
     @csrf
     @endif
 
-    <div class="events__buttons">
-      @if (Request::path() === "admin/events/" . $event->id)
-      <a class="button__link" href="{{route('events.edit', $event->id)}}"><button class="button"><i class="fa fa-pencil"
-            aria-hidden="true"></i>
-          <div class="button__text">Edit</div>
-        </button></a>
-      <a class="button__link" href="{{url()->previous()}}"><button class="button"><i class="fa fa-arrow-left"
-            aria-hidden="true"></i>
-          <div class="button__text">Back</div>
-        </button></a>
-      @elseif (Request::path() === "admin/events/" . $event->id . "/edit" || Request::path() === "admin/events/" .
-      $event->id . "/participants")
-      <a class="button__link" href="{{url()->previous()}}"><button class="button"><i class="fa fa-arrow-left"
-            aria-hidden="true"></i>
-          <div class="button__text">Back</div>
-        </button></a>
-      @endif
 
-      <button class="button events__participants"><i class="fa fa-users" aria-hidden="true"></i>
-        <div class="button__text">Participants</div>
-      </button>
-
-
-
-    </div>
 
 
 
@@ -312,7 +288,31 @@
 
 
 
+  <div class="events__buttons">
+    @if (Request::path() === "admin/events/" . $event->id)
+    <a class="button__link" href="{{route('events.edit', $event->id)}}"><button class="button"><i class="fa fa-pencil"
+          aria-hidden="true"></i>
+        <div class="button__text">Edit</div>
+      </button></a>
+    <a class="button__link" href="{{url()->previous()}}"><button class="button"><i class="fa fa-arrow-left"
+          aria-hidden="true"></i>
+        <div class="button__text">Back</div>
+      </button></a>
+    @elseif (Request::path() === "admin/events/" . $event->id . "/edit" || Request::path() === "admin/events/" .
+    $event->id . "/participants")
+    <a class="button__link" href="{{url()->previous()}}"><button class="button"><i class="fa fa-arrow-left"
+          aria-hidden="true"></i>
+        <div class="button__text">Back</div>
+      </button></a>
+    @endif
 
+    <button class="button events__participants"><i class="fa fa-users" aria-hidden="true"></i>
+      <div class="button__text">Participants</div>
+    </button>
+
+
+
+  </div>
 
 
 
