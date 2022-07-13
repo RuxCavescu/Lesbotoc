@@ -1,9 +1,11 @@
-    <table>
+    <table class="contacts__list">
             <tr class="contacts__columns">
                 <td>Name</td>
                 <td>Email</td>
                 <td>Phone Number</td>
                 <td>Subscribed?</td>
+                <td>Delete</td>
+                <td>Edit</td>
             </tr>
         @foreach ($contacts as $contact)
             <tr class="contact__row">
@@ -24,4 +26,3 @@
             </tr>
         @endforeach
     </table>
-    {{-- <button>See all subscribed users</button> --}}

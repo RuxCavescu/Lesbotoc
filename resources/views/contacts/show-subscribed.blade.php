@@ -7,6 +7,8 @@
                 <td>Name</td>
                 <td>Email</td>
                 <td>Phone Number</td>
+                <td>Delete</td>
+                <td>Edit</td>
             </tr>
         @foreach ($subscribedContacts as $contact)
             <tr class="contact__row">

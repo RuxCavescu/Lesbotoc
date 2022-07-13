@@ -1,22 +1,26 @@
 
 
 @extends('layouts/main')
-<h1>EDIT event details (edaitable)</h1>
 
 
 @section('content')
 
+@include('events/adminbar')
+
 <div class="events">
-@include('events/eventlist')
-@include('events/form')
-</div>
 
+  <div class="events__intro">
+    <h2>Edit event "{{$event->title_en}}"</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea provident expedita vitae error atque nobis iste tempore cumque unde placeat dolorem et, aspernatur eos repudiandae, fugit alias facere laudantium ad.</p>
+    </div>
 
+    <div class="events__main">
+      @include('events/eventlist')
+      @include('events/form')
+    </div>
+    </div>
 
-    
-
-
-
+    @include('events/modal')
 
 
     

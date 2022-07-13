@@ -17,11 +17,13 @@ use App\Http\Controllers\LocationController;
 
 // Admin/ Events routes
 
+Route::get('/', [function () {
+  return view('homepage.admin-homepage');
+}])->name("homepage");
 
 Route::get('/events', [
   EventController::class, "index"
 ])->name("events.index");
-
 
 Route::get('/events/{id}', [
   EventController::class, "show"
@@ -50,6 +52,10 @@ Route::patch('/events/{id}', [
 Route::delete('/events/{id}', [
   EventController::class, "destroy"
 ])->whereNumber("id")->name("events.destroy");
+
+Route::get("/events/{id}/registrations/export", [
+  EventController::class, "export"
+])->whereNumber("id")->name("events.export");
 
 
 
