@@ -1,73 +1,107 @@
 
 @if ($event->id)
-<h1>Edit an existing event </h1>
-<form action="{{route("events.update", $event->id)}}" method="POST">
+
+<form class="event__form" action="{{route("events.update", $event->id)}}" method="POST">
   @csrf
   @method("PATCH")
+  {{-- <h1 class="event__title">Edit an existing event </h1> --}}
 @else 
-<h1>CREATE a new event</h1>
-<form action="{{route("events.store")}}" method="POST">
+
+<form class="events__form" action="{{route("events.store")}}" method="POST">
   @csrf
 @endif
+{{-- <h1 class="events__title">CREATE a new event</h1> --}}
 
 @include('events/messages')
 
 
-
-  <fieldset 
+{{-- Disable form from editing if user comes to URL as admin/events/if --}}
+  <fieldset class="events__fieldset"
     @if (Request::path() === "admin/events/" . $event->id)
     disabled
     @endif
   > 
 
 
+    {{-- ENG TITLE --}}
+    <div class="events__lang">
+      <label class="events__label" for="title_en">Title in English *</label>
+      <input
+      class="events__input events__input--half"
+          type="text"
+          id="title_en"
+          name="title_en"
+          value="{{ old('title_en', $event->title_en) }}"
+          required
+      >
+          {{-- ENG DESCRIPTION --}}
+      <label class="events__label" for="description_en">Description in English *</label>
+      <textarea class="events__textarea events__textarea--half" id="description_en" name="description_en" required>{{ old('description_en', $event->description_en) }}</textarea>
+  
+         {{-- ENG INSTRUCTIONS --}}
+         <label class="events__label" for="instructions_en">Instructions in English * </label>
+         <textarea class="events__textarea events__textarea--half" id="instructions_en" name="instructions_en" required>{{ old('instructions_en', $event->instructions_en) }}</textarea>
+    </div>
+
+
 
   {{-- CZE TITLE --}}
-  <label for="title_cz">CZE Title:</label>
+  <div class="events__lang">
+  <label class="events__label" for="title_cz">Title in Czech </label>
   <input
+  class="events__input"
       type="text"
       id="title_cz"
       name="title_cz"
       value="{{ old('title_cz', $event->title_cz) }}"
-  ><br><br>
-  {{-- ENG TITLE --}}
-  <label for="title_en">EN Title *:</label>
-  <input
-      type="text"
-      id="title_en"
-      name="title_en"
-      value="{{ old('title_en', $event->title_en) }}"
-      required
-  ><br><br>
+  >
 
+    {{-- CZE DESCRIPTION --}}
+    <label class="events__label" for="description_cz">Description in Czech</label>
+    <textarea class="events__textarea events__textarea--half" id="description_cz" name="description_cz" >{{ old('description_cz', $event->description_cz) }}</textarea>
+  
+
+  
+    {{-- CZE INSTRUCTIONS --}}
+    <label class="events__label" for="instructions_cz">Instructions in Czech</label>
+    <textarea class="events__textarea events__textarea--half" id="instructions_cz" name="instructions_cz" >{{ old('instructions_cz', $event->instructions_cz) }}</textarea>
+  
+  </div>
+ 
+
+  <div class="events__common">
   {{-- START DATE --}}
-  <label for="start_date">Start date *:</label>
+  <label class="events__label events__label--half" for="start_date">Start date *
   <input
+  class="events__input"
       type="date"
       id="start_date"
       name="start_date"
       value="{{ old('start_date', $event->start_date) }}"
       required
+      ></label>
   {{-- START TIME --}}
-  <label for="time">Start time:</label>
+  <label class="events__label events__label--half" for="time">Start time
   <input
+  class="events__input"
       type="time"
       id="time"
       name="time"
       value="{{ old('time', $event->time) }}"
-  ><br><br>
+  ></label>
   {{-- END DATE --}}
-  <label for="end_date">End date:</label>
+  <label class="events__label events__label--half" for="end_date">End date
   <input
+  class="events__input"
       type="date"
       id="end_date"
       name="end_date"
       value="{{ old('end_date', $event->end_date) }}"
-  ><br><br>
+  ></label>
 
 {{-- LOCATION --}}
-    <label for="location">Location *:</label>
-    <select name="location_id" id="location" required>
+    <label class="events__label events__label--half" for="location">Location *
+    <select class="events__input" name="location_id" id="location" required>
 
     @if ($event->id && $event->location_id)
     <option disabled="disabled">Select location</option>
@@ -87,13 +121,13 @@
     @endif
 
 
-  </select>
-  <br><br>
+  </select></label>
+
 
 {{-- CATEGORIES --}}
 
-<label for="category">Category :</label>
-    <select name="category_id" id="category">
+<label class="events__label events__label--half" for="category">Category
+    <select class="events__input" name="category_id" id="category">
 
 @if ($event->id && $event->category_id)
     <option disabled="disabled">Select location</option> 
@@ -114,30 +148,14 @@
   @endforeach  
 @endif
 
-</select>
-<br><br>
+</select></label>
 
-
-
-  {{-- CZE DESCRIPTION --}}
-  <label for="description_cz">CZ description: </label>
-  <textarea id="description_cz" name="description_cz" >{{ old('description_cz', $event->descriprion_cz) }}</textarea><br><br>
-
-  {{-- ENG DESCRIPTION --}}
-  <label for="description_en">EN description *: </label>
-  <textarea id="description_en" name="description_en" required>{{ old('description_en', $event->description_en) }}</textarea><br><br>
-
-  {{-- CZE INSTRUCTIONS --}}
-  <label for="instructions_cz">CZ instructions: </label>
-  <textarea id="instructions_cz" name="instructions_cz" >{{ old('instructions_cz', $event->instructions_cz) }}</textarea><br><br>
-
-  {{-- ENG INSTRUCTIONS --}}
-  <label for="instructions_en">EN instructions *: </label>
-  <textarea id="instructions_en" name="instructions_en" required>{{ old('instructions_en', $event->instructions_en) }}</textarea><br><br>
 
     {{-- PAID EVENT? --}}
-    <label>Paid event *?</label>
+    <div class="events__radio">
+    <label class="events__label">Paid event? *</label>
     <input
+    class="events__input--radio"
         id="paid_yes"  
         type="radio"
         name="is_paid"
@@ -149,9 +167,10 @@
         @endif
   
   
-    ><label for="paid_yes">Yes</label>
+    ><label class="events__label events__label--radio" for="paid_yes">Yes</label>
     
     <input
+    class="events__input--radio"
         id="paid_no"  
         type="radio"
         name="is_paid"
@@ -162,40 +181,50 @@
           checked
         @endif
   
-    ><label for="paid_no">No</label>
-    <br><br>
+    ><label class="events__label events__label--radio" for="paid_no">No</label>
+  </div>
+    
     
     {{-- PRICE --}}
-    <label for="price">Price: </label>
+    <label class="events__label events__label--half" for="price">Price
     <input
+    class="events__input"
         id="price"  
         type="number"
         min="1"
         name="price"
         value="{{ old('price', $event->price) }}"
-    ><br><br>
+    ></label>
+
+
+        {{-- QR code URL --}}
+        <label class="events__label events__label--half" for="qr_code_image">QR code URL
+        <input
+        class="events__input"
+            id="qr_code_image"  
+            type="text"
+            name="qr_code_image"
+            value="{{ old('qr_code_image', $event->qr_code_image) }}"
+  
+        ></label>
     {{-- CAPACITY --}}
-    <label for="capacity">Capacity: </label>
+    <label class="events__label events__label--half" for="capacity">Capacity
     <input
+    class="events__input"
         id="capacity"  
         type="number"
         min="1"
         name="capacity"
         value="{{ old('capacity', $event->capacity) }}"
-    ><br><br>
-    {{-- QR code URL --}}
-    <label for="qr_code_image">QR code URL: </label>
-    <input
-        id="qr_code_image"  
-        type="text"
-        name="qr_code_image"
-        value="{{ old('qr_code_image', $event->qr_code_image) }}"
-    ><br><br>
+    ></label>
+
 
   {{-- IS PHONE REQUIRED --}}
-  <label>Is phone required for registration? *</label>
+  <div class="events__radio">
+  <label class="events__label">Is the phone required? *</label>
   
   <input
+  class="events__input--radio"
       id="phone_yes"  
       type="radio"
       name="is_phone_required"
@@ -207,9 +236,10 @@
 
 
 
-  ><label for="phone_yes">Yes</label>
+  ><label for="phone_yes" class="events__label events__label--radio">Yes</label>
   
   <input
+  class="events__input--radio"
       id="phone_no"  
       type="radio"
       name="is_phone_required"
@@ -219,13 +249,16 @@
       @elseif (!$event->id)
         checked
       @endif
-  ><label for="phone_no">No</label>
-  <br><br>
+  ><label for="phone_no" class="events__label events__label--radio">No</label>
+  </div>
 
   {{-- IS RECURRING? --}}
-  <label>Is recurring?</label>
+
+  <div class="events__radio">
+  <label class="events__label">Is the event recurring?</label>
   
   <input
+  class="events__input--radio"
       id="recurring_yes"  
       type="radio"
       name="is_recurring"
@@ -234,9 +267,10 @@
       @if ($event->id && $event->is_recurring === 1)
         checked
       @endif
-  ><label for="recurring_yes">Yes</label>
+  ><label class="events__label events__label--radio" for="recurring_yes">Yes</label>
   
   <input
+  class="events__input--radio"
       id="recurring_no"  
       type="radio"
       name="is_recurring"
@@ -246,13 +280,14 @@
       @elseif (!$event->id)
         checked
       @endif
-  ><label for="recurring_no">No</label>
-  <br><br>
+  ><label class="events__label events__label--radio" for="recurring_no">No</label></div>
 
   {{-- IS FEATURED--}}
-  <label>Is featured? *</label>
+  <div class="events__radio">
+  <label class="events__label">Is the event featured? *</label>
   
   <input
+  class="events__input--radio"
       id="featured_yes"  
       type="radio"
       name="is_featured"
@@ -264,9 +299,10 @@
       {{-- checked={{$event->is_phone_required === 1 ? "true" : "false"}} --}}
 
 
-  ><label for="featured_yes">Yes</label>
+  ><label class="events__label events__label--radio" for="featured_yes">Yes</label>
   
   <input
+  class="events__input--radio"
       id="featured_no"  
       type="radio"
       name="is_featured"
@@ -276,8 +312,44 @@
       @elseif (!$event->id)
         checked
       @endif
-  ><label for="featured_no">No</label>
-  <br><br>
+  ><label class="events__label events__label--radio" for="featured_no">No</label>
+  </div>
+
+  {{-- IMAGES --}}
+  <label class="events__label events__label--half" for="images">Images *
+  <select class="events__input"name="image_id" id="images" multiple required>
+    
+    
+  @if ($event->id && $event->images)
+
+  <option disabled="disabled">Select image</option>
+
+  @foreach ($event->images as $image_event)
+     @foreach ($images as $image)
+        @if ($image->alt === $image_event->alt)
+           <option value={{$image->id}} selected>{{$image->alt}}</option>
+        @else
+           <option value={{$image->id}}>{{$image->alt}}</option>
+        @endif
+     @endforeach  
+  @endforeach
+
+
+  @else 
+     <option selected disabled="disabled">Select image</option>
+     @foreach ($images as $image) 
+     <option value={{$image->id}}>{{$image->alt}}</option>
+    @endforeach  
+  @endif
+
+</select></label>
+
+
+
+
+
+</select></label>
+
 
 </fieldset>
 
@@ -294,9 +366,11 @@
 @if (Request::path() === "admin/events/" . $event->id)
 <a href="{{route("events.edit", $event->id)}}"><button>Edit</button></a>
 <a href="{{url()->previous()}}"><button>Back</button></a>
-@elseif (Request::path() === "admin/events/" . $event->id . "/edit")
+@elseif (Request::path() === "admin/events/" . $event->id . "/edit" || Request::path() === "admin/events/" . $event->id . "/participants")
 <a href="{{url()->previous()}}"><button>Back</button></a>
 @endif
+
+
 
 
 
@@ -312,4 +386,34 @@
 
   <button type="submit">Delete</button>
 </form>
+
+{{-- <form action="{{route("events.destroy", $event->id)}}" method="POST">
+  @method("DELETE")
+  @csrf
+
+  <button type="submit">Delete</button>
+</form> --}}
+
+<a href="{{route("events.display", $event->id)}}"><button>See participants</button></a>
+ 
+    @if (isset($registrations))
+    {{-- @dump($registrations) --}}
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+        @foreach ($registrations as $registration)
+        <tr>
+          <td>{{$registration->contact->name}}</td>
+          <td>{{$registration->contact->email}}</td>
+        </tr>
+       @endforeach
+      </table>
+
+
+    @endif
+
+
+
 @endif

@@ -6,8 +6,10 @@
 
 @section('content')
 
+<div class="events">
 @include('events/eventlist')
 @include('events/form')
+</div>
 
 
 

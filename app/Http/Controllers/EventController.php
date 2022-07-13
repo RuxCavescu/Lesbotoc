@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Location;
 use App\Models\Category;
+use App\Models\Registration;
+use App\Models\Image;
 
 class EventController extends Controller
 {
@@ -15,31 +17,55 @@ class EventController extends Controller
       $event = new Event;
       $locations = Location::get();
       $categories = Category::get();
+      $images = Image::get();
 
-      return view("events/index", compact("events", "event", "locations", "categories"));
+      return view("events/index", compact("events", "event", "locations", "categories", "images"));
     }
 
     public function show($id)
     {
+      // $registrations = Registration::query()
+      //                             ->where("event_id", $id)
+      //                             ->get();
       $events = Event::get();
-      $event = Event::with("location", "category")
+      $images = Image::get();
+      $event = Event::with("location", "category", "images")
                     ->findOrFail($id);
       $locations = Location::get();
       $categories = Category::get();
 
-      return view("events/show", compact("event", "events", "locations", "categories"));
+      return view("events/show", compact("event", "events", "locations", "categories", "images"));
+    }
+
+    public function display($id) 
+    {
+      $registrations = Registration::with("contact")
+                                  ->where("event_id", $id)
+                                  ->get();
+      $events = Event::get();
+      $images = Image::get();
+      $event = Event::with("location", "category", "images")
+                    ->findOrFail($id);
+      $locations = Location::get();
+      $categories = Category::get();
+
+      return view("events/show", compact("event", "events","locations", "categories", "registrations", "images"));
     }
 
 
     public function edit($id)
     {
+      $registrations = Registration::query()
+                                  ->where("event_id", $id)
+                                  ->get();
       $events = Event::get();
+      $images = Image::get();
       $event = Event::with("location", "category")
                     ->findOrFail($id);
       $locations = Location::get();
       $categories = Category::get();
 
-      return view("events/edit", compact("event", "events","locations", "categories"));
+      return view("events/edit", compact("event", "events","locations", "categories", "registrations", "images"));
     }
 
     public function store(Request $request)
