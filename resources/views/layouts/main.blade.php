@@ -16,25 +16,48 @@
   @include('layouts/navbar')
   @yield('content')
 
-  {{-- <script> 
-      console.log('works');
-      const navbar = document.querySelector(".navbar");
+  
+  <script>
+    // Get the modal
+var modal = document.getElementById("myModal");
+console.log(modal)
 
-      // Get all buttons with class="link" inside the navbar
-      let links = navbar.querySelectorAll(".link");
+// Get the button that opens the modal
+var btn = document.querySelector(".events__participants");
+console.log(btn)
 
-      // Loop through the links and add the active class to the current/clicked button
+// Get the <span> element that closes the modal
 
-      for (let i = 0; i < links.length; i++) {
-          links[i].addEventListener("click", function (e) {
-              let current = document.querySelector(".link-active");
-              if (current) {
-                  // add/remove class names:
-                  current.classList.remove("link-active");
-              }
-              e.target.classList.add("link-active");
-          });
-      }
- </script> --}}
+const close = document.querySelector(".modal__close")
+// var close = document.getElementsByClassName("modal__close")[0];
+console.log(close)
+
+// When the user clicks on the button, open the modal
+
+btn.addEventListener("click", () => {
+  modal.style.display = "block";
+})
+
+
+// When the user clicks on <span> (x), close the modal
+
+close.addEventListener("click", () => {
+  modal.style.display = "none";
+})
+
+// сlose.addEventListener("click", () => {
+//     // modal.style.display = "none";
+//     console.log("click")
+// })
+
+
+// When the user clicks anywhere outside of the modal, close it
+
+window.addEventListener("click", (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+})
+  </script>
 </body>
 </html>
