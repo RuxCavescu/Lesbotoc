@@ -1,3 +1,5 @@
+@extends('main')
+
 @section('navbar')
     <nav class="navbar">
         <ul>
