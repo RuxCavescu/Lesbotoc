@@ -16,11 +16,13 @@ use App\Http\Controllers\ContactController;
 
 // Admin/ Events routes
 
+Route::get('/', [function () {
+  return view('layouts/main');
+}])->name("homepage");
 
 Route::get('/events', [
   EventController::class, "index"
 ])->name("events.index");
-
 
 Route::get('/events/{id}', [
   EventController::class, "show"
