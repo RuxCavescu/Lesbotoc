@@ -8,6 +8,8 @@ use App\Models\Location;
 use App\Models\Category;
 use App\Models\Registration;
 use App\Models\Image;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\EventRegistrationsExport;
 
 class EventController extends Controller
 {
@@ -33,8 +35,11 @@ class EventController extends Controller
                     ->findOrFail($id);
       $locations = Location::get();
       $categories = Category::get();
+      $registrations = Registration::with("contact")
+                                  ->where("event_id", $id)
+                                  ->get();
 
-      return view("events/show", compact("event", "events", "locations", "categories", "images"));
+      return view("events/show", compact("event", "events", "locations", "categories", "images", "registrations"));
     }
 
     public function display($id) 
@@ -65,7 +70,7 @@ class EventController extends Controller
       $locations = Location::get();
       $categories = Category::get();
 
-      return view("events/edit", compact("event", "events","locations", "categories", "registrations", "images"));
+      return view("events/edit", compact("event", "events","locations", "categories", "registrations", "images", "registrations"));
     }
 
     public function store(Request $request)
@@ -112,9 +117,20 @@ class EventController extends Controller
       $event->is_phone_required = $request->input("is_phone_required") ?? null;
       $event->is_recurring = $request->input("is_recurring") ?? null;
       $event->is_featured = $request->input("is_featured") ?? null;
+      
+
+
+      // dd($request->input("image_id"));
 
 
       $event->save();
+
+      foreach ($request->input("image_id") as $image) {
+        $event->images()->attach($event->id, ["image_id" => $image]);
+      }
+
+
+      // $event->images()->attach($event->id, ["image_id" => $request->input("image_id")]);
 
       session()->flash("success", 'The event was successfully created!');
 
@@ -162,7 +178,10 @@ class EventController extends Controller
       session()->flash("success", 'The event was successfully deleted!');
 
       return redirect(route("events.index"));
+    }
 
-
+    public function export($id) 
+    {
+        return Excel::download(new EventRegistrationsExport($id), 'registrations.xlsx');
     }
 }

@@ -50,6 +50,10 @@ Route::delete('/events/{id}', [
   EventController::class, "destroy"
 ])->whereNumber("id")->name("events.destroy");
 
+Route::get("/events/{id}/registrations/export", [
+  EventController::class, "export"
+])->whereNumber("id")->name("events.export");
+
 
 
 // Admin/Contacts routes
