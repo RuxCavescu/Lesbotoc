@@ -5,6 +5,8 @@ $header-bg1: #809aff;
 $header-bg2: #142566;
 $body-bg: #f5f5f5;
 $titles-dark: #4b4b4b;
+$navbar-text: white;
+$navbar-text-hover: #809aff;
 $text-dark: #0a0a0a;
 $form-bg: #efefef;
 $input-color: black;
@@ -120,3 +122,4 @@ footer {
 
 @import "./event.scss";
 @import "./contacts.scss";
+@import "./navbar.scss";

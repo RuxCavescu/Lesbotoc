@@ -13,7 +13,7 @@
   <title>Document</title>
 </head>
 <body>
-
+  @include('layouts/navbar')
   @yield('content')
 
   

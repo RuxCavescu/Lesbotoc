@@ -1,0 +1,35 @@
+.navbar {
+    font-family: Inter;
+    background-color: $header-bg2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4em;
+    padding: 0 6em;
+
+    & .link {
+        margin: 0 0;
+        list-style: none;
+        margin: 0 20px;
+        display: row;
+        align-items: center;
+        color: $navbar-text;
+        text-decoration: none;
+        padding: 0 1em;
+        text-transform: uppercase;
+
+        &:hover {
+            height: 4em;
+            color: $link-dark;
+            background-color: $header-bg1;
+        }
+    }
+    & .link-active {
+        color: $link-dark;
+        background-color: $header-bg1;
+    }
+
+    & .navbar__logo-link img {
+        height: 3em;
+    }
+}
