@@ -34,8 +34,13 @@
             </tr>
         @endforeach
     </table>
-    <button><a href="{{route("contacts-export")}}">Download subscribed data</a></button>
-  
+
+    <button class="button download-btn"><i class="fa fa-cloud-download" aria-hidden="true"></i>
+        <a href="{{route("contacts-export")}}">
+            <div class="button__text">Download data</div>
+        </a>
+    </button>
+
   </div>
 
 </div>
