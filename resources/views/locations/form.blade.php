@@ -1,6 +1,6 @@
 
 @if($location->id)
-{{-- <h3>Edit an existing location</h3> --}}
+
 <form action="{{route("locations.index", $location->id)}}" method="POST"></form>
 @csrf
 @method("PATCH")
@@ -52,6 +52,6 @@
     <br>
 
 </form>
-<button>Save</button>
+{{-- <button>Save</button>
 <button>Edit</button>
-<button>Delete</button>
+<button>Delete</button> --}}

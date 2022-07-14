@@ -10,12 +10,7 @@
 
     <div class="locations-container">
 
-        <div class="locations-intro">
-            <h2>You can create, edit, delete locations here</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint repudiandae temporibus eius suscipit enim quas fuga nihil laudantium aspernatur culpa sit nesciunt provident commodi necessitatibus laboriosam officia expedita, doloremque optio?</p>
-        </div>
-
-        <div class="location-data">
+       <div class="location-data">
 
             <div class="list-container">
 
@@ -25,13 +20,15 @@
                 </ul>
                 <br><br>
             <div class="form-container">
-                @include('locations/form')
+                @include('locations/delete')
             </div>
         </div>
 
     </div>
-
+</form>
     
 </div>
 @endsection
+
+
 

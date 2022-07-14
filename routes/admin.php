@@ -139,5 +139,5 @@ Route::get('/locations/create', [LocationController::class, 'create'])
 Route::post('/locations/create', [LocationController::class, 'store'])
   ->name('locations.store');
 
-Route::delete('/locations/delete/{id}', [LocationController::class, 'destroy'])
+Route::delete('/locations/detail/{id}', [LocationController::class, 'destroy'])
   ->name('locations.delete');

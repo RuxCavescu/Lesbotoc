@@ -10,7 +10,7 @@
   {{-- <link rel="stylesheet" href="/css/contacts.css">  --}}
 
 
-  <title>Document</title>
+  <title>Lesbotoc</title>
 </head>
 <body>
   @include('layouts/navbar')

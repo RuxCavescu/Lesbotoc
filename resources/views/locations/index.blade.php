@@ -20,11 +20,7 @@
             <div class="list-container">
             @include('locations/list')
             </div> 
-            
-            <div class="form-container">
-            @include('locations/form')
-            </div>
-        </div>
+
     </div>
 
     

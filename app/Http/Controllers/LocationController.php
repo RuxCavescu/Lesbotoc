@@ -17,7 +17,7 @@ class LocationController extends Controller
     }
 
     public function details($id)
-    {       //pass variable to view - also use compact!
+    {
         $locations = Location::get();
         $location = Location::findOrFail($id);
         return view('locations.details', compact('location', 'locations'));
@@ -45,16 +45,18 @@ class LocationController extends Controller
 
         $location->save();
 
-        session()->flash('success_message', 'New location registered.');
+        // session()->flash('success_message', 'New location registered.');
 
         return redirect(route('locations.index'));
     }
 
-    public function delete($id)
+    public function destroy($id)
 
     {
         $location = Location::findOrfail($id);
 
-        return view('/locations.delete', compact('location'));
+        $location->delete();
+
+        return redirect(route('locations.index'));
     }
 }
