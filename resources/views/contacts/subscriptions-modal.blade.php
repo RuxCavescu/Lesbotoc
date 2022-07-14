@@ -1,8 +1,13 @@
-@extends('layouts/main')
+<div class="modal myModal">
 
-@section('content')
-    <h1>List of subscribed contacts:</h1>
-    <table>
+  <!-- Modal content -->
+  <div class="modal__content">
+    <div class="modal__title">
+      <h1>Subscribed contacts:</h1>
+      <span class="modal__close">&times;</span>
+    </div>
+    
+    <table class="modal__table">
             <tr class="contacts__columns">
                 <td>Name</td>
                 <td>Email</td>
@@ -30,5 +35,7 @@
         @endforeach
     </table>
     <button><a href="{{route("contacts-export")}}">Download subscribed data</a></button>
-    @endsection
+  
+  </div>
 
+</div>

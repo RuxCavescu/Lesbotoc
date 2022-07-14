@@ -26,7 +26,7 @@ body {
     box-sizing: inherit;
 }
 
-.copyright{
+.copyright {
     color: white;
     font-family: $primary-font, Arial, Helvetica, sans-serif;
     font-weight: 100;
@@ -42,12 +42,13 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 1000px;
     height: 250px;
     margin: auto;
 }
 
-.footer-nav{
+.footer-nav {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -61,11 +62,11 @@ footer {
     font-weight: 400;
 }
 
-i{
+i {
     color: white;
     font-size: 35px;
 }
-.social-med--cont{
+.social-med--cont {
     display: flex;
     flex-direction: row;
     width: 25%;

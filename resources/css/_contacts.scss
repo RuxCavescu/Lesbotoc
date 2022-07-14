@@ -16,6 +16,10 @@
 
 // CONTACTS LIST HEADER STYLING]
 
+button {
+    cursor: pointer;
+}
+
 .buttons {
     a {
         text-decoration: none;
@@ -31,9 +35,11 @@
         /* or 219% */
 
         display: flex;
+        justify-content: center;
         align-items: center;
 
         color: #ffffff;
+        cursor: pointer;
     }
 
     & ul {
@@ -42,7 +48,7 @@
         justify-content: center;
         padding-top: 100px;
 
-        & li {
+        & button {
             margin: 0 50px;
         }
     }
@@ -96,7 +102,7 @@
 }
 
 .contact__row {
-    height: 70px;
+    height: 50px;
     width: 100vw;
     padding: 40px 0;
 
@@ -108,7 +114,8 @@
     }
 }
 
-.create__contact {
+.create__contact,
+.edit__contact {
     font-family: Inter;
     background-color: $form-bg;
     padding: 100px;
@@ -117,6 +124,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
     }
 
     &-input {
@@ -206,10 +214,64 @@
     }
 }
 
+.alert {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .alert-success {
-    background-color: green;
+    color: green;
+    padding: 50px 10px 0 10px;
 }
 
 .error__message {
     background-color: red;
+}
+
+.button-fa {
+    height: 40px;
+    width: 70px;
+    background-color: $button-dark;
+    color: $navbar-text;
+    border: none;
+    padding: 10px;
+}
+
+.checkmark {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
+
+.checkmark_circle {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: green;
+    border-radius: 11px;
+    left: 0;
+    top: 0;
+}
+
+.checkmark_stem {
+    position: absolute;
+    width: 3px;
+    height: 9px;
+    background-color: #fff;
+    left: 11px;
+    top: 6px;
+}
+
+.checkmark_kick {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: #fff;
+    left: 8px;
+    top: 12px;
 }

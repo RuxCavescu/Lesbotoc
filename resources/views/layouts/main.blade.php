@@ -19,45 +19,37 @@
   
   <script>
     // Get the modal
-var modal = document.getElementById("myModal");
-console.log(modal)
+      var modal = document.querySelector(".myModal");
+      console.log(modal)
 
-// Get the button that opens the modal
-var btn = document.querySelector(".events__participants");
-console.log(btn)
+    // Get the button that opens the modal
+        var btn = document.querySelector(".modal_btn");
 
-// Get the <span> element that closes the modal
+    // Get the <span> element that closes the modal
 
-const close = document.querySelector(".modal__close")
-// var close = document.getElementsByClassName("modal__close")[0];
-console.log(close)
+      const close = document.querySelector(".modal__close")
 
-// When the user clicks on the button, open the modal
+    // When the user clicks on the button, open the modal
 
-btn.addEventListener("click", () => {
-  modal.style.display = "block";
-})
+      btn.addEventListener("click", () => {
+        console.log('works');
+        modal.style.display = "block";
+      })
 
 
-// When the user clicks on <span> (x), close the modal
+    // When the user clicks on <span> (x), close the modal
 
-close.addEventListener("click", () => {
-  modal.style.display = "none";
-})
+      close.addEventListener("click", () => {
+        modal.style.display = "none";
+      })
 
-// сlose.addEventListener("click", () => {
-//     // modal.style.display = "none";
-//     console.log("click")
-// })
+      // When the user clicks anywhere outside of the modal, close it
 
-
-// When the user clicks anywhere outside of the modal, close it
-
-window.addEventListener("click", (event) => {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-})
+      window.addEventListener("click", (event) => {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      })
   </script>
 </body>
 </html>
