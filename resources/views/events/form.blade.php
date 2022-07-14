@@ -69,7 +69,7 @@
         {{-- Active event button --}}
         @if ($event->is_active)
         <button type="button" class="button button--border"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-          <div class="button__text">Active event</div>
+          <div class="button__text">Future event</div>
         </button>
         @else
         <button type="button" class="button button--border"><i class="fa fa-calendar-times-o" aria-hidden="true"></i>

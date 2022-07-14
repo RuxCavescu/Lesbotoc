@@ -16,8 +16,22 @@ class EventController extends Controller
 {
     public function index()
     {
-      $events = Event::get();
+      
+      $events = Event::where('start_date', '<', date('Y-m-d'))->update(['is_active'=>false]);
+
+      $events = Event::where('start_date', '>', date('Y-m-d'))->update(['is_active'=>true]);
+
+      $events = Event::orderBy("start_date")
+                      ->get();
+
+      
+    
       $event = new Event;
+      
+      // foreach ($events as $event) {
+      //   $event->setIsActive();
+      // }
+      
       $locations = Location::get();
       $categories = Category::get();
       $images = Image::get();
@@ -32,6 +46,8 @@ class EventController extends Controller
       //                             ->get();
       $events = Event::orderBy("start_date")
                       ->get();
+
+                      
       $images = Image::get();
       $event = Event::with("location", "category", "image")
                     ->findOrFail($id);
@@ -128,7 +144,7 @@ class EventController extends Controller
       $event->is_phone_required = $request->input("is_phone_required") ?? null;
       $event->is_recurring = $request->input("is_recurring") ?? null;
       $event->is_featured = $request->input("is_featured") ?? null;
-      $event->is_active;
+      $event->setIsActive();
       $event->image_id = $request->input("image_id") ?? null;
       
 
@@ -193,6 +209,7 @@ class EventController extends Controller
                     $event->is_recurring = $request->input("is_recurring") ?? null;
                     $event->is_featured = $request->input("is_featured") ?? null;
                     $event->image_id = $request->input("image_id") ?? null;
+                    $event->setIsActive();
               
               
                     $event->save();
