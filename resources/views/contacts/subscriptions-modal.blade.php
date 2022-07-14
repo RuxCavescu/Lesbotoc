@@ -20,17 +20,15 @@
                 <td class="contact__columns-name"> {{$contact->name}} </td>
                 <td class="contact__columns-email"> {{$contact->email}} </td>
                 <td class="contact__columns-phone"> {{$contact->phone ? $contact->phone : '-'}} </td>   
-                <td>
-                    <form action="{{ route('delete-contact', ['id' => $contact->id])}}" method="post">
-                        @csrf
-                        @method('delete')
-                        <button class="fa fa-trash"></button>
-                    </form>
+                                <td>
+                    <a href="{{$contact->id}}/edit"><button class="button-fa fa fa-edit"></button></a>
                 </td>
-
-                <td>
-                    <a href="{{$contact->id}}/edit"><button class="fa fa-edit"></button></a>
-                </td>
+                <td>        
+                <form action="{{ route('delete-contact', ['id' => $contact->id])}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <button class="button-fa fa fa-trash"></button>
+                </form>
             </tr>
         @endforeach
     </table>

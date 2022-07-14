@@ -221,6 +221,18 @@ button {
     align-items: center;
 }
 
+.create-btn {
+    padding: 10px 50px;
+
+    & .button__text {
+        font-weight: 500;
+    }
+}
+
+.modal_btn {
+    padding: 10px 50px;
+}
+
 .alert-success {
     color: green;
     padding: 50px 10px 0 10px;
@@ -232,11 +244,24 @@ button {
 
 .button-fa {
     height: 40px;
-    width: 70px;
-    background-color: $button-dark;
+    width: 50px;
+    // background-color: $button-dark;
     color: $navbar-text;
     border: none;
     padding: 10px;
+    border-radius: 5px;
+}
+
+.fa-edit {
+    border: 1px solid #809aff;
+    color: #142566;
+    background-color: #ccd6ff;
+}
+
+.fa-trash {
+    border: 1px solid #bbbbbb;
+    color: #333333;
+    background-color: #eeeeee;
 }
 
 .checkmark {

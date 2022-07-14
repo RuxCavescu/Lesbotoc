@@ -24,7 +24,7 @@
         <ul>
             {{-- <li class="contacts__item"><a href="{{route("create-contact")}}">Manually create contact</a></li> --}}
             {{-- <li class="contacts__item"><a href="{{route("subscribed-users")}}">See all subscribed users</a></li> --}}
-            <button class="button"><i class="fa fa-drivers-license-o" aria-hidden="true"></i>
+            <button class="button create-btn"><i class="fa fa-drivers-license-o" aria-hidden="true"></i>
                 <a href="{{route("create-contact")}}">
                     <div class="button__text">Manually create contact</div>
                 </a>
@@ -33,7 +33,7 @@
             <button class="button modal_btn"><i class="fa fa-users" aria-hidden="true"></i>
                 <div class="button__text">See subscribed users</div>
             </button>
-        </u>
+        </ul>
 </div>
     @include('contacts/messages')
     @include('contacts/show-all-contacts')

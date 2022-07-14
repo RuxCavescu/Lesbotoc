@@ -24,7 +24,7 @@
       console.log(modal)
 
     // Get the button that opens the modal
-        var btn = document.querySelector(".modal_btn");
+      var btn = document.querySelector(".modal_btn");
 
     // Get the <span> element that closes the modal
 
@@ -32,11 +32,11 @@
 
     // When the user clicks on the button, open the modal
 
+    if (btn) {
       btn.addEventListener("click", () => {
-        console.log('works');
         modal.style.display = "block";
       })
-
+    }
 
     // When the user clicks on <span> (x), close the modal
 
