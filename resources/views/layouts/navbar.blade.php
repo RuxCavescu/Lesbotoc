@@ -7,6 +7,7 @@
         <div class="navbar-links">
             <a href="/admin" class="link">Home</a>
             <a href="/admin/events" class="link">Events</a>
+            <a href="/admin/images" class="link">Images</a>
             <a href="/admin/contacts" class="link">Contacts</a>
             <a href="/admin/locations" class="link">Locations</a>
             <form action="{{ route('logout') }}" method="post">
