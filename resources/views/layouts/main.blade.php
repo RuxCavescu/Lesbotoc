@@ -19,45 +19,49 @@
   
   <script>
     // Get the modal
-var modal = document.getElementById("myModal");
-console.log(modal)
+      var modal = document.getElementById("myModal");
+      console.log(modal)
 
-// Get the button that opens the modal
-var btn = document.querySelector(".events__participants");
-console.log(btn)
+    // Get the button that opens the modal
+        var btn = document.querySelector(".events__participants");
+      console.log(btn)
 
-// Get the <span> element that closes the modal
+    // Get the button that opens the modal - subscribers
+        var btnSub = document.querySelector(".contacts__subscriptions");
+      console.log(btnSub)
 
-const close = document.querySelector(".modal__close")
-// var close = document.getElementsByClassName("modal__close")[0];
-console.log(close)
+    // Get the <span> element that closes the modal
 
-// When the user clicks on the button, open the modal
+      const close = document.querySelector(".modal__close")
+    // var close = document.getElementsByClassName("modal__close")[0];
+      console.log(close)
 
-btn.addEventListener("click", () => {
-  modal.style.display = "block";
-})
+    // When the user clicks on the button, open the modal
 
-
-// When the user clicks on <span> (x), close the modal
-
-close.addEventListener("click", () => {
-  modal.style.display = "none";
-})
-
-// сlose.addEventListener("click", () => {
-//     // modal.style.display = "none";
-//     console.log("click")
-// })
+      btn.addEventListener("click", () => {
+        modal.style.display = "block";
+      })
 
 
-// When the user clicks anywhere outside of the modal, close it
+    // When the user clicks on <span> (x), close the modal
 
-window.addEventListener("click", (event) => {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-})
+      close.addEventListener("click", () => {
+        modal.style.display = "none";
+      })
+
+      // сlose.addEventListener("click", () => {
+      //     // modal.style.display = "none";
+      //     console.log("click")
+      // })
+
+
+      // When the user clicks anywhere outside of the modal, close it
+
+      window.addEventListener("click", (event) => {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      })
   </script>
 </body>
 </html>

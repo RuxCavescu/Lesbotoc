@@ -7,7 +7,7 @@
       <span class="modal__close">&times;</span>
     </div>
     
-    <table>
+    <table class="modal__table">
             <tr class="contacts__columns">
                 <td>Name</td>
                 <td>Email</td>
