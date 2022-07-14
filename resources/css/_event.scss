@@ -93,8 +93,8 @@
         height: fit-content;
         padding: 2em 2.5em;
 
-        // background-color: #efefef;
-        background-color: #918f8f;
+        background-color: #efefef;
+        // background-color: #918f8f;
         border-radius: 10px;
 
         // .button {
@@ -339,6 +339,7 @@
         font-weight: 700;
         font-size: 16px;
         color: #ffffff;
+        cursor: pointer;
     }
 }
 
@@ -352,6 +353,7 @@
     padding: 10px;
     border-radius: 5px;
     min-width: 100px;
+    cursor: pointer;
 
     &--border {
         background-color: white;

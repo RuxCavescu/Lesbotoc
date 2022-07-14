@@ -435,8 +435,6 @@
 
 
               @foreach ($images as $image)
-
-
               <option value={{$image->id}}>{{$image->alt}}</option>
               @endforeach
 
@@ -445,11 +443,46 @@
               @else
               <option selected disabled="disabled">Select image</option>
               @foreach ($images as $image)
-              <option value={{$image->id}}>{{$image->alt}}</option>
+
+              <option value={{$image->id}} {{
+              old('image_id') == $image->id ? 'selected' : ""}}
+              >{{$image->alt}}</option>
+
               @endforeach
               @endif
 
             </select></label>
+
+            @dump(old('image_id'))
+
+
+            {{-- @else
+            <option selected disabled="disabled">Select category</option>
+            @foreach ($categories as $category)
+
+            <option value={{$category->id}} {{old('category_id') == $category->id ? 'selected' : ""
+              }}>{{$category->name_en}}</option>
+
+            @endforeach
+            @endif --}}
+
+
+
+              {{-- DELETE THIS --}}
+
+
+              {{-- @else
+              <option selected disabled="disabled">Select location</option>
+              @foreach ($locations as $location)
+              <option value={{$location->id}} {{old('location_id') == $location->id ? 'selected' : ""}}>
+                {{$location->name}}: {{$location->address}}
+              </option>
+
+
+              @endforeach --}} --}}
+              {{-- @endif
+
+              {{-- DELETE THIS --}}
 
 
       </fieldset>

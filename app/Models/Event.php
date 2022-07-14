@@ -45,29 +45,11 @@ class Event extends Model
       return $this->hasMany(Contact::class);
     }
 
-    // When seeding Event table, I automatically put values into IS ACTIVE column based on current time and start date of event
-    protected static function boot() {
-      parent::boot();
-  
-      static::saving(function($model){
+    public function setIsActive()
+    {
+      $this->is_active = $this->start_date > Carbon::now();
+    }
 
-        if ($model->start_date > Carbon::now()) {
-          $model->is_active = true;
-        } else {
-          $model->is_active = false;
-        }
-      }); 
-
-      // static::saving(function($model){
-
-      //   if ($model->capacity) {
-      //     $model->already_registered = 0;
-      //   } else {
-      //     $model->already_registered = null;
-      //   }
-      // }); 
-
-  }
 
     
 }

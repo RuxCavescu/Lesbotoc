@@ -101,7 +101,7 @@ class EventController extends Controller
         "is_phone_required" => "required|boolean",
         "is_recurring" => "boolean|nullable",
         "is_featured" => "required|boolean",
-        // "image_id[]" => "required"
+        "image_id" => "required"
 
       ]);
 
@@ -167,7 +167,7 @@ class EventController extends Controller
         "is_phone_required" => "required|boolean",
         "is_recurring" => "boolean|nullable",
         "is_featured" => "required|boolean",
-        // "image_id[]" => "required"
+        "image_id" => "required"
 
       ]);
       

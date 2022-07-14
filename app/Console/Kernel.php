@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
     {
 
         $schedule->command('demo:cron')
-                 ->daily();
+                 ->everyMinute();
     }
 
     protected function commands()
