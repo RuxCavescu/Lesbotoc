@@ -9,6 +9,8 @@ use App\Models\Image;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Registration;
+use Carbon\Carbon;
+use DB;
 
 class Event extends Model
 {
@@ -35,11 +37,19 @@ class Event extends Model
 
     public function registrations()
     {
-      return $this->hasMany(Registrtion::class);
+      return $this->hasMany(Registration::class);
     }
 
     public function contacts()
     {
       return $this->hasMany(Contact::class);
     }
+
+    public function setIsActive()
+    {
+      $this->is_active = $this->start_date > Carbon::now();
+    }
+
+
+    
 }
