@@ -61,69 +61,43 @@ Route::get("/events/{id}/registrations/export", [
 
 // Admin/Contacts routes
 
-Route::get(
-  '/contacts',
-  [
-    ContactController::class,
-    'index'
-  ]
-)->name('contacts-index');
+Route::get('/contacts', [
+    ContactController::class, 'index'
+    ])->name('contacts-index');
+
+// Route::get(
+//   '/contacts/subscribed', [
+//     ContactController::class,'showSubscribed'
+//     ])->name('subscribed-users');
 
 Route::get(
-  '/contacts/subscribed',
-  [
-    ContactController::class,
-    'showSubscribed'
-  ]
-)->name('subscribed-users');
+  '/contacts/subscribed/export', [
+    ContactController::class,'export'
+  ])->name('contacts-export');
 
 Route::get(
-  '/contacts/subscribed/export',
-  [
-    ContactController::class,
-    'export'
-  ]
-)->name('contacts-export');
-
-Route::get(
-  '/contacts/create',
-  [
-    ContactController::class,
-    'create'
-  ]
-)->name('create-contact');
+  '/contacts/create', [
+    ContactController::class, 'create'
+  ])->name('create-contact');
 
 Route::post(
-  '/contacts/create',
-  [
-    ContactController::class,
-    'store'
-  ]
-)->name('save-contact');
+  '/contacts/create', [
+    ContactController::class, 'store'
+  ])->name('save-contact');
 
-Route::get(
-  '/contacts/{id}/edit',
-  [
-    ContactController::class,
-    'detail'
-  ]
-)->name('edit-detail');
+Route::get('/contacts/{id}/edit', [
+    ContactController::class, 'detail'
+  ])->name('edit-detail');
 
 Route::post(
-  '/contacts/{id}/edit',
-  [
-    ContactController::class,
-    'update'
-  ]
-)->name('update-contact');
+  '/contacts/{id}/edit', [
+    ContactController::class, 'update'
+  ])->name('update-contact');
 
 Route::delete(
-  '/contacts/{id}/delete',
-  [
-    ContactController::class,
-    'destroy'
-  ]
-)->name('delete-contact');
+  '/contacts/{id}/delete', [
+    ContactController::class, 'destroy'
+  ])->name('delete-contact');
 
 //admin location routes
 
