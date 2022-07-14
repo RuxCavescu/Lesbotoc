@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Image;
+use DB;
 
 
 class ImagesSeeder extends Seeder
@@ -16,6 +17,8 @@ class ImagesSeeder extends Seeder
      */
     public function run()  //public\images\bbq\bbq_coal.jpg
     {
+        DB::table('images')->truncate();
+
         $images = [
             [
                 "id" => "1",
@@ -31,7 +34,7 @@ class ImagesSeeder extends Seeder
             [
                 "id" => "3",
                 "alt" => "skewer on a bbq",
-                "path" => "/images/bbq/bbq_skewer",
+                "path" => "/images/bbq/bbq_skewer.jpg",
             ],
             [
                 "id" => "4",

@@ -115,7 +115,8 @@ button {
 }
 
 .create__contact,
-.edit__contact {
+.edit__contact,
+.add__image {
     font-family: Inter;
     background-color: $form-bg;
     padding: 100px;
@@ -197,6 +198,32 @@ button {
         border: none;
         padding: 0 10px;
         margin-left: 50px;
+
+        /* Button Text Style */
+
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 35px;
+        /* or 219% */
+
+        display: flex;
+        align-items: center;
+
+        color: #ffffff;
+    }
+
+    &-add {
+        font-family: Inter;
+        text-decoration: none;
+
+        width: 200px;
+        height: 50px;
+        background-color: $header-bg1;
+        border-radius: 5px;
+        border: none;
+        padding: 0 10px;
 
         /* Button Text Style */
 
