@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,9 +100,35 @@ Route::delete(
     ContactController::class, 'destroy'
   ])->name('delete-contact');
 
+
+// Admin/Images routes
+
+Route::get(
+  '/images', [
+    ImageController::class,'index'
+  ])->name('image-index');
+
+Route::post(
+  '/images/add-image', [
+    ImageController::class,'store'
+  ])->name('save-image');
+
+
 //admin location routes
 
-Route::get('/locations', [LocationController::class, 'index'])->name('locations.index');
+Route::get('/locations', [LocationController::class, 'index'])
+  ->name('locations.index');
 
-Route::get('/locations/detail/{id}', [LocationController::class, 'details'])->name('locations.details');
-Route::get('/locations/create', [LocationController::class, 'create'])->name('locations.create');
+Route::get('/locations/detail/{id}', [LocationController::class, 'details'])
+  ->name('locations.details');
+
+Route::get('/locations/create', [LocationController::class, 'create'])
+  ->name('locations.create');
+
+Route::post('/locations/create', [LocationController::class, 'store'])
+  ->name('locations.store');
+
+Route::delete('/locations/detail/{id}', [LocationController::class, 'destroy'])
+  ->name('locations.delete');
+
+Route::post('/locations/edit/', [LocationController::class, 'update'])->name('locations.update');

@@ -115,7 +115,7 @@ class ContactController extends Controller
 
         $this->validate($request, [
             'name' => 'required|max:255',
-            'email' => 'required|email:rfc,dns',
+            'email' => 'required|email:rfc,dns|unique:contacts,email',
             'phone' => 'nullable|numeric',
             'is_subscribed' => 'required|boolean'
         ]);
