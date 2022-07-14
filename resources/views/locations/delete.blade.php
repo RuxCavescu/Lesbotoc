@@ -7,7 +7,7 @@
     type="text" 
     id="location_name" 
     name="location_name" 
-    value="{{old('location_name', $location->name)}}">
+    value="{{old('location_name', $location->name)}}" readonly>
     <br>
 
 <label for="address">Address</label>
@@ -15,7 +15,7 @@
     type="text"
     id="address"
     name="address"
-    value="{{old('address', $location->address)}}">
+    value="{{old('address', $location->address)}}" readonly>
     <br>
 
 <label for="website">Website</label>
@@ -23,7 +23,7 @@
     type="text"
     id="website"
     name="website"
-    value="{{old('website', $location->location_website)}}">
+    value="{{old('website', $location->location_website)}}" readonly>
     <br>
 
 <label for="latitude">Latitude</label>
@@ -31,7 +31,7 @@
     type="text"
     id="latitude"
     name="latitude"
-    value="{{old('latitude', $location->location_latitude)}}">
+    value="{{old('latitude', $location->latitude)}}" readonly>
     <br>
 
 <label for="longtitude">Longtitude</label>
@@ -39,8 +39,15 @@
     type="text"
     id="longtitude"
     name="longtitude"
-    value="{{old('longtitude', $location->location_longtitude)}}">
+    value="{{old('longtitude', $location->longtitude)}}" readonly>
     <br>
-  <input type="submit" value="Delete Location">
+    <div class="btn-container">
+        <input class="input-button" type="submit" value="Delete Location">
+        
+        {{-- adapt this later like delete button --}}
+            
+    </div>
 </form>
+<a class="button-a" href="/admin/locations"><button class="button">Back</button></a>
+<a class="button-a" href="/admin/locations/edit"><button class="button">Edit Location</button></a>
 

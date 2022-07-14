@@ -37,11 +37,11 @@ class LocationController extends Controller
     {
         $location = new Location;
 
-        $location->name = $request->input('location_name');
-        $location->address = $request->input('address');
-        $location->latitude = $request->input('latitude');
-        $location->longtitude = $request->input('longtitude');
-        $location->location_website = $request->input('website');
+        $location->name = $request->input('location_name') ?? null;
+        $location->address = $request->input('address') ?? null;
+        $location->latitude = $request->input('latitude') ?? null;
+        $location->longtitude = $request->input('longtitude') ?? null;
+        $location->location_website = $request->input('website') ?? null;
 
         $location->save();
 
@@ -56,6 +56,21 @@ class LocationController extends Controller
         $location = Location::findOrfail($id);
 
         $location->delete();
+
+        return redirect(route('locations.index'));
+    }
+
+    public function update(Request $request, $id)
+
+    {
+        $location = Location::findOrfail($id);
+        $location->name = $request->input('name') ?? null;
+        $location->address = $request->input('address') ?? null;
+        $location->latitude = $request->input('latitude') ?? null;
+        $location->longtitude = $request->input('longtitude') ?? null;
+        $location->location_website = $request->input('website') ?? null;
+
+        $location->save();
 
         return redirect(route('locations.index'));
     }

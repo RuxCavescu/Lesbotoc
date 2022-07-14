@@ -141,3 +141,5 @@ Route::post('/locations/create', [LocationController::class, 'store'])
 
 Route::delete('/locations/detail/{id}', [LocationController::class, 'destroy'])
   ->name('locations.delete');
+
+Route::post('/locations/edit/', [LocationController::class, 'update'])->name('locations.update');

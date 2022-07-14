@@ -7,9 +7,10 @@
 </div>
     
 
-<div class="index-container">
-            <div class="form-container">
-                @include('locations/empty_form')
+<div class="locations-container">
+            <div class="location-data">
+                <div class="list-container">
+                @include('locations/empty_form')</div>
             </div>
         </div>
     </div>

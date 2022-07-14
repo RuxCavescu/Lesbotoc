@@ -6,6 +6,6 @@
     <a href="locations/edit/{{$location->id}}"></a>
     @endforeach
     </ul>
-    <a href="locations/create"><button class="input-btn">Create Location</button></a>   
+    <a class="button-a" href="locations/create"><button class="button">Create Location</button></a>   
 
 

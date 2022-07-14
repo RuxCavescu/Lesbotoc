@@ -34,7 +34,7 @@
     type="text"
     id="latitude"
     name="latitude"
-    value="{{old('latitude', $location->location_latitude)}}">
+    value="{{old('latitude', $location->latitude)}}">
     <br>
 
 <label for="longtitude">Longtitude</label>
@@ -42,7 +42,7 @@
     type="text"
     id="longtitude"
     name="longtitude"
-    value="{{old('longtitude', $location->location_longtitude)}}">
+    value="{{old('longtitude', $location->longtitude)}}">
     <br>
 
 <input type="submit" value="Save Location">
