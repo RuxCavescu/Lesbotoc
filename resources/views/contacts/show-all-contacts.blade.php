@@ -21,7 +21,7 @@
                 </form>
 
                 <td>
-                    <a href="contacts/{{$contact->id}}/edit"><button class="button-fa fa fa-edit"></button></a>
+                    <a href="{{$contact->id}}/edit"><button class="button-fa fa fa-edit"></button></a>
                 </td>
             </tr>
         @endforeach

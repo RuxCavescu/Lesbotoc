@@ -1,8 +1,7 @@
 @extends('layouts/main')
 
 @section('content')
-<h1>Please edit the contact:</h1>
-<table>
+{{-- <table>
     <tr>
         <td>Name</td>
         <td>Email</td>
@@ -10,9 +9,11 @@
     </tr>
     <form action="{{ route('update-contact', ['id' => $contact->id]) }}" method="post">
         @csrf
-        <td><input type='text' name='name' value='{{$contact->name}}' ></td>
-        <td><input type='email' name='email' value='{{$contact->email}}' ></td>
-        <td><input type='tel' name='phone' value='{{$contact->phone}}' ></td>
+        <div class="create__contact-inputs">
+            <input class="create__contact-input" type='text' name='name' value='{{$contact->name}}' >
+            <input class="create__contact-input" type='email' name='email' value='{{$contact->email}}' >
+            <input class="create__contact-input" type='tel' name='phone' value='{{$contact->phone}}' >
+        </div>
         <td>
             <div>
                  <p>Is the Contact subscribed?</p>
@@ -33,6 +34,8 @@
         </td>
         <td><button>Save</button></td></td>
     </tr>
-</table>
-@include('contacts/messages')
+</table> --}}
+    @include('contacts/messages')
+    @include('contacts/edit-contact-form')
+    @include('contacts/show-all-contacts')
 @endsection

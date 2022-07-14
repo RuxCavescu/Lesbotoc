@@ -42,3 +42,9 @@
         height: 3em;
     }
 }
+
+@media screen and (max-width: 400) {
+    .navbar {
+        flex-direction: column;
+    }
+}

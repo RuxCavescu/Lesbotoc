@@ -16,6 +16,10 @@
 
 // CONTACTS LIST HEADER STYLING]
 
+button {
+    cursor: pointer;
+}
+
 .buttons {
     a {
         text-decoration: none;
@@ -35,6 +39,7 @@
         align-items: center;
 
         color: #ffffff;
+        cursor: pointer;
     }
 
     & ul {
@@ -43,7 +48,7 @@
         justify-content: center;
         padding-top: 100px;
 
-        & li {
+        & button {
             margin: 0 50px;
         }
     }
@@ -97,7 +102,7 @@
 }
 
 .contact__row {
-    height: 70px;
+    height: 50px;
     width: 100vw;
     padding: 40px 0;
 
@@ -109,7 +114,8 @@
     }
 }
 
-.create__contact {
+.create__contact,
+.edit__contact {
     font-family: Inter;
     background-color: $form-bg;
     padding: 100px;
@@ -118,6 +124,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
     }
 
     &-input {
@@ -207,8 +214,16 @@
     }
 }
 
+.alert {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .alert-success {
-    background-color: green;
+    color: green;
+    padding: 50px 10px 0 10px;
 }
 
 .error__message {
@@ -216,102 +231,47 @@
 }
 
 .button-fa {
+    height: 40px;
+    width: 70px;
     background-color: $button-dark;
     color: $navbar-text;
     border: none;
     padding: 10px;
 }
 
-// MODAL styling
+.checkmark {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
 
-/* The Modal (background) */
-.modal {
-    box-sizing: border-box;
-    font-family: "Inter";
-
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+.checkmark_circle {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: green;
+    border-radius: 11px;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
 
-    &__content {
-        background-color: #fefefe;
-        margin: 15% auto; /* 15% from the top and centered */
-        // padding: 20px;
-        border: 1px solid #888;
-        width: 80%; /* Could be more or less, depending on screen size */
-        padding-bottom: 3em;
-        position: static;
-    }
+.checkmark_stem {
+    position: absolute;
+    width: 3px;
+    height: 9px;
+    background-color: #fff;
+    left: 11px;
+    top: 6px;
+}
 
-    &__close {
-        color: rgb(255, 255, 255);
-        position: absolute;
-        top: 0.3em;
-        right: 0.5em;
-        font-size: 40px;
-        font-weight: bold;
-        line-height: normal;
-
-        &:hover,
-        &:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    }
-
-    &__title {
-        padding: 0.5em;
-        font-weight: 700;
-        font-size: 70px;
-        line-height: 75px;
-
-        color: #ffffff;
-        background-color: #aaaaaa;
-        text-align: center;
-        position: relative;
-
-        h1 {
-            margin: 0;
-        }
-    }
-
-    &__table {
-        // width: 80%;
-        margin: 2em auto;
-        border-collapse: separate;
-        border-spacing: 50px 0;
-
-        td {
-            padding: 10px;
-        }
-    }
-
-    &__button {
-        margin: auto;
-        line-height: 50px;
-        text-align: center;
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
-        display: block;
-        width: 300px;
-        height: 50px;
-
-        background-color: $header-bg1;
-        border-radius: 5px;
-        text-decoration: none;
-
-        font-weight: 700;
-        font-size: 16px;
-
-        color: #ffffff;
-    }
+.checkmark_kick {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: #fff;
+    left: 8px;
+    top: 12px;
 }

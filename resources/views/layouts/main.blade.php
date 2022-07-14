@@ -19,26 +19,20 @@
   
   <script>
     // Get the modal
-      var modal = document.getElementById("myModal");
+      var modal = document.querySelector(".myModal");
       console.log(modal)
 
     // Get the button that opens the modal
-        var btn = document.querySelector(".events__participants");
-      console.log(btn)
-
-    // Get the button that opens the modal - subscribers
-        var btnSub = document.querySelector(".contacts__subscriptions");
-      console.log(btnSub)
+        var btn = document.querySelector(".modal_btn");
 
     // Get the <span> element that closes the modal
 
       const close = document.querySelector(".modal__close")
-    // var close = document.getElementsByClassName("modal__close")[0];
-      console.log(close)
 
     // When the user clicks on the button, open the modal
 
       btn.addEventListener("click", () => {
+        console.log('works');
         modal.style.display = "block";
       })
 
@@ -48,12 +42,6 @@
       close.addEventListener("click", () => {
         modal.style.display = "none";
       })
-
-      // сlose.addEventListener("click", () => {
-      //     // modal.style.display = "none";
-      //     console.log("click")
-      // })
-
 
       // When the user clicks anywhere outside of the modal, close it
 

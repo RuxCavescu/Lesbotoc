@@ -1,4 +1,4 @@
-<div id="myModal" class="modal">
+<div class="modal myModal">
 
   <!-- Modal content -->
   <div class="modal__content">

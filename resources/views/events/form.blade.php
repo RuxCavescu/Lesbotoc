@@ -306,7 +306,7 @@
       </button></a>
     @endif
 
-    <button class="button events__participants"><i class="fa fa-users" aria-hidden="true"></i>
+    <button class="button modal_btn"><i class="fa fa-users" aria-hidden="true"></i>
       <div class="button__text">Participants</div>
     </button>
 
