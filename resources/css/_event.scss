@@ -90,17 +90,12 @@
     }
 
     &__form {
-        // width: 70%;
         height: fit-content;
         padding: 2em 2.5em;
 
         background-color: #efefef;
-        // background-color: #918f8f;
-        border-radius: 10px;
 
-        // .button {
-        //     margin-left: auto;
-        // }
+        border-radius: 10px;
 
         .form__buttons {
             display: flex;
@@ -270,7 +265,8 @@
         .fa-check-square-o,
         .fa-calendar-check-o,
         .fa-calendar-times-o,
-        .fa-star-o {
+        .fa-star-o,
+        .fa-sign-in {
             color: $lesbotoc;
         }
     }

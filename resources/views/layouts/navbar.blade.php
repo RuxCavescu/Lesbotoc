@@ -1,3 +1,5 @@
+    @auth    
+    
     <nav class="navbar">
         <a href="/admin" class="navbar__logo-link">
             <img src="/images/logo_white.png" alt="lesbotoc logo">
@@ -7,8 +9,17 @@
             <a href="/admin/events" class="link">Events</a>
             <a href="/admin/contacts" class="link">Contacts</a>
             <a href="/admin/locations" class="link">Locations</a>
+            <form action="{{ route('logout') }}" method="post">
+ 
+              @csrf
+           
+              <button>Logout</button>
+           
+          </form
         </div>
     </nav>
+
+    @endauth
     
 
     <script>

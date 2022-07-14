@@ -14,7 +14,7 @@ $input-color: black;
 $link-dark: #142566;
 $h2-dark: #4b4b4b;
 $primary-font: Inter;
-$admin-btn: 809AFF;
+$admin-btn: 809aff;
 
 html {
     box-sizing: border-box;
@@ -101,3 +101,4 @@ h2 {
 @import "./locations.scss";
 @import "./navbar.scss";
 @import "./modal.scss";
+@import "./auth";

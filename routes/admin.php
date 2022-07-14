@@ -18,6 +18,7 @@ use App\Http\Controllers\LocationController;
 // Admin/ Events routes
 
 Route::get('/', [function () {
+  
   return view('homepage.admin-homepage');
 }])->name("homepage");
 

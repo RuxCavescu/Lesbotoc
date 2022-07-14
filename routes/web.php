@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
 
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,10 @@ Route::get('/', function () {
 Route::get('/footer', function () {     //just to try-out footer - can be removed!
     return view('layouts.footer');
 });
+
+Route::post('/register', [
+  RegisteredUserController::class, "store"
+]);
 
 
 Route::get("/events/register", [

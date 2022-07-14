@@ -16,6 +16,7 @@
   @include('layouts/navbar')
   @yield('content')
 
+
   
   <script>
     // Get the modal
@@ -31,6 +32,11 @@
 
     // When the user clicks on the button, open the modal
 
+      if (condition) {
+        
+      }
+
+    
       btn.addEventListener("click", () => {
         console.log('works');
         modal.style.display = "block";
