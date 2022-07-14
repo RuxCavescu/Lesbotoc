@@ -92,7 +92,7 @@
 
         {{-- Participants button --}}
         @if ($event->capacity)
-        <button type="button" class="button button--turquoise events__participants"><i class="fa fa-users"
+        <button type="button" class="button button--turquoise events__participants modal_btn"><i class="fa fa-users"
             aria-hidden="true"></i>
           <div class="button__text">Participants</div>
         </button>
@@ -240,20 +240,17 @@
           {{-- PAID EVENT? --}}
           {{-- <div class="events__radio">
             <label class="events__label">Paid event? *</label>
-
             <input class="events__input--radio" id="paid_yes" type="radio" name="is_paid" value="1" required
               @if($event->id && $event->is_paid === 1)
             checked
             @endif>
             <label class="events__label events__label--radio" for="paid_yes">Yes</label>
-
             <input class="events__input--radio" id="paid_no" type="radio" name="is_paid" value="0" @if ($event->id &&
             $event->is_paid === 0)
             checked
             @elseif (!$event->id)
             checked
             @endif
-
             ><label class="events__label events__label--radio" for="paid_no">No</label>
           </div> --}}
 
@@ -459,10 +456,8 @@
             {{-- @else
             <option selected disabled="disabled">Select category</option>
             @foreach ($categories as $category)
-
             <option value={{$category->id}} {{old('category_id') == $category->id ? 'selected' : ""
               }}>{{$category->name_en}}</option>
-
             @endforeach
             @endif --}}
 
@@ -470,9 +465,6 @@
 
               {{-- DELETE THIS --}}
 
-    <button class="button modal_btn"><i class="fa fa-users" aria-hidden="true"></i>
-      <div class="button__text">Participants</div>
-    </button>
 
               {{-- @else
               <option selected disabled="disabled">Select location</option>
@@ -480,11 +472,8 @@
               <option value={{$location->id}} {{old('location_id') == $location->id ? 'selected' : ""}}>
                 {{$location->name}}: {{$location->address}}
               </option>
-
-
               @endforeach --}}
               {{-- @endif
-
               {{-- DELETE THIS --}}
 
 

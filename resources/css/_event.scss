@@ -249,3 +249,49 @@
         color: #ffffff;
     }
 }
+
+.button {
+    background-color: #142566;
+    font-family: "Inter";
+    color: white;
+    font-size: 1em;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    min-width: 100px;
+    cursor: pointer;
+
+    &--border {
+        background-color: white;
+        border: 2px solid $lesbotoc;
+        color: $lesbotoc;
+
+        .fa-check-square-o,
+        .fa-calendar-check-o,
+        .fa-calendar-times-o,
+        .fa-star-o {
+            color: $lesbotoc;
+        }
+    }
+
+    display: flex;
+    align-items: center;
+
+    &--turquoise {
+        background-color: $lesbotoc;
+    }
+
+    i {
+        color: white;
+        font-size: 1.5em;
+        margin-right: 10px;
+    }
+
+    &__link {
+        text-decoration: none;
+        &:first-child {
+            margin-right: auto;
+        }
+    }
+}
