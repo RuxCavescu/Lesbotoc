@@ -30,9 +30,10 @@ class EventController extends Controller
       // $registrations = Registration::query()
       //                             ->where("event_id", $id)
       //                             ->get();
-      $events = Event::get();
+      $events = Event::orderBy("start_date")
+                      ->get();
       $images = Image::get();
-      $event = Event::with("location", "category", "images")
+      $event = Event::with("location", "category", "image")
                     ->findOrFail($id);
       $locations = Location::get();
       $categories = Category::get();
@@ -55,7 +56,8 @@ class EventController extends Controller
       $registrations = Registration::with("contact")
                                   ->where("event_id", $id)
                                   ->get();
-      $events = Event::get();
+      $events = Event::orderBy("start_date")
+                                  ->get();
       $images = Image::get();
       $event = Event::with("location", "category", "images")
                     ->findOrFail($id);
@@ -71,7 +73,8 @@ class EventController extends Controller
       $registrations = Registration::query()
                                   ->where("event_id", $id)
                                   ->get();
-      $events = Event::get();
+      $events = Event::orderBy("start_date")
+                                  ->get();
       $images = Image::get();
       $event = Event::with("location", "category")
                     ->findOrFail($id);
@@ -126,6 +129,7 @@ class EventController extends Controller
       $event->is_recurring = $request->input("is_recurring") ?? null;
       $event->is_featured = $request->input("is_featured") ?? null;
       $event->is_active;
+      $event->image_id = $request->input("image_id") ?? null;
       
 
 
@@ -134,12 +138,8 @@ class EventController extends Controller
 
       $event->save();
 
-      foreach ($request->input("image_id") as $image) {
-        $event->images()->attach($event->id, ["image_id" => $image]);
-      }
 
 
-      // $event->images()->attach($event->id, ["image_id" => $request->input("image_id")]);
 
       session()->flash("success", 'The event was successfully created!');
 
@@ -192,6 +192,7 @@ class EventController extends Controller
                     $event->is_phone_required = $request->input("is_phone_required") ?? null;
                     $event->is_recurring = $request->input("is_recurring") ?? null;
                     $event->is_featured = $request->input("is_featured") ?? null;
+                    $event->image_id = $request->input("image_id") ?? null;
               
               
                     $event->save();

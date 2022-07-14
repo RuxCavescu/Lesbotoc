@@ -9,8 +9,10 @@
         // margin: auto;
 
         background-color: #efefef;
+        // background-color: #757070;
 
         border-radius: 10px;
+        margin-bottom: 5em;
     }
 
     &__title {
@@ -24,5 +26,6 @@
 
     &__button {
         margin: auto;
+        margin-top: 2em;
     }
 }
