@@ -16,8 +16,6 @@
   @include('layouts/navbar')
   @yield('content')
   @include('layouts/footer')
-
-
   
   <script>
     // Get the modal
@@ -51,5 +49,6 @@
         }
       })
   </script>
+
 </body>
 </html>

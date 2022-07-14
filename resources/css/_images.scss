@@ -3,7 +3,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-bottom: 100px;
+    margin-bottom: 130px;
+    padding: 0 6em;
 }
 
 .images__intro {
@@ -16,7 +17,7 @@
 .image {
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
+    justify-content: space-between;
     // justify-content: center;
     height: 250px;
     width: 200px;
@@ -27,7 +28,14 @@
     }
 
     & h4 {
-        margin-bottom: 10px;
+        margin: 0px;
+    }
+
+    &__info {
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 }
 
@@ -39,9 +47,9 @@
         border: none;
         background: #ffffff;
         border-radius: 5px;
-        display: block;
-        margin-top: 5px;
-        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         font-family: inherit;
     }
 
@@ -70,6 +78,10 @@
 
         color: #ffffff;
     }
+}
+
+.add__image-add {
+    margin-top: 25px;
 }
 
 .delete__image-btn {
