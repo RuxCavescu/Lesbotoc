@@ -17,11 +17,11 @@
                 <form action="{{ route('delete-contact', ['id' => $contact->id])}}" method="post">
                     @csrf
                     @method('delete')
-                    <button class="fa fa-trash"></button>
+                    <button class="button-fa fa fa-trash"></button>
                 </form>
 
                 <td>
-                    <a href="contacts/{{$contact->id}}/edit"><button class="fa fa-edit"></button></a>
+                    <a href="{{$contact->id}}/edit"><button class="button-fa fa fa-edit"></button></a>
                 </td>
             </tr>
         @endforeach

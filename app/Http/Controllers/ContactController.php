@@ -12,8 +12,11 @@ class ContactController extends Controller
 {
     public function index() {
         $contacts = Contact::get();
+        $subscribedContacts = Contact::query()
+            ->where('is_subscribed', 'like', '1')
+            ->get();
 
-        return view('contacts.index', compact('contacts'));
+        return view('contacts.index', compact('contacts', 'subscribedContacts'));
     }
 
 
@@ -30,8 +33,9 @@ class ContactController extends Controller
     public function detail($id)
     {
         $contact = Contact::findOrFail($id);
+        $contacts = Contact::get();
 
-        return view('contacts.detail', compact('contact'));
+        return view('contacts.detail', compact('contact', 'contacts'));
     }
 
 
@@ -40,6 +44,7 @@ class ContactController extends Controller
     {
         // find the contact to be edited by id
         $contact = Contact::findOrFail($id);
+
 
         return view('contacts.index', compact('contact'));
     }

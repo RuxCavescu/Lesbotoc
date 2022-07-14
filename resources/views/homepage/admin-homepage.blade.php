@@ -1,7 +1,7 @@
 @extends('layouts/main')
 
 @section('content')
-    <h1>Admin Homepage</h1>
+        <div class="admin__bar"><h1 class="admin__title">Admin Homepage</h1></div>
 @endsection
 
 
