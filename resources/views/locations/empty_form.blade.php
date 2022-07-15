@@ -1,12 +1,13 @@
 <h4>Create a new location</h4>
 
 
-<form action="{{route("locations.create", $location->id)}}" method="POST">
+<form class="empty-form" action="{{route("locations.create", $location->id)}}" method="POST">
     @csrf
 
 
 <label for="location_name">Location Name</label>
 <input 
+    class="input-item"
     type="text" 
     id="location_name" 
     name="location_name" 
@@ -15,6 +16,7 @@
 
 <label for="address">Address</label>
 <input 
+    class="input-item"
     type="text"
     id="address"
     name="address"
@@ -23,6 +25,7 @@
 
 <label for="website">Website</label>
 <input 
+    class="input-item"
     type="text"
     id="website"
     name="website"
@@ -31,6 +34,7 @@
 
 <label for="latitude">Latitude</label>
 <input 
+    class="input-item"
     type="text"
     id="latitude"
     name="latitude"
@@ -39,13 +43,14 @@
 
 <label for="longtitude">Longtitude</label>
 <input 
+    class="input-item"
     type="text"
     id="longtitude"
     name="longtitude"
     value="{{old('longtitude', $location->longtitude)}}">
     <br>
 
-<input type="submit" value="Save Location">
+<input class="input-button" type="submit" value="Save Location">
 
 </form>
 

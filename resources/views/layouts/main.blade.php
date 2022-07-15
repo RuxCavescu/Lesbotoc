@@ -11,6 +11,7 @@
 
 
   <title>Lesbotoc</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
 </head>
 <body>
   @include('layouts/navbar')

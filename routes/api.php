@@ -26,3 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/events', [
     ApiController::class, 'showEvents'
 ])->name("users-events");
+
+Route::get('/events/{id}', [
+    ApiController::class, 'showEventDetail'
+])->whereNumber("id")->name("users-events-details");

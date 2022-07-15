@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import EventsList from "./EventsList";
 import AboutUs from "./AboutUs";
+import EventDetail from "./Events/EventDetail";
 
 function App() {
     return (
@@ -17,6 +18,10 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<Home />} />
                     <Route exact path="/events" element={<EventsList />} />
+<<<<<<< HEAD
+=======
+                    <Route path="/events/:id" element={<EventDetail />} />
+>>>>>>> main
                     <Route exact path="/about-us" element={<AboutUs />} />
                 </Routes>
             </BrowserRouter>

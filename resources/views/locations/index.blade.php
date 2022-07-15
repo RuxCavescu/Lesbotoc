@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
 <div class="index-container">
 
     <div class="admin__bar">
@@ -13,7 +15,10 @@
             
         <div class="locations-intro">
             <h2>You can create, edit, delete locations here</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint repudiandae temporibus eius suscipit enim quas fuga nihil laudantium aspernatur culpa sit nesciunt provident commodi necessitatibus laboriosam officia expedita, doloremque optio?</p>
+            
+            @include('locations/messages')
+            
+            <h3 class="h3-item">Click location to show / edit / delete. </h3>
         </div>
 
         <div class="location-data">

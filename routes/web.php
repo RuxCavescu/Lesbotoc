@@ -52,6 +52,12 @@ Route::post("/events/store", [
 //   return view('users.about.about');
 // })->name('users-about');
 
-Route::get('/{path}', [
+Route::get('/events/{id}', [
   ReactAppController::class, 'renderApp'
-  ])->whereIn('path', ['events', '', 'about-us']);
+  ])->whereNumber("id");
+
+Route::get('/{path?}', [
+  ReactAppController::class, 'renderApp'
+  ])->whereIn('path', ['events', '', 'about-us', "events/{id}"])->whereNumber("id");
+
+
