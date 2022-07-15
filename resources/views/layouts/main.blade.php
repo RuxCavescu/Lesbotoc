@@ -17,15 +17,14 @@
   @include('layouts/navbar')
   @yield('content')
   @include('layouts/footer')
-
   
   <script>
     // Get the modal
       var modal = document.querySelector(".myModal");
-      console.log(modal)
+      // console.log(modal)
 
     // Get the button that opens the modal
-        var btn = document.querySelector(".modal_btn");
+      var btn = document.querySelector(".modal_btn");
 
     // Get the <span> element that closes the modal
 
@@ -33,17 +32,15 @@
 
     // When the user clicks on the button, open the modal
 
+    if (modal) {
       btn.addEventListener("click", () => {
-        console.log('works');
         modal.style.display = "block";
       })
-
-
-    // When the user clicks on <span> (x), close the modal
-
+      // When the user clicks on <span> (x), close the modal
       close.addEventListener("click", () => {
         modal.style.display = "none";
       })
+    }
 
       // When the user clicks anywhere outside of the modal, close it
 
@@ -53,5 +50,6 @@
         }
       })
   </script>
+
 </body>
 </html>

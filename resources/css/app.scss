@@ -14,7 +14,7 @@ $input-color: black;
 $link-dark: #142566;
 $h2-dark: #4b4b4b;
 $primary-font: Inter;
-$admin-btn: 809AFF;
+$admin-btn: 809aff;
 
 html {
     box-sizing: border-box;
@@ -53,11 +53,13 @@ p {
     font-size: 20px;
 }
 
-h1 {
-    color: white;
-    font-weight: 700;
-    font-size: 70px;
-}
+// to be fixed - it overwrites everything
+//
+// h1 {
+//     color: white;
+//     font-weight: 700;
+//     font-size: 70px;
+// }
 
 h2 {
     color: $h2-dark;
@@ -95,9 +97,11 @@ h2 {
     height: 50px;
 }
 
-@import "./event.scss";
-@import "./contacts.scss";
-@import "./footer.scss";
-@import "./locations.scss";
-@import "./navbar.scss";
-@import "./modal.scss";
+@import "./admin/event.scss";
+@import "./admin/contacts.scss";
+@import "./admin/footer.scss";
+@import "./admin/locations.scss";
+@import "./admin/navbar.scss";
+@import "./admin/modal.scss";
+@import "./admin/auth";
+@import "./admin/images.scss";

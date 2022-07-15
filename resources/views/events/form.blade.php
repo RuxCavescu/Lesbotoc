@@ -30,7 +30,7 @@
       @method("DELETE")
       @csrf
 
-      <button class="button" type="submit"><i class="fa fa-trash" aria-hidden="true"></i>
+      <button class="button" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i>
         <div class="button__text">Delete</div>
       </button>
     </form>
@@ -56,8 +56,6 @@
       @endif
 
 
-      {{-- Participants button --}}
-
       <div class="form__buttons">
         @if (Request::path() !== "admin/events")
 
@@ -71,7 +69,7 @@
         {{-- Active event button --}}
         @if ($event->is_active)
         <button type="button" class="button button--border"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-          <div class="button__text">Active event</div>
+          <div class="button__text">Future event</div>
         </button>
         @else
         <button type="button" class="button button--border"><i class="fa fa-calendar-times-o" aria-hidden="true"></i>
@@ -85,9 +83,6 @@
           <div class="button__text">Already registered: {{$event->already_registered}}</div>
         </button>
         @endif
-
-
-
 
 
         {{-- Participants button --}}
@@ -107,7 +102,13 @@
 
 
 
-      @include('events/messages')
+      {{-- @include('events/messages') --}}
+
+      @if (Session::has("success"))
+<div class="events__success">
+    {{Session::get("success")}}
+</div>
+@endif 
 
 
       <!-- {{-- Disable form from editing if user comes to URL as admin/events/if --}} -->
@@ -125,15 +126,27 @@
           <label class="events__label" for="title_en">Title in English *</label>
           <input class="events__input events__input--half" type="text" id="title_en" name="title_en"
             value="{{ old('title_en', $event->title_en) }}" required>
+            <div class="events__message">
+              @error('title_en'){{ $message }}
+              @enderror
+            </div>
           <!-- {{-- ENG DESCRIPTION --}} -->
           <label class="events__label" for="description_en">Description in English *</label>
           <textarea class="events__textarea events__textarea--half" id="description_en" name="description_en"
             required>{{ old('description_en', $event->description_en) }}</textarea>
+            <div class="events__message">
+              @error('description_en'){{ $message }}
+              @enderror
+            </div>
 
           <!-- {{-- ENG INSTRUCTIONS --}} -->
           <label class="events__label" for="instructions_en">Instructions in English * </label>
           <textarea class="events__textarea events__textarea--half" id="instructions_en" name="instructions_en"
             required>{{ old('instructions_en', $event->instructions_en) }}</textarea>
+            <div class="events__message">
+              @error('instructions_en'){{ $message }}
+              @enderror
+            </div>
         </div>
 
 
@@ -143,11 +156,19 @@
           <label class="events__label" for="title_cz">Title in Czech </label>
           <input class="events__input" type="text" id="title_cz" name="title_cz"
             value="{{ old('title_cz', $event->title_cz) }}">
+            <div class="events__message">
+              @error('title_cz'){{ $message }}
+              @enderror
+            </div>
 
           <!-- {{-- CZE DESCRIPTION --}} -->
           <label class="events__label" for="description_cz">Description in Czech</label>
           <textarea class="events__textarea events__textarea--half" id="description_cz"
             name="description_cz">{{ old('description_cz', $event->description_cz) }}</textarea>
+            <div class="events__message">
+              @error('description_cz'){{ $message }}
+              @enderror
+            </div>
 
 
 
@@ -155,6 +176,10 @@
           <label class="events__label" for="instructions_cz">Instructions in Czech</label>
           <textarea class="events__textarea events__textarea--half" id="instructions_cz"
             name="instructions_cz">{{ old('instructions_cz', $event->instructions_cz) }}</textarea>
+            <div class="events__message">
+              @error('instructions_cz'){{ $message }}
+              @enderror
+            </div>
 
         </div>
 
@@ -163,15 +188,29 @@
           {{-- START DATE --}}
           <label class="events__label events__label--half" for="start_date">Start date *
             <input class="events__input" type="date" id="start_date" name="start_date"
-              value="{{ old('start_date', $event->start_date) }}" required></label>
+              value="{{ old('start_date', $event->start_date) }}" required>
+              <div class="events__message">
+                @error('start_date'){{ $message }}
+                @enderror
+              </div>
+            </label>
           {{-- START TIME --}}
           <label class="events__label events__label--half" for="time">Start time
             <input class="events__input" type="time" id="time" name="time"
-              value="{{ old('time', $event->time) }}"></label>
+              value="{{ old('time', $event->time) }}">
+              <div class="events__message">
+                @error('time'){{ $message }}
+                @enderror
+              </div>
+            </label>
           {{-- END DATE --}}
           <label class="events__label events__label--half" for="end_date">End date
             <input class="events__input" type="date" id="end_date" name="end_date"
               value="{{ old('end_date', $event->end_date) }}"></label>
+              <div class="events__message">
+                @error('end_date'){{ $message }}
+                @enderror
+              </div>
 
           {{-- LOCATION --}}
           <label class="events__label events__label--half" for="location">Location *
@@ -200,12 +239,19 @@
                 {{$location->name}}: {{$location->address}}
               </option>
 
-
               @endforeach
               @endif
 
 
-            </select></label>
+            </select>
+            <div class="events__message">
+              @error('location_id'){{ $message }}
+              @enderror
+            </div>
+          </label>
+
+            
+             
 
 
           {{-- CATEGORIES --}}
@@ -234,25 +280,13 @@
               @endforeach
               @endif
 
-            </select></label>
+            </select>
+            <div class="events__message">
+              @error('category_id'){{ $message }}
+              @enderror
+            </div>
+          </label>
 
-
-          {{-- PAID EVENT? --}}
-          {{-- <div class="events__radio">
-            <label class="events__label">Paid event? *</label>
-            <input class="events__input--radio" id="paid_yes" type="radio" name="is_paid" value="1" required
-              @if($event->id && $event->is_paid === 1)
-            checked
-            @endif>
-            <label class="events__label events__label--radio" for="paid_yes">Yes</label>
-            <input class="events__input--radio" id="paid_no" type="radio" name="is_paid" value="0" @if ($event->id &&
-            $event->is_paid === 0)
-            checked
-            @elseif (!$event->id)
-            checked
-            @endif
-            ><label class="events__label events__label--radio" for="paid_no">No</label>
-          </div> --}}
 
 
           @if($event->id)
@@ -273,7 +307,11 @@
               @endif
             {{old('is_paid')=="0"
               ? 'checked' : '' }}><label class="events__label events__label--radio" for="paid_no">No</label>
-          </div>
+                       <div class="events__message">
+                        @error('is_paid'){{ $message }}
+                        @enderror
+                      </div>        
+        </div>
 
           @else 
 
@@ -286,16 +324,26 @@
 
             <input class="events__input--radio" id="paid_no" type="radio" name="is_paid" value="0" {{old('is_paid')=="0"
               ? 'checked' : '' }}><label class="events__label events__label--radio" for="paid_no">No</label>
+                     <div class="events__message">
+                      @error('is_paid'){{ $message }}
+                      @enderror
+                    </div>
           </div>
 
           @endif
+ 
 
 
 
           {{-- PRICE --}}
           <label class="events__label events__label--half" for="price">Price
             <input class="events__input" id="price" type="number" min="1" name="price"
-              value="{{ old('price', $event->price) }}"></label>
+              value="{{ old('price', $event->price) }}">
+              <div class="events__message">
+                @error('price'){{ $message }}
+                @enderror
+              </div>
+            </label>
 
 
           {{-- QR code URL --}}
@@ -305,7 +353,13 @@
           {{-- CAPACITY --}}
           <label class="events__label events__label--half" for="capacity">Capacity
             <input class="events__input" id="capacity" type="number" min="1" name="capacity"
-              value="{{ old('capacity', $event->capacity) }}"></label>
+              value="{{ old('capacity', $event->capacity) }}">
+            
+              <div class="events__message">
+                @error('capacity'){{ $message }}
+                @enderror
+              </div>
+            </label>
 
 
           {{-- IS PHONE REQUIRED --}}
@@ -327,6 +381,10 @@
             @endif
           {{old('is_phone_required')=="0" ? 'checked' : '' }} 
             ><label for="phone_no" class="events__label events__label--radio">No</label>
+            <div class="events__message">
+              @error('is_phone_required'){{ $message }}
+              @enderror
+            </div>
           </div>
           @else 
           <div class="events__radio">
@@ -340,6 +398,10 @@
             <input class="events__input--radio" id="phone_no" type="radio" name="is_phone_required" value="0"
           {{old('is_phone_required')=="0" ? 'checked' : '' }} 
             ><label for="phone_no" class="events__label events__label--radio">No</label>
+            <div class="events__message">
+              @error('is_phone_required'){{ $message }}
+              @enderror
+            </div>
           </div>
           @endif
 
@@ -360,6 +422,10 @@
           {{old('is_recurring')=="0" ? 'checked' : '' }}
   
             ><label class="events__label events__label--radio" for="recurring_no">No</label>
+            <div class="events__message">
+              @error('is_recurring'){{ $message }}
+              @enderror
+            </div>
           </div>
 
           @else 
@@ -373,6 +439,10 @@
             <input class="events__input--radio" id="recurring_no" type="radio" name="is_recurring" value="0"
             {{old('is_recurring')=="0" ? 'checked' : '' }}
             ><label class="events__label events__label--radio" for="recurring_no">No</label>
+            <div class="events__message">
+              @error('is_recurring'){{ $message }}
+              @enderror
+            </div>
           </div>
           @endif
 
@@ -396,6 +466,10 @@
             @endif
           {{old('is_featured')=="0" ? 'checked' : '' }} 
             ><label class="events__label events__label--radio" for="featured_no">No</label>
+            <div class="events__message">
+              @error('is_featured'){{ $message }}
+              @enderror
+            </div>
           </div>
 
           @else 
@@ -410,6 +484,10 @@
             value="0"
           {{old('is_featured')=="0" ? 'checked' : '' }} 
             ><label class="events__label events__label--radio" for="featured_no">No</label>
+            <div class="events__message">
+              @error('is_featured'){{ $message }}
+              @enderror
+            </div>
           </div>
 
           @endif
@@ -420,24 +498,26 @@
 
 
           <label class="events__label events__label--half" for="images">Images *
-            <select class="events__input events__input--high" name="image_id[]" id="images" multiple required>
+            <select class="events__input" name="image_id" id="images" required>
 
-              @if ($event->id && $event->images)
+        @if ($event->id && $event->image)
               <option disabled="disabled">Select image</option>
 
-              @foreach ($event->images as $image_event)
-              <option value={{$image_event->id}} selected>{{$image_event->alt}}</option>
-              @endforeach
-
-
-
               @foreach ($images as $image)
+
+              @if ($image->id === $event->image->id)
+
+
+              <option value={{$image->id}} selected>{{$image->alt}}</option>
+
+              @else 
+
               <option value={{$image->id}}>{{$image->alt}}</option>
+
+              @endif
               @endforeach
 
-
-
-              @else
+        @else
               <option selected disabled="disabled">Select image</option>
               @foreach ($images as $image)
 
@@ -446,36 +526,16 @@
               >{{$image->alt}}</option>
 
               @endforeach
-              @endif
+        @endif
 
-            </select></label>
+            </select>
+            <div class="events__message">
+              @error('image_id'){{ $message }}
+              @enderror
+            </div>
+          </label>
 
-            @dump(old('image_id'))
-
-
-            {{-- @else
-            <option selected disabled="disabled">Select category</option>
-            @foreach ($categories as $category)
-            <option value={{$category->id}} {{old('category_id') == $category->id ? 'selected' : ""
-              }}>{{$category->name_en}}</option>
-            @endforeach
-            @endif --}}
-
-
-
-              {{-- DELETE THIS --}}
-
-
-              {{-- @else
-              <option selected disabled="disabled">Select location</option>
-              @foreach ($locations as $location)
-              <option value={{$location->id}} {{old('location_id') == $location->id ? 'selected' : ""}}>
-                {{$location->name}}: {{$location->address}}
-              </option>
-              @endforeach --}}
-              {{-- @endif
-              {{-- DELETE THIS --}}
-
+ 
 
       </fieldset>
 

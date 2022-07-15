@@ -1,0 +1,90 @@
+.images__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 130px;
+    padding: 0 6em;
+}
+
+.images__intro {
+    padding: 100px 0;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // justify-content: center;
+    height: 250px;
+    width: 200px;
+    margin-bottom: 50px;
+
+    & img {
+        max-height: 70%;
+    }
+
+    & h4 {
+        margin: 0px;
+    }
+
+    &__info {
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+.add__image {
+    &-input {
+        width: 100%;
+        padding: 1em;
+        height: 52px;
+        border: none;
+        background: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: inherit;
+    }
+
+    &-button {
+        font-family: Inter;
+        text-decoration: none;
+
+        width: 100px;
+        height: 50px;
+        background-color: $header-bg1;
+        border-radius: 5px;
+        border: none;
+        padding: 0 10px;
+
+        /* Button Text Style */
+
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 35px;
+        /* or 219% */
+
+        display: flex;
+        align-items: center;
+
+        color: #ffffff;
+    }
+}
+
+.add__image-add {
+    margin-top: 25px;
+}
+
+.delete__image-btn {
+    font-family: "Inter";
+    margin-bottom: 10px;
+}

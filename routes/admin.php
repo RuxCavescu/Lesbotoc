@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,6 +109,25 @@ Route::delete(
     ContactController::class, 'destroy'
   ]
 )->name('delete-contact');
+
+
+// Admin/Images routes
+
+Route::get(
+  '/images', [
+    ImageController::class,'index'
+  ])->name('image-index');
+
+Route::post(
+  '/images/add-image', [
+    ImageController::class,'store'
+  ])->name('save-image');
+
+Route::delete(
+  '/images/{id}/delete', [
+    ImageController::class,'destroy'
+  ])->name('delete-image');
+
 
 //admin location routes
 

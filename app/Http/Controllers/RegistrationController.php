@@ -7,6 +7,7 @@ use App\Models\Registration;
 use App\Models\Event;
 
 
+
 class RegistrationController extends Controller
 {
     public function create()

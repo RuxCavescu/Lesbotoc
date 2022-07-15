@@ -35,6 +35,7 @@ return new class extends Migration
             $table->boolean("is_recurring")->nullable();
             $table->boolean("is_active")->nullable();
             $table->boolean("is_featured");
+            $table->foreignId("image_id");
             $table->timestamps();
         });
     }

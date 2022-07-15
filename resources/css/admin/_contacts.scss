@@ -115,7 +115,8 @@ button {
 }
 
 .create__contact,
-.edit__contact {
+.edit__contact,
+.add__image {
     font-family: Inter;
     background-color: $form-bg;
     padding: 100px;
@@ -128,7 +129,7 @@ button {
     }
 
     &-input {
-        flex: 0 30%;
+        flex: 0 47%;
         height: 50px;
         border: none;
         background: #ffffff;
@@ -158,18 +159,45 @@ button {
     &-buttons {
         display: flex;
         flex-direction: row;
+        justify-content: end;
     }
 
-    &-save {
-        font-family: Inter;
-        text-decoration: none;
+    // &-save {
+    //     font-family: Inter;
+    //     text-decoration: none;
 
-        width: 100px;
+    //     width: 200px;
+    //     height: 50px;
+    //     background-color: $header-bg1;
+    //     border-radius: 5px;
+    //     border: none;
+    //     padding: 0 10px;
+
+    //     /* Button Text Style */
+
+    //     font-family: "Inter";
+    //     font-style: normal;
+    //     font-weight: 700;
+    //     font-size: 16px;
+    //     line-height: 35px;
+    //     /* or 219% */
+
+    //     display: flex;
+    //     align-items: center;
+
+    //     color: #ffffff;
+    // }
+
+    &-cancel,
+    &-save {
+        width: 200px;
         height: 50px;
         background-color: $header-bg1;
         border-radius: 5px;
         border: none;
         padding: 0 10px;
+        margin-left: 50px;
+        text-decoration: none;
 
         /* Button Text Style */
 
@@ -182,21 +210,25 @@ button {
 
         display: flex;
         align-items: center;
-
         color: #ffffff;
+        text-align: center;
+
+        & a {
+            text-decoration: none;
+            color: #ffffff;
+        }
     }
 
-    &-cancel {
+    &-add {
         font-family: Inter;
         text-decoration: none;
 
-        width: 100px;
+        width: 200px;
         height: 50px;
         background-color: $header-bg1;
         border-radius: 5px;
         border: none;
         padding: 0 10px;
-        margin-left: 50px;
 
         /* Button Text Style */
 
@@ -221,6 +253,18 @@ button {
     align-items: center;
 }
 
+.create-btn {
+    padding: 10px 50px;
+
+    & .button__text {
+        font-weight: 500;
+    }
+}
+
+.modal_btn {
+    padding: 10px 50px;
+}
+
 .alert-success {
     color: green;
     padding: 50px 10px 0 10px;
@@ -232,11 +276,24 @@ button {
 
 .button-fa {
     height: 40px;
-    width: 70px;
-    background-color: $button-dark;
+    width: 50px;
+    // background-color: $button-dark;
     color: $navbar-text;
     border: none;
     padding: 10px;
+    border-radius: 5px;
+}
+
+.fa-edit {
+    border: 1px solid #809aff;
+    color: #142566;
+    background-color: #ccd6ff;
+}
+
+.fa-trash {
+    border: 1px solid #bbbbbb;
+    color: #333333;
+    background-color: #eeeeee;
 }
 
 .checkmark {

@@ -10,7 +10,6 @@ html {
     box-sizing: inherit;
 }
 
-
 // .admin-button {
 //     background-color: red;
 //     border: none;
@@ -22,27 +21,27 @@ html {
 //     font-size: 16px;
 // }
 
-.index-container{
+.index-container {
     background-color: $body-bg;
 }
 
-.list-container{
+.list-container {
     padding-bottom: 20px;
 }
 
-.locations-container{
-    // width: 1000px;    
+.locations-container {
+    // width: 1000px;
     width: 80%;
     margin: auto;
     text-align: center;
     font-family: $primary-font;
 }
-.location-data{
+.location-data {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-.list-btn{
+.list-btn {
     background-color: $header-bg1;
     border: none;
     color: white;
@@ -68,11 +67,11 @@ select {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
-.form-container{
+.form-container {
     background-color: $form-bg;
     width: 60%;
     margin: auto;
@@ -102,11 +101,11 @@ select {
     text-align: center;
 }
 
-.button-a{
+.button-a {
     text-decoration: none;
     text-align: center;
 }
-.btn-container{
+.btn-container {
     display: flex;
     flex-direction: row;
     

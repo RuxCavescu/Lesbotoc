@@ -47,6 +47,7 @@ class EventSeeder extends Seeder
            'is_featured'=> true,
             'capacity' => 30,
             "is_phone_required" => false, 
+            "image_id" => 28,
             // "already_registered" => null
         ],
         [
@@ -71,6 +72,7 @@ class EventSeeder extends Seeder
          'is_featured'=> false,
           'capacity' => 15,
           "is_phone_required" => true,
+          "image_id" => 29,
           // "already_registered" => null
       ],
       [
@@ -93,6 +95,7 @@ class EventSeeder extends Seeder
        'is_featured'=> false,
         'capacity' => 20,
         "is_phone_required" => false,
+        "image_id" => 13,
         // "already_registered" => null
     ],
     [
@@ -119,6 +122,7 @@ class EventSeeder extends Seeder
      'is_featured'=> false,
       'capacity' => 10,
       "is_phone_required" => false,
+      "image_id" => 3
       // "already_registered" => null
   ],
   [
@@ -143,6 +147,8 @@ class EventSeeder extends Seeder
    'is_featured'=> false,
     'capacity' => null,
     "is_phone_required" => false,
+    "image_id" => 30,
+    
     // "already_registered" => null
 ],
 [
@@ -168,6 +174,7 @@ class EventSeeder extends Seeder
  'is_featured'=> false,
   'capacity' => 36,
   "is_phone_required" => true,
+  "image_id" => 8,
   // "already_registered" => null
 ],
 [
@@ -190,6 +197,7 @@ class EventSeeder extends Seeder
  'is_featured'=> false,
   'capacity' => null,
   "is_phone_required" => false,
+  "image_id" => 31,
   // "already_registered" => null
 ],
 [
@@ -212,6 +220,7 @@ class EventSeeder extends Seeder
  'is_featured'=> false,
   'capacity' => null,
   "is_phone_required" => false,
+  "image_id" => 32,
   // "already_registered" => null
 ],
 [
@@ -234,6 +243,7 @@ class EventSeeder extends Seeder
  'is_featured'=> false,
   'capacity' => null,
   "is_phone_required" => false,
+  "image_id" => 33,
   // "already_registered" => null
 ],
 [
@@ -256,6 +266,7 @@ class EventSeeder extends Seeder
  'is_featured'=> false,
   'capacity' => null,
   "is_phone_required" => false,
+  "image_id" => 34,
   // "already_registered" => null
 ]
 ];
@@ -268,3 +279,5 @@ class EventSeeder extends Seeder
 
     }
 }
+
+

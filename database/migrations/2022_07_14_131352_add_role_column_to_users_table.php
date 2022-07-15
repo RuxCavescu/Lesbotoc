@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('event_image', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('event_id');
-            $table->foreignId('image_id');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('role')->nullable()->after("email");
         });
     }
 
@@ -28,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event_image');
+        Schema::table('users', function (Blueprint $table) {
+          $table->dropColumn("role");
+        });
     }
 };

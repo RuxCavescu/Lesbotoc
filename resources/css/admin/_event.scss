@@ -41,10 +41,10 @@
         border-radius: 5px;
 
         &--grey {
-            background-color: #8099ff69;
+            background-color: #8099ffc0;
 
             .events__link {
-                color: black;
+                color: white;
             }
         }
     }
@@ -90,17 +90,13 @@
     }
 
     &__form {
-        // width: 70%;
         height: fit-content;
         padding: 2em 2.5em;
 
         background-color: #efefef;
-        // background-color: #918f8f;
-        border-radius: 10px;
+        // background-color: #949191;
 
-        // .button {
-        //     margin-left: auto;
-        // }
+        border-radius: 10px;
 
         .form__buttons {
             display: flex;
@@ -132,6 +128,22 @@
         }
     }
 
+    &__message {
+        font-weight: normal;
+        font-style: italic;
+        font-size: 0.9em;
+        color: rgb(182, 7, 7);
+        height: 30px;
+    }
+
+    &__success {
+        font-weight: normal;
+        font-style: italic;
+        font-size: 0.9em;
+        color: green;
+        height: 30px;
+    }
+
     &__input {
         width: 100%;
         padding: 1em;
@@ -140,17 +152,14 @@
         background: #ffffff;
         border-radius: 5px;
         display: block;
-        margin-top: 5px;
-        margin-bottom: 30px;
+        margin: 8px 0;
+        // margin-bottom: 30px;
         font-family: inherit;
+        border: 1px solid rgba(204, 204, 204, 0.555);
 
         &--radio {
             margin-top: 25px;
             // margin-bottom: 20px;
-        }
-
-        &--high {
-            height: 200px;
         }
 
         // &--half {
@@ -172,7 +181,7 @@
         border-radius: 5px;
         resize: none;
         margin-top: 5px;
-        margin-bottom: 30px;
+        // margin-bottom: 30px;
         padding: 1.25em;
         line-height: 1.75em;
     }
@@ -233,6 +242,7 @@
         background: #142566;
         display: flex;
         align-items: center;
+        text-align: center;
     }
 
     &__title {
@@ -270,8 +280,11 @@
         .fa-check-square-o,
         .fa-calendar-check-o,
         .fa-calendar-times-o,
-        .fa-star-o {
+        .fa-star-o,
+        .fa-sign-in,
+        .fa-trash.fa {
             color: $lesbotoc;
+            background-color: none;
         }
     }
 

@@ -21,6 +21,7 @@
         </style>
     </head>
     <body>
+       <button><a href="login">LogIn</button>
        <button><a href="admin/events">Events</button>
        <button><a href="admin/contacts">Contacts</button>
        <button><a href="admin/locations">Locations</button>

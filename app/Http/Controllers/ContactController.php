@@ -115,7 +115,7 @@ class ContactController extends Controller
 
         $this->validate($request, [
             'name' => 'required|max:255',
-            'email' => 'required|email:rfc,dns',
+            'email' => 'required|email:rfc,dns|unique:contacts,email',
             'phone' => 'nullable|numeric',
             'is_subscribed' => 'required|boolean'
         ]);
@@ -124,9 +124,10 @@ class ContactController extends Controller
         $contact = new Contact;
 
         // fills in the properties of the new object with values coming in from the form
-        $contact->name = $request->name ?? null;
-        $contact->email = $request->email ?? null;
+        $contact->name = $request->name;
+        $contact->email = $request->email;
         $contact->phone = $request->phone ?? null;
+        $contact->source = $request->source ?? 'added manually';
         $contact->is_subscribed = $request->is_subscribed ?? false;
 
         // saves the object to the DB
