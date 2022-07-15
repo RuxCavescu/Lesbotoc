@@ -1,3 +1,4 @@
+@include('contacts/messages')
 <form class="add__image" method="post" enctype="multipart/form-data" action="{{route("save-image")}}">
     @csrf
     <h2 class="add__image-title"> Add a new image: </h2>

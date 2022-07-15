@@ -48,9 +48,24 @@ class ImageController extends Controller
 
         $image->save();
 
-        // session()->flash('success_message', 'Success, contact added!');
+        session()->flash('success_message', 'Success, image added!');
 
         // // redirects to the list of contacts
+        return redirect( route('image-index') );
+    }
+
+
+    public function destroy(Request $request, $id)
+    {
+        // find the contact
+        $image = Image::findOrFail($id);
+
+        // delete the entry from the DB
+        $image->delete();
+
+        session()->flash('success_message', 'Success, image deleted!');
+
+        // redirect to the list of available contacts
         return redirect( route('image-index') );
     }
 }

@@ -114,6 +114,11 @@ Route::post(
     ImageController::class,'store'
   ])->name('save-image');
 
+Route::delete(
+  '/images/{id}/delete', [
+    ImageController::class,'destroy'
+  ])->name('delete-image');
+
 
 //admin location routes
 
