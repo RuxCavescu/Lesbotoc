@@ -15,6 +15,10 @@ use App\Http\Controllers\ApiController;
 |
 */
 
+
+// WHEN PROVIDING EVENTS API TO USER VIEW, UPDATE IS_ACTIVE COLUMN, SO THAT USER CAN SEE ONLY ACTIVE EVENTS ---SUBSTITUTION FOR SCHEDULER
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

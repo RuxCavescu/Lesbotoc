@@ -24,9 +24,9 @@ class Event extends Model
       return $this->belongsTo(Location::class);
     }
 
-    public function images()
+    public function image()
     {
-      return $this->belongsToMany(Image::class);
+      return $this->belongsTo(Image::class);
     }
 
     public function category()
