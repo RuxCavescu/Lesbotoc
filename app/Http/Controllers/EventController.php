@@ -12,6 +12,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\EventRegistrationsExport;
 use Carbon\Carbon;
 
+
+
 class EventController extends Controller
 {
     public function index()
