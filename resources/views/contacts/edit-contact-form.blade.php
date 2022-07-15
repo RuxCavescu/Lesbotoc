@@ -2,7 +2,7 @@
 
     <form class="edit__contact" action="{{ route('update-contact', ['id' => $contact->id]) }}" method="post">
         @csrf
-            <h2 class="edit__contact-title"> Edit th contact: </h2>
+            <h2 class="edit__contact-title"> Edit the contact: </h2>
             @include('contacts/messages')
             <tr class="edit__contact-row">
             <div class="edit__contact-inputs">
@@ -12,7 +12,7 @@
             </div>
 
                  <div class="edit__contact-radioBtn">
-                     <p>Is the Contact subscribed?</p>
+                     <p>Is the Contact subscribed to the newsletter?</p>
                      <div class="edit__contact-radio">
                          <label for="subscribed_yes">Yes</label>
                          <input id="is_subscribed_yes"  type="radio" name="is_subscribed" value="1" required         

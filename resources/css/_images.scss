@@ -1,5 +1,4 @@
 .images__container {
-    margin-top: 100px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -46,6 +45,7 @@
         height: 52px;
         border: none;
         background: #ffffff;
+        border: 1px solid #ccc;
         border-radius: 5px;
         display: flex;
         justify-content: center;
