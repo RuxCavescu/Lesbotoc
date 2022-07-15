@@ -9,8 +9,18 @@ class ApiController extends Controller
 {
     public function showEvents() 
     {
-        $events = Event::get();
+        $events = Event::with("image")
+                    ->get();
 
         return $events;
+    }
+
+    public function showEventDetail($id)
+    {
+      $event = Event::with("location", "category")
+                      ->findOrFail($id);
+
+      return $event;
+
     }
 }

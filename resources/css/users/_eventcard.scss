@@ -1,0 +1,53 @@
+.event {
+    font-family: "Inter";
+    padding: 2em;
+    width: 470.59px;
+    height: 366px;
+    background: #0a0a0aab;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    &__container {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2em;
+    }
+
+    &__date {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        color: #ffffff;
+    }
+
+    &__name {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 48px;
+        text-align: center;
+        text-transform: uppercase;
+
+        color: #ffffff;
+    }
+
+    &__button {
+        width: 202.35px;
+        height: 43px;
+        // background: #ffffff;
+        border-radius: 30px;
+        border: none;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        color: black;
+    }
+}

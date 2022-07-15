@@ -33,3 +33,6 @@ body {
 h1 {
     color: black;
 }
+
+@import "./users/eventcard.scss";
+@import "./users/intro";

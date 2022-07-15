@@ -105,7 +105,5 @@ class LocationSeeder extends Seeder
 }
 
 
-// Use following : name & address in q parameter 
 
-// <iframe src="https://maps.google.com/maps?&q=Bowling v Továrně Vlastislavova 603, Praha 4, 140 00&output=embed" width="450" height="270" frameborder="0" style="border:0"></iframe>
 

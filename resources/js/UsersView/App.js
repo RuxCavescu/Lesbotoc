@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import EventsList from "./EventsList";
 import AboutUs from "./AboutUs";
+import EventDetail from "./Events/EventDetail";
 
 function App() {
     return (
@@ -15,13 +16,10 @@ function App() {
             <BrowserRouter>
                 <Navbar />
                 <Routes>
-                    <Route exact path="/" element={<Home />}></Route>
-                    <Route
-                        exact
-                        path="/events"
-                        element={<EventsList />}
-                    ></Route>
-                    <Route exact path="/about-us" element={<AboutUs />}></Route>
+                    <Route exact path="/" element={<Home />} />
+                    <Route exact path="/events" element={<EventsList />} />
+                    <Route path="/events/:id" element={<EventDetail />} />
+                    <Route exact path="/about-us" element={<AboutUs />} />
                 </Routes>
             </BrowserRouter>
         </div>

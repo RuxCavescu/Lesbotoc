@@ -97,11 +97,11 @@ h2 {
     height: 50px;
 }
 
-@import "./event.scss";
-@import "./contacts.scss";
-@import "./footer.scss";
-@import "./locations.scss";
-@import "./navbar.scss";
-@import "./modal.scss";
-@import "./auth";
-@import "./images.scss";
+@import "./admin/event.scss";
+@import "./admin/contacts.scss";
+@import "./admin/footer.scss";
+@import "./admin/locations.scss";
+@import "./admin/navbar.scss";
+@import "./admin/modal.scss";
+@import "./admin/auth";
+@import "./admin/images.scss";
