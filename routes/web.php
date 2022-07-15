@@ -38,3 +38,7 @@ Route::get("/events/register", [
 Route::post("/events/store", [
   RegistrationController::class, "store"
 ])->name("registration.store");
+
+Route::get('/homepage', function () {
+  return view('users.homepage.homepage');
+})->name('users-homepage');

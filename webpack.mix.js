@@ -42,6 +42,7 @@ mix
 
 // Examples:
 mix.sass("resources/css/app.scss", "public/css");
+mix.sass("resources/css/users-app.scss", "public/css");
 // mix.sass("resources/css/event.scss", "public/css");
 // mix.sass("resources/css/form.scss", "public/css");
 // mix.sass("resources/css/contacts.scss", "public/css");

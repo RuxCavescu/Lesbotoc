@@ -19,7 +19,6 @@ use App\Http\Controllers\ImageController;
 // Admin/ Events routes
 
 Route::get('/', [function () {
-  
   return view('homepage.admin-homepage');
 }])->name("homepage");
 
