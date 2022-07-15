@@ -21,7 +21,7 @@
                 <td class="contact__columns-email"> {{$contact->email}} </td>
                 <td class="contact__columns-phone"> {{$contact->phone ? $contact->phone : '-'}} </td>   
                                 <td>
-                    <a href="{{$contact->id}}/edit"><button class="button-fa fa fa-edit"></button></a>
+                    <a href="contacts/{{$contact->id}}/edit"><button class="button-fa fa fa-edit"></button></a>
                 </td>
                 <td>        
                 <form action="{{ route('delete-contact', ['id' => $contact->id])}}" method="post">
