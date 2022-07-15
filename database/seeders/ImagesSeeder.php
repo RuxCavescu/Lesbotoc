@@ -155,6 +155,41 @@ class ImagesSeeder extends Seeder
                 "alt" => "two women as pedestrian traffic lights",
                 "path" => "/images/women/women_traffic_lights.jpg",
             ],
+            [
+                "id" => "28",
+                "alt" => "woman reading a book while drinking tea",
+                "path" => "/images/book_woman.jpg",
+            ],
+            [
+                "id" => "29",
+                "alt" => "people drinking around the fire",
+                "path" => "/images/camp.jpg",
+            ],
+            [
+                "id" => "30",
+                "alt" => "friends playing card game",
+                "path" => "/images/board_game.jpg",
+            ],
+            [
+                "id" => "31",
+                "alt" => "image of colorful bowling balls",
+                "path" => "/images/bowling.jpg",
+            ],
+            [
+                "id" => "32",
+                "alt" => "picture of halloween carved pumpkins on leaves",
+                "path" => "/images/halloween.jpg",
+            ],
+            [
+                "id" => "33",
+                "alt" => "people drinking beer",
+                "path" => "/images/beer.jpg",
+            ],
+            [
+                "id" => "34",
+                "alt" => "Crowds in pub playing games",
+                "path" => "/images/pub_quiz.jpg",
+            ],
 
         ];
         foreach ($images as $image) {
