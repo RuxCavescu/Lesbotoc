@@ -9,9 +9,10 @@
                 <input class="create__contact-input" type="text" name="name" value="{{$contact->name}}" placeholder="Name"> 
                 <input class="create__contact-input" type="text" name="email" value="{{$contact->email}}" placeholder="Email">
                 <input class="create__contact-input" type="text" name="phone" value="{{$contact->phone}}" placeholder="Phone">
+                <input class="create__contact-input" type="text" name="source" value="{{$contact->source}}" placeholder="Source">
             </div>
                  <div class="create__contact-radioBtn">
-                     <p>Is the Contact subscribed?</p>
+                     <p>Is the Contact subscribed to the newsletter?</p>
                      <div class="create__contact-radio">
                          <label for="subscribed_yes">Yes</label>
                          <input id="is_subscribed_yes"  type="radio" name="is_subscribed" value="1" required         

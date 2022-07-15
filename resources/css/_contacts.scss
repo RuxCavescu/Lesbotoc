@@ -129,7 +129,7 @@ button {
     }
 
     &-input {
-        flex: 0 30%;
+        flex: 0 47%;
         height: 50px;
         border: none;
         background: #ffffff;
@@ -159,45 +159,45 @@ button {
     &-buttons {
         display: flex;
         flex-direction: row;
+        justify-content: end;
     }
 
+    // &-save {
+    //     font-family: Inter;
+    //     text-decoration: none;
+
+    //     width: 200px;
+    //     height: 50px;
+    //     background-color: $header-bg1;
+    //     border-radius: 5px;
+    //     border: none;
+    //     padding: 0 10px;
+
+    //     /* Button Text Style */
+
+    //     font-family: "Inter";
+    //     font-style: normal;
+    //     font-weight: 700;
+    //     font-size: 16px;
+    //     line-height: 35px;
+    //     /* or 219% */
+
+    //     display: flex;
+    //     align-items: center;
+
+    //     color: #ffffff;
+    // }
+
+    &-cancel,
     &-save {
-        font-family: Inter;
-        text-decoration: none;
-
-        width: 100px;
-        height: 50px;
-        background-color: $header-bg1;
-        border-radius: 5px;
-        border: none;
-        padding: 0 10px;
-
-        /* Button Text Style */
-
-        font-family: "Inter";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 35px;
-        /* or 219% */
-
-        display: flex;
-        align-items: center;
-
-        color: #ffffff;
-    }
-
-    &-cancel {
-        font-family: Inter;
-        text-decoration: none;
-
-        width: 100px;
+        width: 200px;
         height: 50px;
         background-color: $header-bg1;
         border-radius: 5px;
         border: none;
         padding: 0 10px;
         margin-left: 50px;
+        text-decoration: none;
 
         /* Button Text Style */
 
@@ -210,8 +210,13 @@ button {
 
         display: flex;
         align-items: center;
-
         color: #ffffff;
+        text-align: center;
+
+        & a {
+            text-decoration: none;
+            color: #ffffff;
+        }
     }
 
     &-add {
