@@ -5,8 +5,11 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
-        <nav className="users__navbar">
-            <div className="navbar__links">
+        <nav className="navbar">
+            <a href="/" class="navbar__logo-link">
+                <img src="/images/logo_white.png" alt="lesbotoc logo" />
+            </a>
+            <div className="navbar-links">
                 <a className="link" href="/">
                     Home
                 </a>

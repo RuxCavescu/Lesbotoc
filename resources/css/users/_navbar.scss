@@ -1,20 +1,16 @@
-.users__navbar {
+.navbar {
     font-family: Inter;
-    background-color: $navbar-color;
+    background-color: $header-bg2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 4em;
     padding: 0 6em;
 
-    & .navbar__links {
+    & .navbar-links {
         height: 100%;
         display: flex;
         align-items: center;
-        justify-content: end;
-
-        & a {
-            padding: 20px;
-            color: white;
-            text-decoration: none;
-        }
 
         & .link {
             padding: 20px;
@@ -35,11 +31,14 @@
                 background-color: $header-bg1;
             }
         }
+        & .link-active {
+            letter-spacing: 0.2rem;
+            display: flex;
+            color: $link-dark;
+            background-color: $header-bg1;
+        }
     }
-    & .link-active {
-        letter-spacing: 0.2rem;
-        display: flex;
-        color: $link-dark;
-        background-color: $header-bg1;
+    & .navbar__logo-link img {
+        height: 3em;
     }
 }

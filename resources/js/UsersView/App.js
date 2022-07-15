@@ -9,19 +9,15 @@ import AboutUs from "./AboutUs";
 function App() {
     return (
         <div>
-            <h1>Main React Application</h1>
-            <p>Users-Side Homepage React application</p>
+            <h1>Main React Application - from App.js</h1>
+            <a href="/admin">Admin Side</a>
 
             <BrowserRouter>
                 <Navbar />
                 <Routes>
-                    <Route exact path="/" element={<Home />}></Route>
-                    <Route
-                        exact
-                        path="/events"
-                        element={<EventsList />}
-                    ></Route>
-                    <Route exact path="/about-us" element={<AboutUs />}></Route>
+                    <Route exact path="/" element={<Home />} />
+                    <Route exact path="/events" element={<EventsList />} />
+                    <Route exact path="/about-us" element={<AboutUs />} />
                 </Routes>
             </BrowserRouter>
         </div>
