@@ -1,0 +1,45 @@
+.users__navbar {
+    font-family: Inter;
+    background-color: $navbar-color;
+    height: 4em;
+    padding: 0 6em;
+
+    & .navbar__links {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+
+        & a {
+            padding: 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        & .link {
+            padding: 20px;
+            height: 100%;
+            margin: 0 0;
+            list-style: none;
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+            color: $navbar-text;
+            text-decoration: none;
+            padding: 0 1em;
+            text-transform: uppercase;
+
+            &:hover {
+                letter-spacing: 0.2rem;
+                color: $link-dark;
+                background-color: $header-bg1;
+            }
+        }
+    }
+    & .link-active {
+        letter-spacing: 0.2rem;
+        display: flex;
+        color: $link-dark;
+        background-color: $header-bg1;
+    }
+}

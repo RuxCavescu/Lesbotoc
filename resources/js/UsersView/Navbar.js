@@ -5,14 +5,18 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
-        // <h1>This is the navbar</h1>
         <nav className="users__navbar">
-            <a href="/">Home</a>
-            <a href="/events">Events</a>
-            <a href="/about-us">About Us</a>
-            {/* <Link to={"/homepage"}>Home</Link>
-                <Link to={"/events"}>Events</Link>
-                <Link to={"/about-us"}>About Us</Link> */}
+            <div className="navbar__links">
+                <a className="link" href="/">
+                    Home
+                </a>
+                <a className="link" href="/events">
+                    Events
+                </a>
+                <a className="link" href="/about-us">
+                    About Us
+                </a>
+            </div>
         </nav>
     );
 }
