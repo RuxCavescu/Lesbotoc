@@ -15,7 +15,7 @@
   @yield('content')
   @include('users/layouts/footer')
 
-<script>
+{{-- <script>
 
         const navbar = document.querySelector(".users__navbar");
         // Loop through the links and add the active class to the current/clicked button
@@ -27,7 +27,7 @@
             const path = location_path.slice(location_path.lastIndexOf('/'))
             
             // Get all buttons with class="link" inside the navbar
-            const links = navbar.querySelectorAll(".link");
+            const links = window.querySelectorAll(".users__navbar .link");
 
             for (var i = 0; i < links.length; i++) {
 
@@ -45,6 +45,6 @@
             
         })
         
-    </script>
+    </script> --}}
 </body>
 </html>

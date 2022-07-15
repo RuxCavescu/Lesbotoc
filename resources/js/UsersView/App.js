@@ -18,10 +18,7 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<Home />} />
                     <Route exact path="/events" element={<EventsList />} />
-<<<<<<< HEAD
-=======
                     <Route path="/events/:id" element={<EventDetail />} />
->>>>>>> main
                     <Route exact path="/about-us" element={<AboutUs />} />
                 </Routes>
             </BrowserRouter>
