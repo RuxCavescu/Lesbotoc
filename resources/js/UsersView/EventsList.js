@@ -21,15 +21,14 @@ function EventsList() {
 
     return (
         <>
-            <EventDetail />
             <div className="intro">
                 <h2 className="intro__headline">About our events</h2>
                 <p className="intro__text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Tincidunt etiam commodo faucibus cras felis. Ornare id dolor
-                    sit ut curabitur ac, arcu id at. Eget fermentum at duis
-                    mattis posuere nisl venenatis pellentesque. Ipsum cras diam
-                    sed sit faucibus ipsum, vitae dictum diam.
+                    Lorem ipsum dolor sit amet, consectetur <ad></ad>ipiscing
+                    elit. Tincidunt etiam commodo faucibus cras felis. Ornare id
+                    dolor sit ut curabitur ac, arcu id at. Eget fermentum at
+                    duis mattis posuere nisl venenatis pellentesque. Ipsum cras
+                    diam sed sit faucibus ipsum, vitae dictum diam.
                 </p>
             </div>
 

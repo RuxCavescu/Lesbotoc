@@ -1,0 +1,49 @@
+.detail {
+    &__container {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 3em;
+        font-size: 0.8em;
+    }
+
+    &__box {
+        background-color: #8099ff83;
+        border-radius: 15px;
+        padding: 2em;
+        width: 40%;
+    }
+
+    &__boxtitle {
+        font-size: 1.4em;
+
+        &--bold {
+            font-weight: bold;
+        }
+    }
+
+    &__button {
+        background-color: #7ab7cc;
+        border: none;
+        outline: none;
+        padding: 1em;
+        border-radius: 30px;
+        color: white;
+        font-size: 1.4em;
+        font-weight: bold;
+        margin: auto;
+        display: block;
+    }
+
+    &__description {
+        width: 50%;
+
+        &--wide {
+            width: 100%;
+            margin-top: 5em;
+        }
+    }
+}

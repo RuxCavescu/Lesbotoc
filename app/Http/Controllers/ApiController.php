@@ -11,7 +11,7 @@ class ApiController extends Controller
     {
         $events = Event::with("image")
                     ->get();
-
+      
         return $events;
     }
 
