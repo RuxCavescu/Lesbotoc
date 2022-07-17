@@ -5,6 +5,7 @@ $header-bg1: #809aff;
 $header-bg2: #142566;
 $body-bg: #f5f5f5;
 $titles-dark: #4b4b4b;
+$navbar-color: #142566;
 $navbar-text: white;
 $navbar-text-hover: #809aff;
 $button-dark: #142566;
@@ -34,6 +35,10 @@ h1 {
     color: black;
 }
 
+@import "./users/navbar.scss";
+@import "./users/hero.scss";
+@import "./users/aboutTeam.scss";
+@import "./users/popularEvents.scss";
 @import "./users/eventcard.scss";
 @import "./users/intro";
 @import "./users/eventdetail.scss";

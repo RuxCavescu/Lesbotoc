@@ -19,12 +19,11 @@ class ImagesSeeder extends Seeder
     {
         DB::table('images')->truncate();
 
-        $images = [
+$images = [
             [
                 "id" => "1",
                 "alt" => "notebook and pen on a table",
                 "path" => "/images/lesbotoc_photos/lesbotoc_preparation.jpg",
-
             ],
             [
                 "id" => "2",

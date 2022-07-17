@@ -63,8 +63,8 @@ Route::get("/events/{id}/registrations/export", [
 // Admin/Contacts routes
 
 Route::get('/contacts', [
-    ContactController::class, 'index'
-    ])->name('contacts-index');
+  ContactController::class, 'index'
+])->name('contacts-index');
 
 // Route::get(
 //   '/contacts/subscribed', [
@@ -72,33 +72,43 @@ Route::get('/contacts', [
 //     ])->name('subscribed-users');
 
 Route::get(
-  '/contacts/subscribed/export', [
-    ContactController::class,'export'
-  ])->name('contacts-export');
+  '/contacts/subscribed/export',
+  [
+    ContactController::class, 'export'
+  ]
+)->name('contacts-export');
 
 Route::get(
-  '/contacts/create', [
+  '/contacts/create',
+  [
     ContactController::class, 'create'
-  ])->name('create-contact');
+  ]
+)->name('create-contact');
 
 Route::post(
-  '/contacts/create', [
+  '/contacts/create',
+  [
     ContactController::class, 'store'
-  ])->name('save-contact');
+  ]
+)->name('save-contact');
 
 Route::get('/contacts/{id}/edit', [
-    ContactController::class, 'detail'
-  ])->name('edit-detail');
+  ContactController::class, 'detail'
+])->name('edit-detail');
 
 Route::post(
-  '/contacts/{id}/edit', [
+  '/contacts/{id}/edit',
+  [
     ContactController::class, 'update'
-  ])->name('update-contact');
+  ]
+)->name('update-contact');
 
 Route::delete(
-  '/contacts/{id}/delete', [
+  '/contacts/{id}/delete',
+  [
     ContactController::class, 'destroy'
-  ])->name('delete-contact');
+  ]
+)->name('delete-contact');
 
 
 // Admin/Images routes
@@ -136,4 +146,5 @@ Route::post('/locations/create', [LocationController::class, 'store'])
 Route::delete('/locations/detail/{id}', [LocationController::class, 'destroy'])
   ->name('locations.delete');
 
-Route::post('/locations/edit/', [LocationController::class, 'update'])->name('locations.update');
+Route::patch('/locations/detail/{id}', [LocationController::class, 'update'])
+  ->name('locations.edit');

@@ -1,18 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+    const location = useLocation();
+
+    const [nav, setNav] = useState(null);
+
+    useEffect(() => {
+        const location_path = location.pathname;
+        const path = location_path.slice(location_path.lastIndexOf("/"));
+
+        setNav(path);
+
+        return () => {
+            setNav(null);
+        };
+    }, [location.pathname]);
+
+    const navs = [
+        {
+            href: "/",
+            label: "Home",
+        },
+        {
+            href: "/events",
+            label: "Events",
+        },
+        {
+            href: "/about-us",
+            label: "About Us",
+        },
+    ];
+
     return (
-        // <h1>This is the navbar</h1>
-        <nav className="users__navbar">
-            <a href="/">Home</a>
-            <a href="/events">Events</a>
-            <a href="/about-us">About Us</a>
-            {/* <Link to={"/homepage"}>Home</Link>
-                <Link to={"/events"}>Events</Link>
-                <Link to={"/about-us"}>About Us</Link> */}
+        <nav className="user__navbar">
+            <a href="/" className="navbar__logo-link">
+                <img src="/images/logo_white.png" alt="lesbotoc logo" />
+            </a>
+            <div className="navbar-links">
+                {navs.map((element, index) => (
+                    <Link
+                        key={index}
+                        className={
+                            "link " +
+                            (nav === element.href ? "link-active" : "")
+                        }
+                        to={element.href}
+                    >
+                        {element.label}
+                    </Link>
+                ))}
+            </div>
         </nav>
     );
 }
