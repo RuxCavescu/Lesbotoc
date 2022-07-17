@@ -17,7 +17,7 @@ class ApiController extends Controller
 
     public function showEventDetail($id)
     {
-      $event = Event::with("location", "category")
+      $event = Event::with("location", "category", "image")
                       ->findOrFail($id);
 
       return $event;

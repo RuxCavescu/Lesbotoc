@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-function Hero({ path }) {
+function Hero({ path, text, startDate, place, address, price, position }) {
     return (
         <div className="main__hero">
             <div
@@ -9,12 +9,41 @@ function Hero({ path }) {
                 style={{
                     backgroundImage: `url('${path}')`,
                     backgroundSize: "cover",
-                    backgroundPosition: "bottom",
+                    // backgroundPosition: "bottom",
+                    backgroundPosition: `${position}`,
                 }}
             >
-                <h1 className="main__hero-title">
-                    Connect. Share. Make friends.
-                </h1>
+                <div className="main__hero-overlay">
+                    <h1 className="main__hero-title">{text}</h1>
+                    <div className="main__hero-details">
+                        {startDate && (
+                            <>
+                                <span className="main__hero-detail">
+                                    <i className="fa-solid fa-calendar-days"></i>
+                                    {startDate}
+                                </span>
+                            </>
+                        )}
+                        {place && (
+                            <>
+                                <span className="main__hero-detail">
+                                    <i className="fa-solid fa-location-dot"></i>
+                                    {place}, {address}
+                                </span>
+                            </>
+                        )}
+                        {price && (
+                            <>
+                                {" "}
+                                {console.log(price)}
+                                <span className="main__hero-detail">
+                                    <i className="fa-solid fa-dollar-sign"></i>
+                                    {price == null ? "Free" : price}
+                                </span>
+                            </>
+                        )}
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -9,7 +9,11 @@ import Hero from "./Home/Hero";
 function Home() {
     return (
         <div className="main__home">
-            <Hero path="images/pride/pride_parade.jpg" />
+            <Hero
+                path="images/pride/pride_parade.jpg"
+                text="Connect. Share. Make friends."
+                position="bottom"
+            />
             <AboutTeam />
             <PopularEvents />
         </div>

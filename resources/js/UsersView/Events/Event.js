@@ -8,7 +8,7 @@ function Event({ path, title, date, eventId }) {
         <div
             className="event"
             style={{
-                background: `linear-gradient(to right, rgba(0, 0, 0, 0.424), rgba(0, 0, 0, 0.424)), url(${path})`,
+                background: `linear-gradient(to right, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.28)), url(${path})`,
 
                 backgroundSize: "cover",
                 backgroundPosition: "center",

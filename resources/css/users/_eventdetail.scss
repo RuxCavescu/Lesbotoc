@@ -1,11 +1,13 @@
 .detail {
+    &__hero {
+    }
     &__container {
         width: 80%;
-        margin: auto;
+        margin: 10em auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         line-height: 3em;
         font-size: 0.8em;
     }
@@ -25,8 +27,18 @@
         }
     }
 
+    &__map {
+        width: 100%;
+        margin: auto;
+        height: 60vh;
+    }
+
+    &__title {
+        margin-top: 0;
+    }
+
     &__button {
-        background-color: #7ab7cc;
+        background-color: #142566;
         border: none;
         outline: none;
         padding: 1em;

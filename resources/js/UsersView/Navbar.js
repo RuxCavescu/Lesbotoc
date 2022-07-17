@@ -52,6 +52,9 @@ function Navbar() {
                         {element.label}
                     </Link>
                 ))}
+                <Link to="/admin" className="link">
+                    Admin Panel
+                </Link>
             </div>
         </nav>
     );
