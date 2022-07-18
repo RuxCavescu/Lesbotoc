@@ -4,9 +4,9 @@ import TeamPicture from "./TeamPicture";
 
 function AboutTeam() {
     return (
-        <div className="main__about intro">
-            <h2 className="intro__headline">We are Lesbotoc!</h2>
-            <p className="intro__text">
+        <div className="main__about">
+            <h2 className="about__intro-headline">We are Lesbotoc!</h2>
+            <p className="about__intro-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris

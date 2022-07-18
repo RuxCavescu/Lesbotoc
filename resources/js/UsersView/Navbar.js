@@ -32,6 +32,10 @@ function Navbar() {
             href: "/about-us",
             label: "About Us",
         },
+        {
+            href: "/admin",
+            label: "Admin",
+        },
     ];
 
     return (
@@ -41,20 +45,17 @@ function Navbar() {
             </a>
             <div className="navbar-links">
                 {navs.map((element, index) => (
-                    <Link
+                    <a
                         key={index}
                         className={
                             "link " +
                             (nav === element.href ? "link-active" : "")
                         }
-                        to={element.href}
+                        href={element.href}
                     >
                         {element.label}
-                    </Link>
+                    </a>
                 ))}
-                <Link to="/admin" className="link">
-                    Admin Panel
-                </Link>
             </div>
         </nav>
     );

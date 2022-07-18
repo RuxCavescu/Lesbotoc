@@ -1,0 +1,50 @@
+.carousel__event {
+    font-family: "Inter";
+    padding: 1em;
+    width: 300px;
+    height: auto;
+    background: #0a0a0aab;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 10px;
+
+    &-container {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+    }
+
+    &-date {
+        // font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        color: #ffffff;
+    }
+
+    &-name {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #ffffff;
+    }
+
+    &-button {
+        width: 150px;
+        height: 43px;
+        background: #ffffff;
+        border-radius: 30px;
+        border: none;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        color: black;
+    }
+}

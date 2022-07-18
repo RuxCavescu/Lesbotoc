@@ -1,9 +1,10 @@
 .main__about {
+    padding: 100px 100px;
     &-teamImages {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 0 100px;
+        // padding: 100px 0px;
     }
     &-info {
         display: flex;
@@ -16,5 +17,31 @@
     &-image {
         width: 200px;
         height: 200px;
+    }
+
+    &-description {
+        text-align: center;
+    }
+}
+
+.about__intro {
+    &-headline {
+        text-align: center;
+    }
+    &-text {
+        text-align: center;
+        padding-bottom: 100px;
+    }
+}
+
+.popular__events {
+    &-headline {
+        text-align: center;
+        padding: 0 100px;
+    }
+    &-text {
+        text-align: center;
+        padding-bottom: 100px;
+        padding: 0 100px 100px 100px;
     }
 }
