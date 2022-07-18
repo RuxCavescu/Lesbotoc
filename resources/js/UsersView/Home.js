@@ -6,6 +6,8 @@ import AboutTeam from "./Home/AboutTeam";
 import PopularEvents from "./Home/PopularEvents";
 import Hero from "./Home/Hero";
 import Calendar from "./Home/Calendar";
+import ReactCalendar from "./Home/ReactCalendar";
+import "react-calendar/dist/Calendar.css";
 
 function Home() {
     return (
@@ -17,7 +19,8 @@ function Home() {
             />
             <AboutTeam />
             <PopularEvents />
-            <Calendar />
+            {/* <Calendar /> */}
+            <ReactCalendar />
         </div>
     );
 }
