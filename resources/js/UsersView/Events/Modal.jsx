@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Alert } from "reactstrap";
 
 function Modal({
     title,
@@ -9,6 +11,11 @@ function Modal({
     eventId,
     date,
 }) {
+    const [success, setSuccess] = useState(null);
+    const [errorName, setErrorName] = useState(null);
+    const [errorEmail, setErrorEmail] = useState(null);
+    const [errorPhone, setErrorPhone] = useState(null);
+
     const [values, setValues] = useState({
         name: "",
         email: "",
@@ -32,11 +39,37 @@ function Modal({
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log(values);
-        const response = await axios.post("/api/registration/store", values);
-        const responseData = response.data;
-        console.log(responseData);
+        try {
+            e.preventDefault();
+            console.log(values);
+            const response = await axios.post(
+                "/api/registration/store",
+                values
+            );
+            const responseData = response.data;
+            console.log(responseData);
+            setSuccess(
+                "Thank you for your registration! Please check your inbox and click the link provided in the email to finalise your registration."
+            );
+            setValues({
+                name: "",
+                email: "",
+                phone: "",
+            });
+        } catch (error) {
+            console.log(error.response.data);
+            if (error.response.data.errors.email) {
+                setErrorEmail(error.response.data.errors.email);
+            }
+
+            if (error.response.data.errors.name) {
+                setErrorName(error.response.data.errors.name);
+            }
+
+            if (error.response.data.errors.phone) {
+                setErrorPhone(error.response.data.errors.name);
+            }
+        }
     };
 
     return (
@@ -72,6 +105,7 @@ function Modal({
                         <input type="hidden" name="contact_id" value="1" />
                         <input type="hidden" name="is_confirmed" value="0" />
                         <input type="hidden" name="auth_token" value="auth" /> */}
+                        {success && <Alert>{success}</Alert>}
                         <label
                             className="events__label events__label--full"
                             htmlFor="name"
@@ -85,6 +119,9 @@ function Modal({
                                 onChange={handleChange}
                                 value={values.name}
                             />
+                            {/* {
+                              errorName && 
+                            } */}
                         </label>
 
                         <div className="events__common">

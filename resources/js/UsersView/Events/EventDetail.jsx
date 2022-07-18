@@ -9,10 +9,14 @@ function EventDetail() {
     const { id } = useParams();
 
     const loadEventDetails = async () => {
-        const response = await fetch("/api/events/" + id);
-        const responseData = await response.json();
-        setEventDetail(responseData);
-        console.log(responseData);
+        try {
+            const response = await fetch("/api/events/" + id);
+            const responseData = await response.json();
+            setEventDetail(responseData);
+            console.log(responseData);
+        } catch (error) {
+            console.log(error.response.data);
+        }
     };
 
     // Modal window handling

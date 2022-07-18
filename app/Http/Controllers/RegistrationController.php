@@ -24,6 +24,12 @@ class RegistrationController extends Controller
     {
       // First, store the contact in DB
 
+      $this->validate($request, [
+        "name" => "required|max:120",
+        "email" => "required|email|unique:contacts",
+        "phone" => "required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10"
+      ]);
+
       $event_id = $request->input("event_id") ?? null;
       
 
