@@ -7,16 +7,16 @@
     <div class="images__container">
         @foreach ($images as $image)
             <div class="image">
-                <img src="{{$image->path}}" alt="{{$image->alt}}">
+            <img src="{{$image->path}}" alt="{{$image->alt}}">
             <div class="image__info">
-                    <h4>{{$image->alt}}</h4>
+                    <p><strong>Description:</strong> {{$image->alt}}</p>
+                    <p> <strong>URL:</strong> <?=$content = substr($image->path, strrpos($image->path, '/')); ?>
                     <form action="{{ route('delete-image', ['id' => $image->id])}}" method="post">
                         @csrf
                         @method('delete')
                         <button class="delete__image-btn">Delete</button>
                     </form>
             </div>
-
             </div>
 
         @endforeach

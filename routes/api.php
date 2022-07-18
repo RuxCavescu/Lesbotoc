@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,8 @@ Route::get('/events', [
 Route::get('/events/{id}', [
     ApiController::class, 'showEventDetail'
 ])->whereNumber("id")->name("users-events-details");
+
+
+Route::post("/registration/store", [
+  RegistrationController::class, "store"
+])->name("registration.store");

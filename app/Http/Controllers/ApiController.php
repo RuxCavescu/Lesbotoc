@@ -11,13 +11,13 @@ class ApiController extends Controller
     {
         $events = Event::with("image")
                     ->get();
-
+      
         return $events;
     }
 
     public function showEventDetail($id)
     {
-      $event = Event::with("location", "category")
+      $event = Event::with("location", "category", "image")
                       ->findOrFail($id);
 
       return $event;

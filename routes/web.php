@@ -31,14 +31,11 @@ Route::post('/register', [
 ]);
 
 
-Route::get("/events/register", [
-  RegistrationController::class, "create"
-])->name("registration.create");
+// Route::get("/events/register", [
+//   RegistrationController::class, "create"
+// ])->name("registration.create");
 
 
-Route::post("/events/store", [
-  RegistrationController::class, "store"
-])->name("registration.store");
 
 // Route::get('/homepage', function () {
 //   return view('users.homepage.homepage');

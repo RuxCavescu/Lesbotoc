@@ -10,13 +10,14 @@
             <a href="/admin/images" class="link">Images</a>
             <a href="/admin/contacts" class="link">Contacts</a>
             <a href="/admin/locations" class="link">Locations</a>
+            <a href="/" class="link">User Side</a>
             <form action="{{ route('logout') }}" method="post">
  
               @csrf
            
               <button>Logout</button>
            
-          </form
+            </form>
         </div>
     </nav>
 
