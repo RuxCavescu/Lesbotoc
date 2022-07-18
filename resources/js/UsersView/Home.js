@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import AboutTeam from "./Home/AboutTeam";
 import PopularEvents from "./Home/PopularEvents";
 import Hero from "./Home/Hero";
+import Calendar from "./Home/Calendar";
 
 function Home() {
     return (
@@ -16,6 +17,7 @@ function Home() {
             />
             <AboutTeam />
             <PopularEvents />
+            <Calendar />
         </div>
     );
 }

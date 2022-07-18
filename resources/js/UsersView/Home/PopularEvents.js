@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import CarouselEvent from "./CarouselEvent";
+import Calendar from "./Calendar";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
