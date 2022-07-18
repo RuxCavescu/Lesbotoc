@@ -26,7 +26,7 @@ function Modal({
         event_name: title,
         event_date: date,
         contact_id: 1,
-        auth_token: "auth",
+        // auth_token: "auth",
         is_confirmed: 0,
         is_subscribed: isChecked,
         // message: "",
@@ -71,7 +71,7 @@ function Modal({
                 phone: "",
             });
         } catch (error) {
-            console.log(error.response.data.errors);
+            console.log(error.response);
             setErrors(error.response.data.errors);
 
             // if (error.response.data.errors.email != undefined) {

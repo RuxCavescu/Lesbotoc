@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Registration;
 use App\Models\Event;
 use App\Models\Contact;
+use Illuminate\Support\Str;
 
 use App\Mail\ConfirmEmail;
 use Illuminate\Support\Facades\Mail;
@@ -78,9 +79,12 @@ class RegistrationController extends Controller
 
       $registration = new Registration;
 
+      // Generating some random token
+
+      $registration_token = Str::random(16);
       $registration->event_id = $request->input("event_id") ?? null;
       $registration->contact_id = $contact->id;
-      $registration->auth_token = $request->input("auth_token") ?? null;
+      $registration->auth_token = $registration_token;
       $registration->is_confirmed = $request->input("is_confirmed") ?? null;
 
 
@@ -108,7 +112,8 @@ class RegistrationController extends Controller
         "contact_name" => $contact->name,
         "event_title" => $event->title_en,
         "start_date" => $event->start_date,
-        "registration_id" => $registration->id
+        // "registration_id" => $registration->id,
+        "registration_token" => $registration_token
       ];
 
       $reveiverEmailAddress = $contact->email;
@@ -117,9 +122,9 @@ class RegistrationController extends Controller
     }
 
 
-    public function confirmRegistration($id)
+    public function confirmRegistration($token)
     {
-      $registration = Registration::findOrFail($id);
+      $registration = Registration::where("auth_token", "=", $token)->first();
 
       $registration->is_confirmed = 1;
 
@@ -132,9 +137,12 @@ class RegistrationController extends Controller
       // return view("emails/confirmed");
     }
 
-    public function deleteRegistration($id)
+    public function deleteRegistration($token)
     {
-      $registration = Registration::findOrFail($id);
+      // $registration = Registration::findOrFail($id);
+      $registration = Registration::where("auth_token", "=", $token)->first();
+
+      // $contact_db = Contact::where("email", "=", $request->input("email"))->first();
 
       $registration->delete();
 
