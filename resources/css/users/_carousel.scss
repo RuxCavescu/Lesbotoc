@@ -1,17 +1,17 @@
 .carousel__event {
     font-family: "Inter";
     padding: 1em;
-    width: 400px;
+    width: 300px;
     height: auto;
     background: #0a0a0aab;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
     margin-right: 10px;
 
     &-container {
-        // width: 80%;
+        width: 100%;
         margin: auto;
         display: flex;
         flex-direction: row;

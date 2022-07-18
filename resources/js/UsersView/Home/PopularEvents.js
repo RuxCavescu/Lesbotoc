@@ -24,15 +24,16 @@ function PopularEvents() {
         },
     };
 
-    const [carouselEvents, setCarouselEvents] = useState(null);
+    const [carouselEvents, setCarouselEvents] = useState(false);
 
     const loadEvents = async () => {
         const response = await fetch("/api/events");
         const responseData = await response.json();
-        // console.log(responseData);
+
         setCarouselEvents(responseData);
     };
 
+    let cards = [];
     useEffect(() => {
         loadEvents();
     }, []);
@@ -65,20 +66,20 @@ function PopularEvents() {
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
             >
-                <div className="carousel__event-container">
-                    {carouselEvents &&
-                        carouselEvents.map((carouselEvent, index) => {
-                            return (
-                                <CarouselEvent
-                                    key={index}
-                                    date={carouselEvent.start_date}
-                                    title={carouselEvent.title_en}
-                                    path={carouselEvent.image.path}
-                                    eventId={carouselEvent.id}
-                                />
-                            );
-                        })}
-                </div>
+                {/* <div className="carousel__event-container"> */}
+                {carouselEvents &&
+                    carouselEvents.map((carouselEvent, index) => {
+                        return (
+                            <CarouselEvent
+                                key={index}
+                                date={carouselEvent.start_date}
+                                title={carouselEvent.title_en}
+                                path={carouselEvent.image.path}
+                                eventId={carouselEvent.id}
+                            />
+                        );
+                    })}
+                {/* </div> */}
             </Carousel>
         </div>
     );

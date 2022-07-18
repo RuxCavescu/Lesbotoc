@@ -10,9 +10,6 @@ import EventDetail from "./Events/EventDetail";
 function App() {
     return (
         <div>
-            <h1>Main React Application - from App.js</h1>
-            <a href="/admin">Admin Side</a>
-
             <BrowserRouter>
                 <Navbar />
                 <Routes>
