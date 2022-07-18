@@ -55,6 +55,24 @@ Route::get('/events/{id}', [
 
 Route::get('/{path?}', [
   ReactAppController::class, 'renderApp'
-  ])->whereIn('path', ['events', '', 'about-us', "events/{id}"])->whereNumber("id");
+  ])->whereIn('path', ['events', '', 'about-us', "events/{id}", "registration-deleted", "registration-confirmed"])->whereNumber("id");
+
+Route::get('/confirm/registration/{id}', [
+  RegistrationController::class, 'confirmRegistration'
+  ])->whereNumber("id")->name("registration.confirmation");
+
+Route::get('/delete/registration/{id}', [
+  RegistrationController::class, 'deleteRegistration'
+  ])->whereNumber("id")->name("registration.deletion");
+
+
+
+// Route::get('/thank-your-for-registration', function () {
+//     return view('emails/confirmed');
+// })->name("confirmed");
+
+// Route::get('/registration-is-deleted', function () {
+//   return view('emails/deleted');
+// })->name("deleted");
 
 

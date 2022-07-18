@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Registration;
 use App\Models\Event;
 use App\Models\Contact;
-use Illuminate\Support\Facades\Validator;
-use App\Http\Requests\RegistrationStoreRequest;
+
+use App\Mail\ConfirmEmail;
+use Illuminate\Support\Facades\Mail;
+
 
 
 
@@ -101,8 +103,45 @@ class RegistrationController extends Controller
 
       session()->flash("success", "You were successfully registered for the event!");
 
+      // Sending email to the user
+      $details = [
+        "contact_name" => $contact->name,
+        "event_title" => $event->title_en,
+        "start_date" => $event->start_date,
+        "registration_id" => $registration->id
+      ];
+
+      $reveiverEmailAddress = $contact->email;
+      Mail::to($reveiverEmailAddress)->send(new ConfirmEmail($details));
+
+    }
 
 
+    public function confirmRegistration($id)
+    {
+      $registration = Registration::findOrFail($id);
+
+      $registration->is_confirmed = 1;
+
+      $registration->save();
+
+      return redirect(url("/registration-confirmed"));
+
+      // return redirect(route("confirmed"));
+
+      // return view("emails/confirmed");
+    }
+
+    public function deleteRegistration($id)
+    {
+      $registration = Registration::findOrFail($id);
+
+      $registration->delete();
+
+      return redirect(url("/registration-deleted"));
+
+      // return redirect(route("deleted"));
+      // return view("emails/deleted");
     }
 }
 
