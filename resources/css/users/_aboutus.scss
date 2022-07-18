@@ -1,0 +1,16 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.hero-cont{
+    width: 100%;
+    background-image: url('/images/lesbotoc_photos/Team2.JPG');
+    background-size: 1600px 500px;
+    background-repeat: no-repeat;
+}
