@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Registration;
 use App\Models\Event;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\RegistrationStoreRequest;
 
 
 
@@ -26,24 +28,52 @@ class RegistrationController extends Controller
 
       $this->validate($request, [
         "name" => "required|max:120",
-        "email" => "required|email|unique:contacts",
-        "phone" => "required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10"
+        "email" => "required|email",
+        "phone" => "required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10",
       ]);
 
       $event_id = $request->input("event_id") ?? null;
-      
 
-      $contact = new Contact;
+  
+
+      $contact_db = Contact::where("email", "=", $request->input("email"))->first();
+
+      if ($contact_db === null) {
+        $contact = new Contact;
+
+      } else {
+        $contact = $contact_db;
+
+        $registration_db = Registration::where("event_id", "=", $event_id)->where("contact_id", "=", $contact->id)->first();
+
+        if ($registration_db != null) {
+
+          // return response()->json(['error' => 'already registered'],422);
+          return response()->json(['errors' => [
+            "duplicate" => ['You have been already registered!']
+          ]],422);
+
+
+         
+        }
+
+
+      }
+      
       $contact->name = $request->input("name") ?? null;
       $contact->email = $request->input("email") ?? null;
       $contact->phone = $request->input("phone") ?? null;
       $contact->source = $request->input("event_name") . " " .$request->input("event_date");
-      $contact->is_subscribed = 0;
+      $contact->is_subscribed = $request->input("is_subscribed") ?? null;
 
   
       $contact->save();
 
       // Second, save a new registration into database
+      // $this->validate($request, [
+
+      // ])
+
       $registration = new Registration;
 
       $registration->event_id = $request->input("event_id") ?? null;

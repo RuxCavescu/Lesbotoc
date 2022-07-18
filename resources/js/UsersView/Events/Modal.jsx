@@ -12,9 +12,11 @@ function Modal({
     date,
 }) {
     const [success, setSuccess] = useState(null);
-    const [errorName, setErrorName] = useState(null);
-    const [errorEmail, setErrorEmail] = useState(null);
-    const [errorPhone, setErrorPhone] = useState(null);
+    const [errors, setErrors] = useState(null);
+    // const [errorName, setErrorName] = useState(null);
+    // const [errorEmail, setErrorEmail] = useState(null);
+    // const [errorPhone, setErrorPhone] = useState(null);
+    const [isChecked, setIsChecked] = useState(true);
 
     const [values, setValues] = useState({
         name: "",
@@ -26,19 +28,31 @@ function Modal({
         contact_id: 1,
         auth_token: "auth",
         is_confirmed: 0,
+        is_subscribed: isChecked,
         // message: "",
     });
 
     const handleChange = (event) => {
         setValues((previous_values) => {
-            return {
-                ...previous_values,
-                [event.target.name]: event.target.value,
-            };
+            if (event.target.name == "is_subscribed") {
+                return {
+                    ...previous_values,
+                    [event.target.name]: event.target.checked,
+                };
+            } else {
+                return {
+                    ...previous_values,
+                    [event.target.name]: event.target.value,
+                };
+            }
         });
     };
 
     const handleSubmit = async (e) => {
+        setErrors(null);
+        // setErrorEmail(null);
+        // setErrorPhone(null);
+
         try {
             e.preventDefault();
             console.log(values);
@@ -47,7 +61,7 @@ function Modal({
                 values
             );
             const responseData = response.data;
-            console.log(responseData);
+            console.log(response);
             setSuccess(
                 "Thank you for your registration! Please check your inbox and click the link provided in the email to finalise your registration."
             );
@@ -57,18 +71,20 @@ function Modal({
                 phone: "",
             });
         } catch (error) {
-            console.log(error.response.data);
-            if (error.response.data.errors.email) {
-                setErrorEmail(error.response.data.errors.email);
-            }
+            console.log(error.response.data.errors);
+            setErrors(error.response.data.errors);
 
-            if (error.response.data.errors.name) {
-                setErrorName(error.response.data.errors.name);
-            }
+            // if (error.response.data.errors.email != undefined) {
+            //     setErrorEmail(error.response.data.errors.email);
+            // }
 
-            if (error.response.data.errors.phone) {
-                setErrorPhone(error.response.data.errors.name);
-            }
+            // if ((error.response.data.errors.name = undefined)) {
+            //     setErrorName(error.response.data.errors.name);
+            // }
+
+            // if ((error.response.data.errors.phone = undefined)) {
+            //     setErrorPhone(error.response.data.errors.phone);
+            // }
         }
     };
 
@@ -101,11 +117,19 @@ function Modal({
                         method="post"
                         onSubmit={handleSubmit}
                     >
-                        {/* <input type="hidden" name="event_id" value={eventId} />
-                        <input type="hidden" name="contact_id" value="1" />
-                        <input type="hidden" name="is_confirmed" value="0" />
-                        <input type="hidden" name="auth_token" value="auth" /> */}
                         {success && <Alert>{success}</Alert>}
+
+                        {errors &&
+                            Object.keys(errors).map((type) => {
+                                if (type == "duplicate") {
+                                    return (
+                                        <Alert color="danger">
+                                            {errors[type]}
+                                        </Alert>
+                                    );
+                                }
+                            })}
+
                         <label
                             className="events__label events__label--full"
                             htmlFor="name"
@@ -119,9 +143,16 @@ function Modal({
                                 onChange={handleChange}
                                 value={values.name}
                             />
-                            {/* {
-                              errorName && 
-                            } */}
+                            {errors &&
+                                Object.keys(errors).map((type) => {
+                                    if (type == "name") {
+                                        return (
+                                            <div className="events__message">
+                                                {errors[type]}
+                                            </div>
+                                        );
+                                    }
+                                })}
                         </label>
 
                         <div className="events__common">
@@ -138,6 +169,16 @@ function Modal({
                                     onChange={handleChange}
                                     value={values.email}
                                 />
+                                {errors &&
+                                    Object.keys(errors).map((type) => {
+                                        if (type == "email") {
+                                            return (
+                                                <div className="events__message">
+                                                    {errors[type]}
+                                                </div>
+                                            );
+                                        }
+                                    })}
                             </label>
                             <label
                                 className="events__label events__label--half"
@@ -152,6 +193,35 @@ function Modal({
                                     value={values.phone}
                                     onChange={handleChange}
                                 />
+                                {errors &&
+                                    Object.keys(errors).map((type) => {
+                                        if (type == "phone") {
+                                            return (
+                                                <div className="events__message">
+                                                    {errors[type]}
+                                                </div>
+                                            );
+                                        }
+                                    })}
+                            </label>
+                            <label
+                                htmlFor=""
+                                className="events__label events__label--thin"
+                            >
+                                <input
+                                    className=" events__input--space"
+                                    type="checkbox"
+                                    // value={values.is_subscribed}
+                                    name="is_subscribed"
+                                    value={values.is_subscribed}
+                                    checked={isChecked}
+                                    onChange={(e) => {
+                                        setIsChecked(e.target.checked);
+                                        handleChange(e);
+                                    }}
+                                />{" "}
+                                I would like to subscribe to newsletter to
+                                receive latest news and updates.
                             </label>
                         </div>
 
