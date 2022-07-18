@@ -32,6 +32,10 @@ function Navbar() {
             href: "/about-us",
             label: "About Us",
         },
+        {
+            href: "/admin/",
+            label: "Admin",
+        },
     ];
 
     return (

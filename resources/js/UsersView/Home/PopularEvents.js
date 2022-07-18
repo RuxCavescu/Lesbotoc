@@ -1,20 +1,85 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import Event from "../Events/Event";
+import CarouselEvent from "./CarouselEvent";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 function PopularEvents() {
+    const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3,
+            slidesToSlide: 3, // optional, default to 1.
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+            slidesToSlide: 2, // optional, default to 1.
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+            slidesToSlide: 1, // optional, default to 1.
+        },
+    };
+
+    const [carouselEvents, setCarouselEvents] = useState(null);
+
+    const loadEvents = async () => {
+        const response = await fetch("/api/events");
+        const responseData = await response.json();
+        // console.log(responseData);
+        setCarouselEvents(responseData);
+    };
+
+    useEffect(() => {
+        loadEvents();
+    }, []);
+
     return (
-        <div className="main__popular-events intro">
-            <h2 className="intro__headline">Popular Events</h2>
-            <p className="intro__text">
+        <div className="main__popular-events">
+            <h2 className="popular__events-headline">Popular Events</h2>
+            <p className="popular__events-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat.
             </p>
-            <div>
-                <Event />
-            </div>
+            <Carousel
+                centerMode={true}
+                swipeable={false}
+                draggable={false}
+                showDots={true}
+                responsive={responsive}
+                ssr={true} // means to render carousel on server-side.
+                infinite={true}
+                // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                autoPlaySpeed={1000}
+                keyBoardControl={true}
+                customTransition="all .5"
+                transitionDuration={500}
+                containerClass="carousel-container"
+                removeArrowOnDeviceType={["tablet", "mobile"]}
+                // deviceType={this.props.deviceType}
+                dotListClass="custom-dot-list-style"
+                itemClass="carousel-item-padding-40-px"
+            >
+                <div className="carousel__event-container">
+                    {carouselEvents &&
+                        carouselEvents.map((carouselEvent, index) => {
+                            return (
+                                <CarouselEvent
+                                    key={index}
+                                    date={carouselEvent.start_date}
+                                    title={carouselEvent.title_en}
+                                    path={carouselEvent.image.path}
+                                    eventId={carouselEvent.id}
+                                />
+                            );
+                        })}
+                </div>
+            </Carousel>
         </div>
     );
 }

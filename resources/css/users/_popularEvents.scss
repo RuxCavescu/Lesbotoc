@@ -1,3 +1,17 @@
 .main__popular-events {
     background-color: #eeeeee;
+    margin: 0;
+    padding: 100px 0px;
+}
+
+.intro {
+    &__headline {
+        text-align: center;
+        padding: 0px 200px;
+    }
+
+    &__text {
+        text-align: center;
+        padding: 0px 200px;
+    }
 }
