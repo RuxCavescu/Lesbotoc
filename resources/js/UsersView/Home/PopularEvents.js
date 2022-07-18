@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Event from "../Events/Event";
 
 function PopularEvents() {
     return (
@@ -11,6 +12,9 @@ function PopularEvents() {
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat.
             </p>
+            <div>
+                <Event />
+            </div>
         </div>
     );
 }
