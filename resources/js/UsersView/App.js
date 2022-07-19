@@ -6,17 +6,28 @@ import Home from "./Home";
 import EventsList from "./EventsList";
 import AboutUs from "./AboutUs";
 import EventDetail from "./Events/EventDetail";
+import RegistrationConfirmed from "./Registrations/RegistrationConfirmed";
+import RegistrationDeleted from "./Registrations/RegistrationDeleted";
 
 function App() {
     return (
-        <div>
+        <div className="main__content">
             <BrowserRouter>
                 <Navbar />
                 <Routes>
                     <Route exact path="/" element={<Home />} />
                     <Route exact path="/events" element={<EventsList />} />
                     <Route path="/events/:id" element={<EventDetail />} />
-                    <Route exact path="/about-us" element={<AboutUs />} />
+                    <Route
+                        exact
+                        path="/registration-confirmed"
+                        element={<RegistrationConfirmed />}
+                    />
+                    <Route
+                        exact
+                        path="/registration-deleted"
+                        element={<RegistrationDeleted />}
+                    />
                 </Routes>
             </BrowserRouter>
         </div>

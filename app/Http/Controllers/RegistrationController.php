@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Registration;
 use App\Models\Event;
 use App\Models\Contact;
+use Illuminate\Support\Str;
+
+use App\Mail\ConfirmEmail;
+use Illuminate\Support\Facades\Mail;
+
 
 
 
@@ -26,29 +31,60 @@ class RegistrationController extends Controller
 
       $this->validate($request, [
         "name" => "required|max:120",
-        "email" => "required|email|unique:contacts",
-        "phone" => "required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10"
+        "email" => "required|email",
+        "phone" => "required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10",
       ]);
 
       $event_id = $request->input("event_id") ?? null;
-      
 
-      $contact = new Contact;
+  
+
+      $contact_db = Contact::where("email", "=", $request->input("email"))->first();
+
+      if ($contact_db === null) {
+        $contact = new Contact;
+
+      } else {
+        $contact = $contact_db;
+
+        $registration_db = Registration::where("event_id", "=", $event_id)->where("contact_id", "=", $contact->id)->first();
+
+        if ($registration_db != null) {
+
+          // return response()->json(['error' => 'already registered'],422);
+          return response()->json(['errors' => [
+            "duplicate" => ['You have been already registered!']
+          ]],422);
+
+
+         
+        }
+
+
+      }
+      
       $contact->name = $request->input("name") ?? null;
       $contact->email = $request->input("email") ?? null;
       $contact->phone = $request->input("phone") ?? null;
       $contact->source = $request->input("event_name") . " " .$request->input("event_date");
-      $contact->is_subscribed = 0;
+      $contact->is_subscribed = $request->input("is_subscribed") ?? null;
 
   
       $contact->save();
 
       // Second, save a new registration into database
+      // $this->validate($request, [
+
+      // ])
+
       $registration = new Registration;
 
+      // Generating some random token
+
+      $registration_token = Str::random(16);
       $registration->event_id = $request->input("event_id") ?? null;
       $registration->contact_id = $contact->id;
-      $registration->auth_token = $request->input("auth_token") ?? null;
+      $registration->auth_token = $registration_token;
       $registration->is_confirmed = $request->input("is_confirmed") ?? null;
 
 
@@ -71,8 +107,49 @@ class RegistrationController extends Controller
 
       session()->flash("success", "You were successfully registered for the event!");
 
+      // Sending email to the user
+      $details = [
+        "contact_name" => $contact->name,
+        "event_title" => $event->title_en,
+        "start_date" => $event->start_date,
+        // "registration_id" => $registration->id,
+        "registration_token" => $registration_token
+      ];
+
+      $reveiverEmailAddress = $contact->email;
+      Mail::to($reveiverEmailAddress)->send(new ConfirmEmail($details));
+
+    }
 
 
+    public function confirmRegistration($token)
+    {
+      $registration = Registration::where("auth_token", "=", $token)->first();
+
+      $registration->is_confirmed = 1;
+
+      $registration->save();
+
+      return redirect(url("/registration-confirmed"));
+
+      // return redirect(route("confirmed"));
+
+      // return view("emails/confirmed");
+    }
+
+    public function deleteRegistration($token)
+    {
+      // $registration = Registration::findOrFail($id);
+      $registration = Registration::where("auth_token", "=", $token)->first();
+
+      // $contact_db = Contact::where("email", "=", $request->input("email"))->first();
+
+      $registration->delete();
+
+      return redirect(url("/registration-deleted"));
+
+      // return redirect(route("deleted"));
+      // return view("emails/deleted");
     }
 }
 
