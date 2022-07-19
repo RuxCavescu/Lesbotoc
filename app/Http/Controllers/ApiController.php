@@ -7,11 +7,27 @@ use App\Models\Event;
 
 class ApiController extends Controller
 {
-    public function showEvents() 
+    public function showEvents(Request $request) 
     {
-        $events = Event::with("image")
-                    ->get();
+        $query = Event::with("image");
+
+        $date = $request->query('date');
+        
+        if ($date) {
+          $query->where('start_date', 'like', $date);
+                
+        }
+        return $query->get();
       
+    }
+
+    public function showEventsByDate(Request $request)
+    {
+      $date = $request->date;
+      $events = Event::query()
+                ->where('start_date', 'like', $date)
+                ->get();
+                    
         return $events;
     }
 

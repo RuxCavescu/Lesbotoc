@@ -36,3 +36,9 @@ Route::get('/events/{id}', [
 Route::post("/registration/store", [
   RegistrationController::class, "store"
 ])->name("registration.store");
+
+// event by date API endpoint:
+
+/* Route::get('/events/{date}', [
+    ApiController::Class, 'showEventsByDate'
+])->name('events-by-date'); */

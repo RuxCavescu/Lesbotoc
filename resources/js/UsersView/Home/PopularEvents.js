@@ -9,13 +9,13 @@ import "react-multi-carousel/lib/styles.css";
 function PopularEvents() {
     const responsive = {
         desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 3,
+            breakpoint: { max: 3000, min: 1025 },
+            items: 4,
             slidesToSlide: 3, // optional, default to 1.
         },
         tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
+            breakpoint: { max: 1024, min: 465 },
+            items: 3,
             slidesToSlide: 2, // optional, default to 1.
         },
         mobile: {
@@ -34,7 +34,6 @@ function PopularEvents() {
         setCarouselEvents(responseData);
     };
 
-    let cards = [];
     useEffect(() => {
         loadEvents();
     }, []);
@@ -67,7 +66,6 @@ function PopularEvents() {
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
             >
-                {/* <div className="carousel__event-container"> */}
                 {carouselEvents &&
                     carouselEvents.map((carouselEvent, index) => {
                         return (

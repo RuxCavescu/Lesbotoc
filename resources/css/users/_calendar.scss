@@ -1,11 +1,37 @@
-#calendarTitle {
-    color: white;
-}
+.calendar__display {
+    display: flex;
+    flex-direction: row;
+    padding: 100px;
 
-.nav-table {
-    color: white;
-}
+    &-info {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
 
-.date-top {
-    color: white;
+        & h4 {
+            margin-bottom: 1em;
+        }
+    }
+
+    &-event {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &-text {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1em;
+    }
+
+    &-image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & button {
+            margin-top: 1em;
+        }
+    }
 }
