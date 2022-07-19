@@ -19,9 +19,9 @@ class EventController extends Controller
     public function index()
     {
       
-      $events = Event::where('start_date', '<', date('Y-m-d'))->update(['is_active'=>false]);
+      // $events = Event::where('start_date', '<', date('Y-m-d'))->update(['is_active'=>false]);
 
-      $events = Event::where('start_date', '>', date('Y-m-d'))->update(['is_active'=>true]);
+      // $events = Event::where('start_date', '>', date('Y-m-d'))->update(['is_active'=>true]);
 
       $events = Event::orderBy("start_date")
                       ->get();

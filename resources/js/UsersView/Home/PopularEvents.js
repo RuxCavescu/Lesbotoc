@@ -5,6 +5,7 @@ import CarouselEvent from "./CarouselEvent";
 import Calendar from "./Calendar";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Moment from "moment";
 
 function PopularEvents() {
     const responsive = {
@@ -71,7 +72,10 @@ function PopularEvents() {
                         return (
                             <CarouselEvent
                                 key={index}
-                                date={carouselEvent.start_date}
+                                // date={carouselEvent.start_date}
+                                date={Moment(carouselEvent.start_date).format(
+                                    "DD.MM.YYYY"
+                                )}
                                 title={carouselEvent.title_en}
                                 path={carouselEvent.image.path}
                                 eventId={carouselEvent.id}

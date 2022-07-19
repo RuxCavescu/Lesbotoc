@@ -130,6 +130,14 @@ function Modal({
                                         </Alert>
                                     );
                                 }
+
+                                if (type == "full") {
+                                    return (
+                                        <Alert color="danger">
+                                            {errors[type]}
+                                        </Alert>
+                                    );
+                                }
                             })}
 
                         <label
@@ -157,7 +165,7 @@ function Modal({
                                 })}
                         </label>
 
-                        <div className="events__common">
+                        <div className="events__common events__common--nowrap">
                             <label
                                 className="events__label events__label--full "
                                 htmlFor="email"

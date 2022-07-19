@@ -9,7 +9,7 @@ class ApiController extends Controller
 {
     public function showEvents(Request $request) 
     {
-        $query = Event::with("image");
+        $query = Event::with("image")->where('start_date', '>=', date('Y-m-d'));
 
         $date = $request->query('date');
         
@@ -26,6 +26,7 @@ class ApiController extends Controller
       $date = $request->date;
       $events = Event::query()
                 ->where('start_date', 'like', $date)
+                ->where('start_date', '>=', date('Y-m-d'))
                 ->get();
                     
         return $events;
@@ -34,6 +35,7 @@ class ApiController extends Controller
     public function showEventDetail($id)
     {
       $event = Event::with("location", "category", "image")
+                      ->where('start_date', '>=', date('Y-m-d'))
                       ->findOrFail($id);
 
       return $event;
