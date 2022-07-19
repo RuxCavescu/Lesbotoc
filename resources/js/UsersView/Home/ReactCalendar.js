@@ -38,7 +38,7 @@ function ReactCalendar() {
         <div className="calendar__display">
             <Calendar onChange={handleChange} value={date} />
             <div className="calendar__display-info">
-                <h4>Events scheduled on {moment(date).format("YYYY-MM-DD")}</h4>
+                <h4>Events scheduled on {moment(date).format("DD.MM.YYYY")}</h4>
                 {!events || events.length === 0 ? (
                     <div>'No events scheduled for this date'</div>
                 ) : (

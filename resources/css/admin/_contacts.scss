@@ -135,6 +135,8 @@ button {
         background: #ffffff;
         border-radius: 5px;
         display: block;
+        margin-bottom: 10px;
+        padding-left: 10px;
     }
 
     &-radioBtn {
@@ -253,6 +255,14 @@ button {
     align-items: center;
 }
 
+.error__message {
+    color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .create-btn {
     padding: 10px 50px;
 
@@ -268,10 +278,6 @@ button {
 .alert-success {
     color: green;
     padding: 50px 10px 0 10px;
-}
-
-.error__message {
-    background-color: red;
 }
 
 .button-fa {
@@ -331,4 +337,18 @@ button {
     background-color: #fff;
     left: 8px;
     top: 12px;
+}
+.fa-exclamation-triangle {
+    color: red;
+}
+
+.errors {
+    margin-bottom: 70px;
+}
+
+.error {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px;
 }

@@ -160,6 +160,15 @@ class RegistrationController extends Controller
       // $registration = Registration::findOrFail($id);
       $registration = Registration::where("auth_token", "=", $token)->first();
 
+      $event = Event::where("id", "=", $registration->event_id)->first();
+
+      if ($event->capacity != null) {
+        $event->already_registered = $event->already_registered - 1;
+      }
+
+      $event->save();
+
+
       // $contact_db = Contact::where("email", "=", $request->input("email"))->first();
 
       $registration->delete();
