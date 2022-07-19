@@ -1,25 +1,20 @@
 .carousel__event {
     font-family: "Inter";
     padding: 1em;
-    width: 200px;
-    height: 250px;
+    width: 270px;
+    height: 200px;
+    margin: 0 10px;
     background: #0a0a0aab;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin-right: 10px;
 
     &-container {
         margin: auto;
         display: flex;
         flex-direction: row;
-
-        & ul {
-            width: 70%;
-            background-color: red;
-        }
     }
 
     &-date {
@@ -52,4 +47,38 @@
         line-height: 19px;
         color: black;
     }
+}
+
+.react-multi-carousel-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+
+    & .react-multiple-carousel__arrow--left::before {
+        content: url("/assets/left-arrow.png");
+        margin-right: 5px;
+        margin-top: 9px;
+    }
+    & .react-multiple-carousel__arrow--right::before {
+        content: url("/assets/right-arrow.png");
+        margin-right: 5px;
+        margin-top: 9px;
+    }
+}
+
+.react-multi-carousel-track {
+    margin: 0 auto;
+
+    & li {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.react-multi-carousel-item {
+    text-align: center;
+    margin: 0 auto;
 }
