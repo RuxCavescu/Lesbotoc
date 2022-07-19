@@ -8,6 +8,7 @@ import AboutUs from "./AboutUs";
 import EventDetail from "./Events/EventDetail";
 import RegistrationConfirmed from "./Registrations/RegistrationConfirmed";
 import RegistrationDeleted from "./Registrations/RegistrationDeleted";
+import ContactUnsubscribed from "./Contacts/ContactUnsubscribed";
 
 function App() {
     return (
@@ -27,6 +28,11 @@ function App() {
                         exact
                         path="/registration-deleted"
                         element={<RegistrationDeleted />}
+                    />
+                    <Route
+                        exact
+                        path="/unsubscribed"
+                        element={<ContactUnsubscribed />}
                     />
                 </Routes>
             </BrowserRouter>

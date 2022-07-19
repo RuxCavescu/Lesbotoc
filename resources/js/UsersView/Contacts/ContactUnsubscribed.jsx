@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-function RegistrationDeleted() {
+function ContactUnsubscribed() {
     return (
         <div className="main__home">
             <div className="intro">
                 <h2 className="intro__headline">
-                    Your registration was successfully deleted!
+                    You were successfully unsubscribed from our newsletter!
                 </h2>
             </div>
         </div>
     );
 }
 
-export default RegistrationDeleted;
+export default ContactUnsubscribed;

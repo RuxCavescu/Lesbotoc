@@ -110,10 +110,12 @@ class RegistrationController extends Controller
       // Sending email to the user
       $details = [
         "contact_name" => $contact->name,
+        "contact_email" => $contact->email,
+        "contact_id" => $contact->id,
         "event_title" => $event->title_en,
         "start_date" => $event->start_date,
-        // "registration_id" => $registration->id,
-        "registration_token" => $registration_token
+        "registration_token" => $registration_token,
+        "is_subscribed" => $contact->is_subscribed
       ];
 
       $reveiverEmailAddress = $contact->email;

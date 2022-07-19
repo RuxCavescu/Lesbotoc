@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
 
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\React\ReactAppController;
 
@@ -55,7 +56,7 @@ Route::get('/events/{id}', [
 
 Route::get('/{path?}', [
   ReactAppController::class, 'renderApp'
-  ])->whereIn('path', ['events', '', 'about-us', "events/{id}", "registration-deleted", "registration-confirmed"])->whereNumber("id");
+  ])->whereIn('path', ['events', '', 'about-us', "events/{id}", "registration-deleted", "registration-confirmed", "unsubscribed"])->whereNumber("id");
 
 Route::get('/confirm/registration/{token}', [
   RegistrationController::class, 'confirmRegistration'
@@ -65,6 +66,13 @@ Route::get('/delete/registration/{token}', [
   RegistrationController::class, 'deleteRegistration'
   ])->name("registration.deletion");
 
+Route::get('/unsubscribe/{id}', [
+  ContactController::class, 'unsubscribeContact'
+  ])->whereNumber("id")->name("contact.unsubscribe");
 
+
+Route::get('/send-email', function () {
+    return view('emails/confirm-email');
+});
 
 

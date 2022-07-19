@@ -6,7 +6,7 @@ function RegistrationConfirmed() {
         <div className="main__home">
             <div className="intro">
                 <h2 className="intro__headline">
-                    Your reservation was successfully confirmed!
+                    Your registration was successfully confirmed!
                 </h2>
             </div>
         </div>
