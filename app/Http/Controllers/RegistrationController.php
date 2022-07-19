@@ -29,11 +29,22 @@ class RegistrationController extends Controller
     {
       // First, store the contact in DB
 
-      $this->validate($request, [
-        "name" => "required|max:120",
+      if ($request->input("is_phone_required") == true) {
+        $this->validate($request, [
+          // "phone" => "required|regex:/^([0-9\s\-\+\(\)]*)$/",
+          "phone" => "required",
+          "name" => "required|max:120",
         "email" => "required|email",
-        "phone" => "required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10",
-      ]);
+        ]);
+      } else {
+        $this->validate($request, [
+          "name" => "required|max:120",
+          "email" => "required|email",
+        ]);
+      }
+
+      
+
 
       $event_id = $request->input("event_id") ?? null;
 
@@ -48,6 +59,8 @@ class RegistrationController extends Controller
         $contact = $contact_db;
 
         $registration_db = Registration::where("event_id", "=", $event_id)->where("contact_id", "=", $contact->id)->first();
+
+        dump($registration_db);
 
         if ($registration_db != null) {
 
@@ -115,6 +128,7 @@ class RegistrationController extends Controller
         "event_title" => $event->title_en,
         "start_date" => $event->start_date,
         "registration_token" => $registration_token,
+        "qr_url" => $event->qr_code_image,
         "is_subscribed" => $contact->is_subscribed
       ];
 

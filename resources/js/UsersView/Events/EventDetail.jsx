@@ -44,6 +44,7 @@ function EventDetail() {
                     setDisplayModal={setDisplayModal}
                     eventId={eventDetail.id}
                     date={eventDetail.start_date}
+                    phoneRequired={eventDetail.is_phone_required}
                 />
                 <Hero
                     className="detail__hero"
