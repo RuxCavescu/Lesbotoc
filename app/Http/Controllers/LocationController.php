@@ -55,7 +55,7 @@ class LocationController extends Controller
 
         $location->save();
 
-        session()->flash('success_message', ' New location created.');
+        session()->flash('success_message', 'New location created.');
 
         return redirect(route('locations.index'));
     }

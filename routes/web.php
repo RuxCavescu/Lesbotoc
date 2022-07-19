@@ -6,6 +6,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\React\ReactAppController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ use App\Http\Controllers\React\ReactAppController;
 // });
 
 Route::get('/footer', function () {     //just to try-out footer - can be removed!
-    return view('layouts.footer');
+  return view('layouts.footer');
 });
 
 Route::post('/register', [
@@ -51,10 +52,10 @@ Route::post('/register', [
 
 Route::get('/events/{id}', [
   ReactAppController::class, 'renderApp'
-  ])->whereNumber("id");
+])->whereNumber("id");
 
 Route::get('/{path?}', [
   ReactAppController::class, 'renderApp'
-  ])->whereIn('path', ['events', '', 'about-us', "events/{id}"])->whereNumber("id");
+])->whereIn('path', ['events', '', 'about-us', "events/{id}"])->whereNumber("id");
 
-
+Route::post('sendrequest', [MessageController::class, 'receive']);
