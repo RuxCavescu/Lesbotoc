@@ -148,4 +148,16 @@ class ContactController extends Controller
         return view('contacts.show-subscribed', compact('subscribedContacts'));
     }
 
+    public function unsubscribeContact($id)
+    {
+      $contact = Contact::findOrFail($id);
+
+      $contact->is_subscribed = 0;
+
+      $contact->save();
+
+      return redirect(url("/unsubscribed"));
+
+    }
+
 }

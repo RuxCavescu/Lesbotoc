@@ -10,13 +10,14 @@ function Modal({
     onClick,
     eventId,
     date,
+    phoneRequired,
 }) {
     const [success, setSuccess] = useState(null);
     const [errors, setErrors] = useState(null);
     // const [errorName, setErrorName] = useState(null);
     // const [errorEmail, setErrorEmail] = useState(null);
     // const [errorPhone, setErrorPhone] = useState(null);
-    const [isChecked, setIsChecked] = useState(true);
+    const [isChecked, setIsChecked] = useState(false);
 
     const [values, setValues] = useState({
         name: "",
@@ -26,6 +27,7 @@ function Modal({
         event_name: title,
         event_date: date,
         contact_id: 1,
+        is_phone_required: phoneRequired,
         // auth_token: "auth",
         is_confirmed: 0,
         is_subscribed: isChecked,
@@ -157,7 +159,7 @@ function Modal({
 
                         <div className="events__common">
                             <label
-                                className="events__label events__label--half"
+                                className="events__label events__label--full "
                                 htmlFor="email"
                             >
                                 Your email *
@@ -180,50 +182,54 @@ function Modal({
                                         }
                                     })}
                             </label>
-                            <label
-                                className="events__label events__label--half"
-                                htmlFor="phone"
-                            >
-                                Phone number *
-                                <input
-                                    className="events__input"
-                                    type="phone"
-                                    id="phone"
-                                    name="phone"
-                                    value={values.phone}
-                                    onChange={handleChange}
-                                />
-                                {errors &&
-                                    Object.keys(errors).map((type) => {
-                                        if (type == "phone") {
-                                            return (
-                                                <div className="events__message">
-                                                    {errors[type]}
-                                                </div>
-                                            );
-                                        }
-                                    })}
-                            </label>
-                            <label
-                                htmlFor=""
-                                className="events__label events__label--thin"
-                            >
-                                <input
-                                    className=" events__input--space"
-                                    type="checkbox"
-                                    // value={values.is_subscribed}
-                                    name="is_subscribed"
-                                    value={values.is_subscribed}
-                                    checked={isChecked}
-                                    onChange={(e) => {
-                                        setIsChecked(e.target.checked);
-                                        handleChange(e);
-                                    }}
-                                />{" "}
-                                I would like to subscribe to newsletter to
-                                receive latest news and updates.
-                            </label>
+
+                            {phoneRequired == true && (
+                                <label
+                                    className="events__label events__label--full"
+                                    htmlFor="phone"
+                                >
+                                    Phone number *
+                                    <input
+                                        className="events__input"
+                                        type="phone"
+                                        id="phone"
+                                        name="phone"
+                                        value={values.phone}
+                                        onChange={handleChange}
+                                    />
+                                    {errors &&
+                                        Object.keys(errors).map((type) => {
+                                            if (type == "phone") {
+                                                return (
+                                                    <div className="events__message">
+                                                        {errors[type]}
+                                                    </div>
+                                                );
+                                            }
+                                        })}
+                                </label>
+                            )}
                         </div>
+
+                        <label
+                            htmlFor=""
+                            className="events__label events__label--thin"
+                        >
+                            <input
+                                className=" events__input--space"
+                                type="checkbox"
+                                // value={values.is_subscribed}
+                                name="is_subscribed"
+                                value={values.is_subscribed}
+                                checked={isChecked}
+                                onChange={(e) => {
+                                    setIsChecked(e.target.checked);
+                                    handleChange(e);
+                                }}
+                            />{" "}
+                            I would like to subscribe to newsletter to receive
+                            latest news and updates.
+                        </label>
 
                         {/* <label
                             className="events__label events__label--full"
