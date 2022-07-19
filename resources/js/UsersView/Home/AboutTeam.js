@@ -17,16 +17,16 @@ function AboutTeam() {
             </p>
             <div className="main__about-teamImages">
                 <TeamPicture
-                    name="Marta 1"
-                    path="images/pride/pride_parade.jpg"
+                    name="Eliška"
+                    path="images/lesbotoc_photos/Eliška.JPG"
                 />
                 <TeamPicture
-                    name="Marta 2"
-                    path="images/pride/pride_parade.jpg"
+                    name="Mariana"
+                    path="images/lesbotoc_photos/Mariana.JPG"
                 />
                 <TeamPicture
-                    name="Marta 3"
-                    path="images/pride/pride_parade.jpg"
+                    name="Marta"
+                    path="images/lesbotoc_photos/Marta_cropped.JPG"
                 />
             </div>
         </div>
