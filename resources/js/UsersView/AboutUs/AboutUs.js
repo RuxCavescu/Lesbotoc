@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
-import AboutForm from "./Home/AboutForm";
-import Hero from "./Home/Hero";
+import AboutForm from "./AboutForm";
+import Hero from "../Home/Hero";
 // import Navbar from "./Navbar";
 
 function AboutUs() {

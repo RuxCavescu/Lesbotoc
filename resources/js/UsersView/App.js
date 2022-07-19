@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import Home from "./Home";
 import EventsList from "./EventsList";
-import AboutUs from "./AboutUs";
+import AboutUs from "./AboutUs/AboutUs";
 import EventDetail from "./Events/EventDetail";
 
 function App() {

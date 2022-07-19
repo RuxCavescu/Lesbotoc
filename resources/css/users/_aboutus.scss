@@ -21,6 +21,17 @@ html {
     align-self: center;
 }
 
+.error-message{
+    font-weight: 700;
+    color: red;
+    font-size: small;
+}
+.success-message{
+    font-weight: 700;
+    color: green;
+    font-size: large;
+}
+
 .img-about{
     width: 400px;
 }
