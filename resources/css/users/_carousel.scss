@@ -1,20 +1,25 @@
 .carousel__event {
     font-family: "Inter";
     padding: 1em;
-    width: 300px;
-    height: auto;
+    width: 200px;
+    height: 250px;
     background: #0a0a0aab;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     margin-right: 10px;
 
     &-container {
-        width: 100%;
         margin: auto;
         display: flex;
         flex-direction: row;
+
+        & ul {
+            width: 70%;
+            background-color: red;
+        }
     }
 
     &-date {
