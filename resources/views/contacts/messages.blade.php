@@ -1,7 +1,10 @@
 @if (count($errors) > 0)
     <div class="errors">
         @foreach ($errors->all() as $error)
-            <div class="error__message">{{$error}}</div>
+            <div class="error">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                <div class="error__message">{{$error}}</div>
+            </div>
         @endforeach
     </div>
 @endif
