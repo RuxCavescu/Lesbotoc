@@ -82,7 +82,7 @@ Route::get('/{path?}', [
     ReactAppController::class, 'renderApp'
 ])->whereIn('path', ['events', '', 'about-us', "events/{id}", "registration-deleted", "registration-confirmed", "unsubscribed"])->whereNumber("id");
 
-Route::post('sendrequest', [MessageController::class, 'receive']);
+// Route::post('sendrequest', [MessageController::class, 'receive']);
 
 
 Route::get('/confirm/registration/{token}', [
