@@ -51,7 +51,7 @@ export default function AboutForm(props){
 
        
         if (response != null){  
-            setSuccess("Thank you for contacting us");
+            setSuccess("Thank you for contacting us.");
             // navigate('/about-us');
             setTimeout(()=> {
                 navigate('/');
@@ -68,6 +68,7 @@ export default function AboutForm(props){
             method= "POST"
             className="contact-form">
          {success && <p className='success-message'>{success}</p>}
+         {formError && <p className='error-message'>{formError}</p>}
          <br />
         <label 
             className="loclabel" 
@@ -112,11 +113,8 @@ export default function AboutForm(props){
             rows="7" 
             placeholder="Write your message here..."></textarea>
             <br />
-        <button className="input-button">Submit</button>
-            <br />
-           
-            {formError && <p className='error-message'>{formError}</p>}
-  
+        <button className="detail__button">SUBMIT</button>
+            <br /> 
     </form>
 </div>
      );

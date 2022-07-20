@@ -43,4 +43,4 @@
     value="{{old('longtitude', $location->longtitude)}}">
 <br>
 
-<input class="input-button" type="submit" class="" value="{{$buttonLabel}}">
+<input class="input-button" type="submit" value="{{$buttonLabel}}">

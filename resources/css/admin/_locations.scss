@@ -22,10 +22,9 @@ html {
 
 .form-container {
     background-color: $form-bg;
-    border-radius: 10px;
     margin: 30px auto;
     padding: 0px 10px;
-    width: 100%;    
+    width:80%;    
 }
 
 .form-item {
@@ -42,15 +41,17 @@ html {
 }
 
 .input-button {
-    background-color: green;
+    background-color: $header-bg2;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     color: white;
+    cursor: pointer;
     display: inline-table;
     font-size: 16px;
+    font-weight: 500;
     height: 50px;
     margin: 4px;
-    padding: 15px 32px;
+    padding: 10px 50px;
     text-align: center;
     text-decoration: none;
     width: 300px;    
@@ -98,12 +99,6 @@ select {
     margin: auto;
     text-align: center;
     width: 80%;
-}
-
-.location-data {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 
 .loclabel{
