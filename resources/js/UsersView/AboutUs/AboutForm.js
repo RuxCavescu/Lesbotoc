@@ -68,6 +68,7 @@ export default function AboutForm(props){
             method= "POST"
             className="contact-form">
          {success && <p className='success-message'>{success}</p>}
+         <br />
         <label 
             className="loclabel" 
             htmlFor="name">Name:</label>
@@ -77,7 +78,7 @@ export default function AboutForm(props){
             name="name"
             className="input-item" 
             type="text" 
-            id="name"/> <br />
+            id="name"/>
         <label 
             className="loclabel" 
             htmlFor="email">Email address:</label>
@@ -104,9 +105,9 @@ export default function AboutForm(props){
         <textarea 
             onChange={(e)=>handleChange(e)}
             value={data.message}
-            className="input-item" 
+            className="input-item textfield" 
             name="message" 
-            id="message" 
+            id="message-area" 
             cols="30" 
             rows="7" 
             placeholder="Write your message here..."></textarea>
