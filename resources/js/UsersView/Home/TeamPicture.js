@@ -13,7 +13,7 @@ function TeamPicture({ name, path }) {
                     borderRadius: "10px",
                 }}
             ></div>
-            <h3>
+            <h3 className="main__about-name">
                 <strong>Name: {name} </strong>
             </h3>
             <p className="main__about-description">

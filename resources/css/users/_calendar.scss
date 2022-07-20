@@ -1,13 +1,27 @@
 .calendar__display {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     padding: 100px;
+
+    @media (max-width: 850px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
     &-info {
         width: 70%;
         display: flex;
         flex-direction: column;
-        padding: 50px;
+        padding: 10px 0 0px 50px;
+
+        @media (max-width: 850px) {
+            margin-top: 50px;
+            padding: 0;
+            text-align: center;
+        }
 
         & h4 {
             margin-bottom: 1em;
@@ -17,12 +31,23 @@
     &-event {
         display: flex;
         flex-direction: row;
+
+        @media (max-width: 850px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     &-text {
         display: flex;
         flex-direction: column;
         margin-left: 1em;
+
+        @media (max-width: 850px) {
+            margin: 50px 0 0 0;
+        }
     }
 
     &-image {
@@ -37,5 +62,7 @@
 }
 
 .react-calendar {
+    width: 50%;
     padding: 20px;
+    height: auto;
 }
