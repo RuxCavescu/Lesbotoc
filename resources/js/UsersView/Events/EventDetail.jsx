@@ -115,7 +115,7 @@ function EventDetail() {
                           eventDetail.already_registered ? (
                             <p className="detail__boxtitle">
                                 <span className="detail__boxtitle--bold">
-                                    Available spots :
+                                    Spots left :
                                 </span>
                                 {"   "}
                                 {eventDetail.capacity -

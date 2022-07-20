@@ -31,11 +31,8 @@ function EventsList() {
             <div className="intro">
                 <h2 className="intro__headline">About our events</h2>
                 <p className="intro__text">
-                    Lorem ipsum dolor sit amet, consectetur ipiscing elit.
-                    Tincidunt etiam commodo faucibus cras felis. Ornare id dolor
-                    sit ut curabitur ac, arcu id at. Eget fermentum at duis
-                    mattis posuere nisl venenatis pellentesque. Ipsum cras diam
-                    sed sit faucibus ipsum, vitae dictum diam.
+                    Check out our upcoming events and make sure to register in
+                    advance.
                 </p>
             </div>
 

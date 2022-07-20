@@ -15,7 +15,7 @@
     &__box {
         background-color: #8099ff83;
         border-radius: 15px;
-        padding: 2em;
+        padding: 3em 4em;
         width: 40%;
 
         &--grey {
@@ -28,6 +28,8 @@
 
         &--bold {
             font-weight: bold;
+            display: inline-block;
+            width: 90px;
         }
 
         &--centered {
