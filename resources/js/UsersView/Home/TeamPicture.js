@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-function TeamPicture({ name, path }) {
+function TeamPicture({ name, path, about }) {
     return (
         <div className="main__about-info">
             <div
@@ -13,16 +13,8 @@ function TeamPicture({ name, path }) {
                     borderRadius: "10px",
                 }}
             ></div>
-            <h3 className="main__about-name">
-                <strong>Name: {name} </strong>
-            </h3>
-            <p className="main__about-description">
-                <strong>About me:</strong> Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
-            </p>
+            <h3 className="main__about-name">{name}</h3>
+            <p className="main__about-description">{about}</p>
         </div>
     );
 }
