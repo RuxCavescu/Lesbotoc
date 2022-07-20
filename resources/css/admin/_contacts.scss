@@ -70,6 +70,7 @@ button {
 .contacts__list {
     padding: 100px 0;
     margin: 0 auto;
+    width: 100vw;
 }
 
 .contacts__columns {
@@ -79,14 +80,13 @@ button {
 
     & td {
         height: 75px;
-    }
-
-    & td {
+        text-align: center;
         padding: 0 20px;
     }
 
     &-phone {
         text-align: center;
+        width: 25%;
     }
 
     &-name {
@@ -96,21 +96,33 @@ button {
     &-email {
         width: 25%;
     }
-    &-phone {
-        width: 25%;
-    }
 }
 
 .contact__row {
-    height: 50px;
+    height: 30px;
     width: 100vw;
     padding: 40px 0;
 
     & td {
         padding: 0 20px;
     }
+
     &:nth-child(odd) {
         background-color: #eeeeee;
+    }
+
+    & a {
+        & .button__edit {
+            display: flex;
+            justify-content: center;
+            margin-right: 0;
+        }
+
+        & .button__delete {
+            display: flex;
+            justify-content: center;
+            margin-right: 0;
+        }
     }
 }
 
@@ -135,6 +147,8 @@ button {
         background: #ffffff;
         border-radius: 5px;
         display: block;
+        margin-bottom: 10px;
+        padding-left: 10px;
     }
 
     &-radioBtn {
@@ -253,6 +267,14 @@ button {
     align-items: center;
 }
 
+.error__message {
+    color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .create-btn {
     padding: 10px 50px;
 
@@ -268,10 +290,6 @@ button {
 .alert-success {
     color: green;
     padding: 50px 10px 0 10px;
-}
-
-.error__message {
-    background-color: red;
 }
 
 .button-fa {
@@ -331,4 +349,18 @@ button {
     background-color: #fff;
     left: 8px;
     top: 12px;
+}
+.fa-exclamation-triangle {
+    color: red;
+}
+
+.errors {
+    margin-bottom: 70px;
+}
+
+.error {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px;
 }

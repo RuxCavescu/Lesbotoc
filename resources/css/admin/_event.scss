@@ -94,8 +94,6 @@
         padding: 2em 2.5em;
 
         background-color: #efefef;
-        // background-color: #949191;
-
         border-radius: 10px;
 
         .form__buttons {
@@ -170,6 +168,10 @@
             // margin-bottom: 20px;
         }
 
+        &--space {
+            margin-right: 5px;
+        }
+
         // &--half {
         //     width: 50%;
         // }
@@ -219,6 +221,11 @@
             display: inline;
             font-weight: normal;
         }
+
+        &--thin {
+            font-weight: normal;
+            margin-top: 1em;
+        }
     }
 
     &__lang {
@@ -232,7 +239,12 @@
         flex-wrap: wrap;
         justify-content: space-between;
         width: 100%;
+        column-gap: 2em;
         // align-items: center;
+
+        &--nowrap {
+            flex-wrap: nowrap;
+        }
     }
 
     &__buttons {

@@ -10,6 +10,7 @@ function TeamPicture({ name, path }) {
                     backgroundImage: `url('${path}')`,
                     backgroundSize: "cover",
                     backgroundPosition: "bottom",
+                    borderRadius: "10px",
                 }}
             ></div>
             <h3>

@@ -41,3 +41,8 @@ Route::post("/registration/store", [
 Route::post("message/store", [
     MessageController::class, "store"
 ])->name("message.store");
+// event by date API endpoint:
+
+/* Route::get('/events/{date}', [
+    ApiController::Class, 'showEventsByDate'
+])->name('events-by-date'); */

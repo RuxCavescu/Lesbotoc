@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Hero from "../Home/Hero";
 import Modal from "./Modal";
+import Moment from "moment";
 
 function EventDetail() {
     const [eventDetail, setEventDetail] = useState(null);
@@ -44,6 +45,7 @@ function EventDetail() {
                     setDisplayModal={setDisplayModal}
                     eventId={eventDetail.id}
                     date={eventDetail.start_date}
+                    phoneRequired={eventDetail.is_phone_required}
                 />
                 <Hero
                     className="detail__hero"
@@ -64,12 +66,23 @@ function EventDetail() {
                             {eventDetail.description_en}
                         </p>
                     </div>
-                    <div className="detail__box">
+
+                    <div
+                        className={
+                            eventDetail.capacity >
+                                eventDetail.already_registered ||
+                            eventDetail.capacity == null
+                                ? "detail__box"
+                                : "detail__box detail__box--grey"
+                        }
+                    >
                         <p className="detail__boxtitle">
                             <span className="detail__boxtitle--bold">
                                 When:
                             </span>{" "}
-                            {eventDetail.start_date}
+                            {Moment(eventDetail.start_date).format(
+                                "Do MMMM YYYY"
+                            )}
                         </p>
                         <p className="detail__boxtitle">
                             <span className="detail__boxtitle--bold">
@@ -87,7 +100,38 @@ function EventDetail() {
                                 ? "Free"
                                 : eventDetail.price}
                         </p>
-                        <p className="detail__boxtitle">
+
+                        {eventDetail.capacity == null ? (
+                            <p className="detail__boxtitle">
+                                <span className="detail__boxtitle--bold">
+                                    Capacity:
+                                </span>
+                                {"   "}
+                                {eventDetail.capacity == null
+                                    ? "Unlimited"
+                                    : eventDetail.capacity}
+                            </p>
+                        ) : eventDetail.capacity >
+                          eventDetail.already_registered ? (
+                            <p className="detail__boxtitle">
+                                <span className="detail__boxtitle--bold">
+                                    Available spots :
+                                </span>
+                                {"   "}
+                                {eventDetail.capacity -
+                                    eventDetail.already_registered}{" "}
+                                / {eventDetail.capacity}
+                            </p>
+                        ) : (
+                            <p className="detail__boxtitle">
+                                <span className="detail__boxtitle--bold">
+                                    Available spots :
+                                </span>
+                                {"   "}0 / {eventDetail.capacity}
+                            </p>
+                        )}
+
+                        {/* <p className="detail__boxtitle">
                             <span className="detail__boxtitle--bold">
                                 Capacity:
                             </span>
@@ -95,13 +139,22 @@ function EventDetail() {
                             {eventDetail.capacity == null
                                 ? "Unlimited"
                                 : eventDetail.capacity}
-                        </p>
-                        <button
-                            onClick={handleClick}
-                            className="detail__button"
-                        >
-                            REGISTER
-                        </button>
+                        </p> */}
+
+                        {eventDetail.capacity >
+                            eventDetail.already_registered ||
+                        eventDetail.capacity == null ? (
+                            <button
+                                onClick={handleClick}
+                                className="detail__button"
+                            >
+                                REGISTER
+                            </button>
+                        ) : (
+                            <p className="detail__boxtitle detail__boxtitle--centered">
+                                Registrations are closed
+                            </p>
+                        )}
                     </div>
                     <div className="detail__description detail__description--wide">
                         <h2 className="detail__title">Instructions</h2>

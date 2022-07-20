@@ -2,25 +2,48 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import CarouselEvent from "./CarouselEvent";
+import Calendar from "./Calendar";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Moment from "moment";
 
 function PopularEvents() {
     const responsive = {
+        superLargeDesktop: {
+            // the naming can be any, depends on you.
+            breakpoint: { max: 4000, min: 3000 },
+            items: 7,
+        },
+
+        extraLargeDesktop: {
+            // the naming can be any, depends on you.
+            breakpoint: { max: 3500, min: 3000 },
+            items: 6,
+        },
+
+        LargeDesktop: {
+            // the naming can be any, depends on you.
+            breakpoint: { max: 3000, min: 2000 },
+            items: 5,
+        },
         desktop: {
-            breakpoint: { max: 3000, min: 1024 },
+            breakpoint: { max: 2000, min: 1024 },
+            items: 4,
+        },
+
+        tablet2: {
+            breakpoint: { max: 1024, min: 700 },
             items: 3,
-            slidesToSlide: 3, // optional, default to 1.
         },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
+
+        tablet1: {
+            breakpoint: { max: 700, min: 464 },
             items: 2,
-            slidesToSlide: 2, // optional, default to 1.
         },
+
         mobile: {
             breakpoint: { max: 464, min: 0 },
             items: 1,
-            slidesToSlide: 1, // optional, default to 1.
         },
     };
 
@@ -33,7 +56,6 @@ function PopularEvents() {
         setCarouselEvents(responseData);
     };
 
-    let cards = [];
     useEffect(() => {
         loadEvents();
     }, []);
@@ -47,32 +69,16 @@ function PopularEvents() {
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat.
             </p>
-            <Carousel
-                centerMode={true}
-                swipeable={false}
-                draggable={false}
-                showDots={true}
-                responsive={responsive}
-                ssr={true} // means to render carousel on server-side.
-                infinite={true}
-                // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                autoPlaySpeed={1000}
-                keyBoardControl={true}
-                customTransition="all .5"
-                transitionDuration={500}
-                containerClass="carousel-container"
-                removeArrowOnDeviceType={["tablet", "mobile"]}
-                // deviceType={this.props.deviceType}
-                dotListClass="custom-dot-list-style"
-                itemClass="carousel-item-padding-40-px"
-            >
-                {/* <div className="carousel__event-container"> */}
+            <Carousel responsive={responsive} infinite={true}>
                 {carouselEvents &&
                     carouselEvents.map((carouselEvent, index) => {
                         return (
                             <CarouselEvent
                                 key={index}
-                                date={carouselEvent.start_date}
+                                // date={carouselEvent.start_date}
+                                date={Moment(carouselEvent.start_date).format(
+                                    "DD.MM.YYYY"
+                                )}
                                 title={carouselEvent.title_en}
                                 path={carouselEvent.image.path}
                                 eventId={carouselEvent.id}

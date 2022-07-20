@@ -35,6 +35,10 @@ h1 {
     color: black;
 }
 
+.main__content {
+    min-height: 75vh;
+}
+
 @import "./users/navbar.scss";
 @import "./users/hero.scss";
 @import "./users/aboutTeam.scss";
@@ -44,3 +48,4 @@ h1 {
 @import "./users/aboutus";
 @import "./users/eventdetail.scss";
 @import "./users/carousel";
+@import "./users/calendar";
