@@ -25,7 +25,7 @@ function EventsList() {
         <>
             <Hero
                 path="images/women/holding_hands.jpg"
-                text="Let's meet each other."
+                text="Let's meet. <br> Let's connect."
                 position="center"
             />
             <div className="intro">
