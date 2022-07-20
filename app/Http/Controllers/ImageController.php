@@ -67,6 +67,8 @@ class ImageController extends Controller
         // find the contact
         $image = Image::findOrFail($id);
 
+        Croppa::delete($image->path);
+
         // delete the entry from the DB
         $image->delete();
 
