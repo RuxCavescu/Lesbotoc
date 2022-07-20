@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import Event from "./Events/Event";
 import EventDetail from "./Events/EventDetail";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import Moment from "moment";
 
 function EventsList() {
     const [events, setEvents] = useState(null);
@@ -38,7 +39,10 @@ function EventsList() {
                         return (
                             <Event
                                 key={index}
-                                date={event.start_date}
+                                // date={event.start_date}
+                                date={Moment(event.start_date).format(
+                                    "Do MMMM YYYY"
+                                )}
                                 title={event.title_en}
                                 path={event.image.path}
                                 eventId={event.id}

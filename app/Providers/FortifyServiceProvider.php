@@ -21,7 +21,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+      Fortify::ignoreRoutes();
     }
 
     /**
@@ -32,7 +32,15 @@ class FortifyServiceProvider extends ServiceProvider
     public function boot()
     {
       Fortify::viewPrefix('auth.');
-      Fortify::registerView('homepage/admin-homepage');
+      // Fortify::registerView('homepage/admin-homepage');
+    //   Fortify::registerView(function () {
+    //     return view('homepage/admin-homepage');
+    // });
+    //   Fortify::loginView(function () {
+    //     return view('auth.login');
+    // });
+
+
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);

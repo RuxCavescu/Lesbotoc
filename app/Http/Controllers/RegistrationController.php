@@ -29,12 +29,12 @@ class RegistrationController extends Controller
     {
       // First, store the contact in DB
 
-      if ($request->input("is_phone_required") == true) {
+      if ($request->input("is_phone_required") == 1) {
         $this->validate($request, [
-          // "phone" => "required|regex:/^([0-9\s\-\+\(\)]*)$/",
-          "phone" => "required",
+          "phone" => "required|regex:/^([0-9\s\-\+\(\)]*)$/",
+          // "phone" => "required",
           "name" => "required|max:120",
-        "email" => "required|email",
+           "email" => "required|email",
         ]);
       } else {
         $this->validate($request, [
@@ -59,8 +59,6 @@ class RegistrationController extends Controller
         $contact = $contact_db;
 
         $registration_db = Registration::where("event_id", "=", $event_id)->where("contact_id", "=", $contact->id)->first();
-
-        dump($registration_db);
 
         if ($registration_db != null) {
 
@@ -109,7 +107,11 @@ class RegistrationController extends Controller
       if ($event->already_registered === null) {
         $event->already_registered = 1;
       } elseif ($event->already_registered >= $event->capacity) {
-        return back()->withErrors("Event is fully booked. You cannot register anymore.");
+
+        return response()->json(['errors' => [
+          "full" => ['Sorry, event registrations has reached full capacity.']
+        ]],422);
+
       } else {
         $event->already_registered = $event->already_registered + 1;
       }
@@ -157,6 +159,15 @@ class RegistrationController extends Controller
     {
       // $registration = Registration::findOrFail($id);
       $registration = Registration::where("auth_token", "=", $token)->first();
+
+      $event = Event::where("id", "=", $registration->event_id)->first();
+
+      if ($event->capacity != null) {
+        $event->already_registered = $event->already_registered - 1;
+      }
+
+      $event->save();
+
 
       // $contact_db = Contact::where("email", "=", $request->input("email"))->first();
 

@@ -36,6 +36,6 @@ class ConfirmEmail extends Mailable
          * "resources/views" folder. If you don't have this file, then
          * create it.
          */
-        return $this->from("info@lesbotoc.com")->view('emails/confirm-email');
+        return $this->from("lesbotoc@gmail.com")->view('emails/confirm-email')->subject("Confirm your registration for " . " " . $this->details["event_title"]);
     }
 }

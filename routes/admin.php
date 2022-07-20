@@ -148,3 +148,5 @@ Route::delete('/locations/detail/{id}', [LocationController::class, 'destroy'])
 
 Route::patch('/locations/detail/{id}', [LocationController::class, 'update'])
   ->name('locations.edit');
+
+

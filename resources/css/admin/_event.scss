@@ -236,11 +236,15 @@
 
     &__common {
         display: flex;
-        // flex-wrap: wrap;
+        flex-wrap: wrap;
         justify-content: space-between;
         width: 100%;
         column-gap: 2em;
         // align-items: center;
+
+        &--nowrap {
+            flex-wrap: nowrap;
+        }
     }
 
     &__buttons {
