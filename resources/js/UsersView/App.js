@@ -24,6 +24,11 @@ function App() {
                         path="/registration-confirmed"
                         element={<RegistrationConfirmed />}
                     />
+                    <Route 
+                        exact
+                        path="/about-us"
+                        element={<AboutUs/>}
+                    />
                     <Route
                         exact
                         path="/registration-deleted"
