@@ -1,4 +1,5 @@
 /node_modules
+phploy.ini
 /public/hot
 /public/storage
 /storage/*.key
@@ -17,5 +18,4 @@ yarn-error.log
 /public/mix-manifest.json
 /public/mix.js.map
 /resources/views/locations/form.notes.blade.php
-phploy.ini
 

@@ -29,7 +29,7 @@ class EventSeeder extends Seeder
             'title_en' => 'Book Club',
             'title_cz' => 'Knižní klub',
             // changed for testing to June, return back to sept
-            'start_date' => Carbon::create('2022', '06', '27'),
+            'start_date' => Carbon::create('2022', '09', '27'),
             // 'start_date' => Carbon::create('2022', '09', '27'),
             'end_date' => null,
             'time' => Carbon::parse('09:00:00'),
@@ -54,7 +54,7 @@ class EventSeeder extends Seeder
           'title_en' => 'Camp',
           'title_cz' => 'Tábor',
           // changed for testing to June, return back to July
-          'start_date' => Carbon::create('2022', '06', '22'),
+          'start_date' => Carbon::create('2022', '08', '22'),
           // 'start_date' => Carbon::create('2022', '07', '22'),
           'end_date' => Carbon::create('2022', '07', '24'),
           'time' => Carbon::parse('19:00:00'),
@@ -103,7 +103,7 @@ class EventSeeder extends Seeder
       'title_cz' => 'Grilovačka s Lesbotočem',
 
 
-      'start_date' => Carbon::create('2022', '06', '30'),
+      'start_date' => Carbon::create('2022', '11', '30'),
       'end_date' => null,
       'time' => Carbon::parse('17:00:00'),
       
@@ -203,7 +203,7 @@ class EventSeeder extends Seeder
 [
   'title_cz' => 'Halloween',
   'title_en' => 'Halloween',
-  'start_date' => Carbon::create('2022', '11', '30'),
+  'start_date' => Carbon::create('2022', '10', '30'),
   'end_date' => null,
   'time' => null,
   'location_id' => 8, // To be determined
@@ -226,7 +226,7 @@ class EventSeeder extends Seeder
 [
   'title_cz' => 'Na pivo s Lesbotočem',
   'title_en' => 'Beer with Lesbotoč',
-  'start_date' => Carbon::create('2022', '01', '25'),
+  'start_date' => Carbon::create('2023', '01', '25'),
   'end_date' => null,
   'time' => null,
   'location_id' => 5, // Patra - address: Krymská 286/17, Vršovice, 101 00
@@ -249,7 +249,7 @@ class EventSeeder extends Seeder
 [
   'title_cz' => 'Hudební kvíz',
   'title_en' => 'Music Quiz',
-  'start_date' => Carbon::create('2022', '04', '26'),
+  'start_date' => Carbon::create('2023', '04', '26'),
   'end_date' => null,
   'time' => null,
   'location_id' => 5, // Patra - address: Krymská 286/17, Vršovice, 101 00
