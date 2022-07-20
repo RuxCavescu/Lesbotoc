@@ -1,18 +1,4 @@
-{{-- <div class="container" style="padding: 1rem; background: #f5f5f5;">
-  <p>Hi, {{$details["contact_name"]}}</p>
-  <p>
-      Thank you for your registration for {{$details["event_title"]}} on {{$details["start_date"]}}!
-      In order to confirm your registration, please follow this <a href='{{route("registration.confirmation", $details["registration_token"])}}'>link</a>.
-  </p>
-  <p>If you changed your mind and decided not to participate, you can cancel your registration by clicking this <a href='{{route("registration.deletion", $details["registration_token"])}}'>link</a>.</p>
-  <p>See you soon!</p>
 
-  <p>
-    Best regards, <br>
-    Lesbotoč
-  </p>
-</div> --}}
-?> --}}
 
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -42,14 +28,11 @@
               <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
                 <tr>
                   <td style="padding:0 0 0px 0;color:#153643;">
-                    <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Inter,sans-serif;">Thank you for registration!</h1>
-                    {{-- <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Inter,sans-serif; text-align: justify;">You were registered for {{$details["event_title"]}} on {{$details["start_date"]}}. In order to confirm your registration, please follow this <a style="color:#7ab6cc;text-decoration:underline;" href='{{route("registration.confirmation", $details["registration_token"])}}'>link</a>.</p> --}}
+                    <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Inter,sans-serif;">Hi, Lesbotoč!</h1>
 
-                    {{-- <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Inter,sans-serif;"></p> --}}
+                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Inter,sans-serif; text-align: justify;">A user <strong>{{$name}}</strong> sent you a message via contact form:</p>
 
-                    {{-- <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Inter,sans-serif; text-align: justify; color: black;">If you changed your mind and decided not to participate, you can cancel your registration by clicking this <a style="color:#7ab6cc;text-decoration:underline;" href='{{route("registration.deletion", $details["registration_token"])}}'>link</a>.</p> --}}
-
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Inter,sans-serif; text-align: justify;">We are looking forward to seeing you!</p>
+                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Inter,sans-serif; text-align: justify; font-style: italic;">"{{$user_message}}"</p>
 
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Inter,sans-serif;">
                       Best regards, <br>
@@ -79,21 +62,12 @@
             <td style="padding:30px;background:#7ab6cc;">
               <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;font-size:9px;font-family:Arial,sans-serif;">
                 <tr>
-                  <td style="padding:0;width:50%;" align="left">
-
-
-                    {{-- @if ($details["is_subscribed"] == true )
-
-                    <p style="margin:0;font-size:14px;line-height:16px;font-family:Arial,sans-serif;color:#ffffff;">
-                      &reg; Lesbotoč 2022<br/><a href='{{route("contact.unsubscribe", $details["contact_id"])}}' style="color:#ffffff;text-decoration:underline;">Unsubscribe</a>
-                    </p>
-
-                    @endif --}}
+                  <td style="padding:0;width:50%;'">
 
 
                   
                   </td>
-                  <td style="padding:0;width:50%;" align="right">
+                  <td style="padding:0;width:50%;">
                     <table role="presentation" style="border-collapse:collapse;border:0;border-spacing:0;">
                       <tr>
                         <td style="padding:0 0 0 10px;width:38px;">

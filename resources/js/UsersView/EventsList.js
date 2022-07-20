@@ -5,6 +5,7 @@ import Event from "./Events/Event";
 import EventDetail from "./Events/EventDetail";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Moment from "moment";
+import Hero from "../UsersView/Home/Hero";
 
 function EventsList() {
     const [events, setEvents] = useState(null);
@@ -22,6 +23,11 @@ function EventsList() {
 
     return (
         <>
+            <Hero
+                path="images/women/holding_hands.jpg"
+                text="See our events."
+                position="center"
+            />
             <div className="intro">
                 <h2 className="intro__headline">About our events</h2>
                 <p className="intro__text">

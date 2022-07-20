@@ -16,9 +16,9 @@ class ContactFormMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($details)
     {
-        //
+      $this->details = $details;
     }
 
     /**
@@ -28,9 +28,10 @@ class ContactFormMail extends Mailable
      */
     public function build()
     {
-      return $this->subject('New message from the user')
-      ->view('emails.contact_us');
+      return $this->subject("New message from the user")->view('emails.contact_us');
 
-      // return $this->from("lesbotoc@gmail.com")->view('emails/confirm-email')->subject("Confirm your registration for " . " " . $this->details["event_title"]);
+      // return $this->from($this->details["email"])->view('emailscontact_us')->subject("A user sent you a message via contact f");
+
+
     }
 }

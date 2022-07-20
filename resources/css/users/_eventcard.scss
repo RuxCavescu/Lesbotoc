@@ -15,7 +15,8 @@
         margin: auto;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: center;
+        // align-items: center;
         gap: 2em;
     }
 
@@ -29,7 +30,7 @@
 
     &__name {
         font-weight: 700;
-        font-size: 40px;
+        font-size: 32px;
         line-height: 48px;
         text-align: center;
         text-transform: uppercase;
