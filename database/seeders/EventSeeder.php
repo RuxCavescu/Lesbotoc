@@ -273,7 +273,7 @@ class EventSeeder extends Seeder
 
       foreach ($events as $event) {
         $event = Event::create($event);
-        $event->setIsActive();
+        // $event->setIsActive();
         $event->save();
     }
 

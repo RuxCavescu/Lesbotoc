@@ -17,4 +17,5 @@ yarn-error.log
 /public/mix-manifest.json
 /public/mix.js.map
 /resources/views/locations/form.notes.blade.php
+phploy.ini
 
