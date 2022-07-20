@@ -6,7 +6,6 @@
 
 @include('auth/register')
 
-
 @endsection
 
 

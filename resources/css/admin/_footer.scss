@@ -12,7 +12,6 @@ $primary-font: Inter;
 $text-dark: #0a0a0a;
 $titles-dark: #4b4b4b;
 
-
 body {
     margin: 0;
 }
@@ -45,8 +44,9 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 50px 0;
     align-items: center;
-    height: 250px;
+    width: 1000px;
     margin: auto;
     width: 1000px;
 }
@@ -59,14 +59,18 @@ footer {
     padding-top: 20px;
 }
 
-html {
-    box-sizing: border-box;
+.a-footer {
+    color: white;
+    font-family: Inter;
+    font-weight: 400;
+    margin: 0 10px;
 }
 
 i {
     color: white;
     font-size: 35px;
 }
+
 .social-med--cont {
     display: flex;
     flex-direction: row;

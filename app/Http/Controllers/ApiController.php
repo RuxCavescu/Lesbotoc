@@ -23,13 +23,15 @@ class ApiController extends Controller
 
     public function showEventsByDate(Request $request)
     {
-      $date = $request->date;
-      $events = Event::query()
-                ->where('start_date', 'like', $date)
-                ->where('start_date', '>=', date('Y-m-d'))
-                ->get();
-                    
-        return $events;
+        $query = Event::with("image");
+
+        $date = $request->query('date');
+        
+        if ($date) {
+          $query->where('start_date', 'like', $date);
+                
+        }
+        return $query->get();
     }
 
     public function showEventDetail($id)
