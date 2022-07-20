@@ -30,8 +30,6 @@ function ReactCalendar() {
 
     const handleChange = (date) => {
         setDate(date);
-        // history.push("http://localhost:3000/events".date);
-        // loadEvents();
     };
 
     return (

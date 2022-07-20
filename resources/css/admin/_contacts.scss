@@ -111,18 +111,16 @@ button {
         background-color: #eeeeee;
     }
 
-    & a {
-        & .button__edit {
-            display: flex;
-            justify-content: center;
-            margin-right: 0;
-        }
+    & .button__edit {
+        display: flex;
+        justify-content: center;
+        margin-right: 0;
+    }
 
-        & .button__delete {
-            display: flex;
-            justify-content: center;
-            margin-right: 0;
-        }
+    & .button__delete form {
+        display: flex;
+        justify-content: center;
+        margin-right: 0;
     }
 }
 

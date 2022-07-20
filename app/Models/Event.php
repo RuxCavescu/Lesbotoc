@@ -45,10 +45,10 @@ class Event extends Model
       return $this->hasMany(Contact::class);
     }
 
-    public function setIsActive()
-    {
-      $this->is_active = $this->start_date > Carbon::now();
-    }
+    // public function setIsActive()
+    // {
+    //   $this->is_active = $this->start_date > Carbon::now();
+    // }
 
 
     

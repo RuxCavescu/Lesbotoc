@@ -4,8 +4,8 @@
                 <td>Email</td>
                 <td>Phone Number</td>
                 <td>Subscribed?</td>
-                <td>Delete</td>
                 <td>Edit</td>
+                <td>Delete</td>
             </tr>
         @foreach ($contacts as $contact)
             <tr class="contact__row">
