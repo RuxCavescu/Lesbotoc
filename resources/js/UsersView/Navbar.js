@@ -101,10 +101,13 @@ function Navbar() {
                 className="navigation__link icon"
                 href="#"
             >
-                <i className="fa-solid fa-bars"></i>
-
-                <i className="fa-thin fa-abacus"></i>
+                <i className="fa-solid fa-bars icon--small"></i>
             </a>
+            {/* <li className="navigation__item--logo">
+                <a href="/" className="navbar__logo-link">
+                    <img src="/images/logo_white.png" alt="lesbotoc logo" />
+                </a>
+            </li> */}
 
             <nav className="navigation__top">
                 <li className="navigation__item--logo">
@@ -148,7 +151,7 @@ function Navbar() {
                             ABOUT US
                         </a>
                     </li>
-                    <li className="navigation__item">
+                    {/* <li className="navigation__item">
                         <a
                             onClick={closeNav}
                             className="navigation__link"
@@ -156,7 +159,7 @@ function Navbar() {
                         >
                             ADMIN
                         </a>
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
         </header>

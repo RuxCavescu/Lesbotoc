@@ -15,15 +15,21 @@
     }
 
     &-title {
-        padding-left: 100px;
         width: 750px;
+        padding-left: 30px;
         color: white;
-        font-size: 80px;
+        font-size: 40px;
         font-weight: bold;
+
+        @media (min-width: 483px) {
+            padding-left: 100px;
+            font-size: calc(3em + 2vw);
+        }
     }
 
     &-details {
         padding-left: 100px;
+        padding-top: 2em;
     }
 
     &-detail {

@@ -25,14 +25,17 @@ function EventsList() {
         <>
             <Hero
                 path="images/women/holding_hands.jpg"
-                text="See our events."
+                text="Let's meet each other."
                 position="center"
             />
             <div className="intro">
                 <h2 className="intro__headline">About our events</h2>
                 <p className="intro__text">
-                    Check out our upcoming events and make sure to register in
-                    advance.
+                    Do you want to meet link-minded people in afriendly and safe
+                    environment? Let's spend time together together to talk,
+                    share our interests and hobbies, play games and celebrate
+                    our equality, diversity and inclusion. Check out our
+                    upcoming events and make sure to register in advance.
                 </p>
             </div>
 

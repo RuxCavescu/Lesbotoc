@@ -105,10 +105,13 @@
         }
 
         &--logo {
-            width: auto;
+            // width: auto;
             list-style-type: none;
             display: flex;
             align-items: center;
+            position: absolute;
+            top: 0.5em;
+            left: 2em;
         }
     }
 
@@ -136,12 +139,16 @@
         &:hover {
             background-color: $header-bg1;
         }
+
+        .icon--small {
+            font-size: 20px;
+        }
     }
 }
 
 .navbar__logo-link img {
     height: 3em;
-    margin-left: 5em;
+    // margin-left: 5em;
 }
 
 @media all and (min-width: 0px) {

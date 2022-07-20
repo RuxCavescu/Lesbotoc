@@ -115,7 +115,7 @@ function EventDetail() {
                           eventDetail.already_registered ? (
                             <p className="detail__boxtitle">
                                 <span className="detail__boxtitle--bold">
-                                    Spots left :
+                                    Left spots :
                                 </span>
                                 {"   "}
                                 {eventDetail.capacity -
@@ -125,7 +125,7 @@ function EventDetail() {
                         ) : (
                             <p className="detail__boxtitle">
                                 <span className="detail__boxtitle--bold">
-                                    Available spots :
+                                    Left spots :
                                 </span>
                                 {"   "}0 / {eventDetail.capacity}
                             </p>
@@ -173,7 +173,7 @@ function EventDetail() {
                             // width="450"
                             // height="270"
                             frameBorder="0"
-                            style={{ border: "0" }}
+                            style={{ border: "0", marginBottom: "4em" }}
                         ></iframe>
                     </div>
                     <div className="detail__description">
