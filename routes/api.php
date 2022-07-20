@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\RegistrationController;
 
 /*
@@ -34,9 +35,12 @@ Route::get('/events/{id}', [
 
 
 Route::post("/registration/store", [
-  RegistrationController::class, "store"
+    RegistrationController::class, "store"
 ])->name("registration.store");
 
+Route::post("message/store", [
+    MessageController::class, "store"
+])->name("message.store");
 // event by date API endpoint:
 
 /* Route::get('/events/{date}', [

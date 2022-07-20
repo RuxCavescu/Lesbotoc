@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-
 <div class="admin__bar">
     <h1 class="admin__title">Locations administration</h1>
 </div>
@@ -16,11 +15,7 @@
             @include('locations/form-template', ["buttonLabel" => "CREATE"])
         </form>    
         </div>
-        
-    
     </div>
-
-    
 </div>
 @endsection
 

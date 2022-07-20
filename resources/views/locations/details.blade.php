@@ -23,7 +23,8 @@
             
                 @csrf
                 @include('locations/form-template', ["buttonLabel" => $isNew ? "CREATE" : "EDIT"])
-            </form>
+              
+            </form>  <a class="button-a" href="/admin/locations"><button class="input-button blue">BACK</button></a>
         
             @if (!$isNew)
                 <form class="form-item" action="{{ route("locations.delete", $location->id) }}" method="post">

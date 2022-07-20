@@ -1,4 +1,4 @@
-<label for="location_name">Location Name</label>
+<label class="loclabel" for="location_name">Location Name</label>
 <input 
     class="input-item"
     type="text" 
@@ -7,7 +7,7 @@
     value="{{old('location_name', $location->name)}}">
 <br>
 
-<label for="address">Address</label>
+<label class="loclabel" for="address">Address</label>
 <input 
     class="input-item"
     type="text"
@@ -16,7 +16,7 @@
     value="{{old('address', $location->address)}}">
 <br>
 
-<label for="website">Website</label>
+<label class="loclabel" for="website">Website</label>
 <input 
     class="input-item"
     type="text"
@@ -25,7 +25,7 @@
     value="{{old('website', $location->location_website)}}">
 <br>
 
-<label for="latitude">Latitude</label>
+<label class="loclabel" for="latitude">Latitude</label>
 <input 
     class="input-item"
     type="text"
@@ -34,7 +34,7 @@
     value="{{old('latitude', $location->latitude)}}">
 <br>
 
-<label for="longtitude">Longtitude</label>
+<label class="loclabel" for="longtitude">Longtitude</label>
 <input 
     class="input-item"
     type="text"
