@@ -7,6 +7,8 @@ use App\Models\Registration;
 use App\Models\Event;
 use App\Models\Contact;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
+
 
 use App\Mail\ConfirmEmail;
 use Illuminate\Support\Facades\Mail;
@@ -128,7 +130,9 @@ class RegistrationController extends Controller
         "contact_email" => $contact->email,
         "contact_id" => $contact->id,
         "event_title" => $event->title_en,
-        "start_date" => $event->start_date,
+        "start_date" => Carbon::parse($event->start_date)->format('d.m.Y'),
+
+        
         "registration_token" => $registration_token,
         "qr_url" => $event->qr_code_image,
         "is_subscribed" => $contact->is_subscribed

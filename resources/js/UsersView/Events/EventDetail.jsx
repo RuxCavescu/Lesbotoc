@@ -46,6 +46,7 @@ function EventDetail() {
                     eventId={eventDetail.id}
                     date={Moment(eventDetail.start_date).format("Do MMMM YYYY")}
                     phoneRequired={eventDetail.is_phone_required}
+                    isPaid={eventDetail.is_paid}
                 />
                 <Hero
                     className="detail__hero"
@@ -135,7 +136,7 @@ function EventDetail() {
                         ) : (
                             <p className="detail__boxtitle">
                                 <span className="detail__boxtitle--bold">
-                                    Left spots :
+                                    Left spots:
                                 </span>
                                 <span className="detail__boxtitle--normal">
                                     0 / {eventDetail.capacity}

@@ -15,20 +15,6 @@
 
 
 
-{{-- 
-<?php 
-$details = [
-        "contact_name" => "Ekaterina Melnichuk",
-        "contact_email" => "katerinka.melnichuk@gmail.com",
-        "contact_id" => 72,
-        "event_title" => "Book club",
-        "start_date" => "21.03.2022",
-        "registration_token" => "blablabla",
-        "is_subscribed" => true,
-        "qr_url" => null,
-      ];
-
-?> --}}
 
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -49,7 +35,7 @@ $details = [
         <table role="presentation" style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
           <tr>
             <td align="center" style="padding:40px 0 30px 0;background:#142566;">
-              <img src="/images/logo_white.png" alt="" width="200" style="height:auto;display:block;" />
+              <img src="https://lesbotoc.codeboot.cz/images/logo_white.png" alt="" width="200" style="height:auto;display:block;" />
               <h1 style="color: white;">Welcome, {{$details["contact_name"]}}!</h1>
             </td>
           </tr>
@@ -61,9 +47,14 @@ $details = [
                     <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Inter,sans-serif;">Thank you for registration!</h1>
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Inter,sans-serif; text-align: justify;">You were registered for {{$details["event_title"]}} on {{$details["start_date"]}}. In order to confirm your registration, please follow this <a style="color:#7ab6cc;text-decoration:underline;" href='{{route("registration.confirmation", $details["registration_token"])}}'>link</a>.</p>
 
-                    {{-- <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Inter,sans-serif;"></p> --}}
+                    @if ($details["qr_url"] == true)
+                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Inter,sans-serif; text-align: justify;">Make sure to send your payment for the event before due date.</p>
+                    @endif
 
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Inter,sans-serif; text-align: justify; color: black;">If you changed your mind and decided not to participate, you can cancel your registration by clicking this <a style="color:#7ab6cc;text-decoration:underline;" href='{{route("registration.deletion", $details["registration_token"])}}'>link</a>.</p>
+
+
+                    
 
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Inter,sans-serif; text-align: justify;">We are looking forward to seeing you!</p>
 
@@ -85,9 +76,6 @@ $details = [
 <div style="padding-top: 2.4em;">
   <img src={{$details["qr_url"]}} alt="QR code for payment" style="width:200px; height: 200px; " >
 </div>
-
-
-
 @endif
             </td>
           </tr>
@@ -113,10 +101,10 @@ $details = [
                     <table role="presentation" style="border-collapse:collapse;border:0;border-spacing:0;">
                       <tr>
                         <td style="padding:0 0 0 10px;width:38px;">
-                          <a href="https://www.instagram.com/lesbotoc/" style="color:#ffffff;"><img src="/images/instagram.png" alt="Instagram" width="38" style="height:auto;display:block;border:0;" /></a>
+                          <a href="https://www.instagram.com/lesbotoc/" style="color:#ffffff;"><img src="https://lesbotoc.codeboot.cz/images/instagram.png" alt="Instagram" width="38" style="height:auto;display:block;border:0;" /></a>
                         </td>
                         <td style="padding:0 0 0 10px;width:38px;">
-                          <a href="https://www.facebook.com/seznamsenatoci" style="color:#ffffff;"><img src="/images/facebook.png" alt="Facebook" width="38" style="height:auto;display:block;border:0;" /></a>
+                          <a href="https://www.facebook.com/seznamsenatoci" style="color:#ffffff;"><img src="https://lesbotoc.codeboot.cz/images/facebook.png" alt="Facebook" width="38" style="height:auto;display:block;border:0;" /></a>
                         </td>
                       </tr>
 

@@ -1,6 +1,4 @@
 .detail {
-    &__hero {
-    }
     &__container {
         width: 80%;
         margin: 10em auto;
@@ -54,6 +52,8 @@
 
         &--centered {
             text-align: center;
+            display: flex;
+            justify-content: center;
             background: grey;
             border-radius: 10px;
             color: white;
@@ -92,6 +92,7 @@
 
     &__button {
         background-color: #142566;
+
         border: none;
         outline: none;
         min-width: 150px;
@@ -100,8 +101,12 @@
         color: white;
         font-size: 1.4em;
         font-weight: bold;
-        margin: auto;
+        margin: 2em auto 0 auto;
         display: block;
+    }
+
+    &__button-container {
+        width: 100%;
     }
 
     &__description {
