@@ -31,7 +31,7 @@ function AboutTeam() {
             <div className="main__about-teamImages">
                 <TeamPicture
                     name="EliŠka"
-                    path="images/lesbotoc_photos/Eliška.jpg"
+                    path="images/lesbotoc_photos/Eliska.jpg"
                     about="Is coming from Prague. She studied toys production in School of Arts and Crafts. Her big passion is  playing music under name Eloun. Currently  living in Prague with Mariana."
                 />
                 <TeamPicture
