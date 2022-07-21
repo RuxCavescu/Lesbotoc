@@ -146,7 +146,6 @@ class EventController extends Controller
       $event->is_phone_required = $request->input("is_phone_required") ?? null;
       $event->is_recurring = $request->input("is_recurring") ?? null;
       $event->is_featured = $request->input("is_featured") ?? null;
-      $event->setIsActive();
       $event->image_id = $request->input("image_id") ?? null;
       
 
@@ -211,7 +210,6 @@ class EventController extends Controller
                     $event->is_recurring = $request->input("is_recurring") ?? null;
                     $event->is_featured = $request->input("is_featured") ?? null;
                     $event->image_id = $request->input("image_id") ?? null;
-                    $event->setIsActive();
               
               
                     $event->save();
