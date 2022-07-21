@@ -65,59 +65,69 @@ export default function AboutForm(props) {
         }
     };
 
-    <form action="" 
-            onSubmit={(e)=>handleSubmit(e)} 
-            method= "POST"
-            className="contact-form">
-         {success && <p className='success-message'>{success}</p>}
-         {formError && <p className='error-message'>{formError}</p>}
-         <br />
-        <label 
-            className="loclabel" 
-            htmlFor="name">Name:</label>
-        <input 
-            onChange={(e)=>handleChange(e)}
-            value={data.name}
-            name="name"
-            className="input-item" 
-            type="text" 
-            id="name"/>
-        <label 
-            className="loclabel" 
-            htmlFor="email">Email address:</label>
-        <input 
-            onChange={(e)=>handleChange(e)}
-            value={data.email}
-            name="email"
-            className="input-item" 
-            type="text" 
-            id="email"/>
-        <label 
-            className="loclabel" 
-            htmlFor="phone">Phone number:</label>
-        <input 
-            onChange={(e)=>handleChange(e)}
-            value={data.phone}
-            name="phone"
-            className="input-item" 
-            type="text" 
-            id="phone"/>
-        <label 
-            className="loclabel" 
-            htmlFor="message">Your message:</label>
-        <textarea 
-            onChange={(e)=>handleChange(e)}
-            value={data.message}
-            className="input-item textfield" 
-            name="message" 
-            id="message-area" 
-            cols="30" 
-            rows="7" 
-            placeholder="Write your message here..."></textarea>
-            <br />
-        <button className="detail__button">SUBMIT</button>
-            <br /> 
-    </form>
+ 
+    return (
+        <div className="contact-form-container">
+            <form
+                action=""
+                onSubmit={(e) => handleSubmit(e)}
+                method="POST"
+                className="contact-form"
+            >
+                {success && <p className="success-message">{success}</p>}
+                <br />
+                <label className="loclabel" htmlFor="name">
+                    Name:
+                </label>
+                <input
+                    onChange={(e) => handleChange(e)}
+                    value={data.name}
+                    name="name"
+                    className="input-item"
+                    type="text"
+                    id="name"
+                />
+                <label className="loclabel" htmlFor="email">
+                    Email address:
+                </label>
+                <input
+                    onChange={(e) => handleChange(e)}
+                    value={data.email}
+                    name="email"
+                    className="input-item"
+                    type="text"
+                    id="email"
+                />
+                <label className="loclabel" htmlFor="phone">
+                    Phone number:
+                </label>
+                <input
+                    onChange={(e) => handleChange(e)}
+                    value={data.phone}
+                    name="phone"
+                    className="input-item"
+                    type="text"
+                    id="phone"
+                />
+                <label className="loclabel" htmlFor="message">
+                    Your message:
+                </label>
+                <textarea
+                    onChange={(e) => handleChange(e)}
+                    value={data.message}
+                    className="input-item textfield"
+                    name="message"
+                    id="message-area"
+                    cols="30"
+                    rows="7"
+                    placeholder="Write your message here..."
+                ></textarea>
+                <br />
+                <button className="input-button">Submit</button>
+                <br />
 
-
+                {formError && <p className="error-message">{formError}</p>}
+            </form>
+        </div>
+    );
 }

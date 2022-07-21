@@ -14,7 +14,7 @@ function AboutUs() {
 
                 <Hero
                 path="/images/lesbotoc_photos/Team2.JPG"
-                text="Meet the team."
+                text="Meet the <br>team."
                 position="right 10% bottom 85%"
                 />
             <div className="main__container">

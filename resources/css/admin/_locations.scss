@@ -54,7 +54,10 @@ html {
     padding: 10px 50px;
     text-align: center;
     text-decoration: none;
-    width: 300px;    
+    width: 300px;   
+    @media(max-width:700px) {
+            width: 200px;;
+        }
 }
 
 .input-item {
@@ -100,7 +103,7 @@ select {
     text-align: center;
     width: 80%;
 }
-//comment here
+
 .location-data {
     display: flex;
     flex-direction: row;
