@@ -7,7 +7,8 @@
     <div class="images__container">
         @foreach ($images as $image)
             <div class="image">
-            <img src="{{$image->path}}" alt="{{$image->alt}}">
+            <img src="{{Croppa::url($image->path, 500, 320)
+            }}" alt="{{$image->alt}}">
             <div class="image__info">
                     <p><strong>Description:</strong> {{$image->alt}}</p>
                     <p> <strong>URL:</strong> <?=$content = substr($image->path, strrpos($image->path, '/')); ?>

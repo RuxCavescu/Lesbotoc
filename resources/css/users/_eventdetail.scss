@@ -1,41 +1,73 @@
 .detail {
-    &__hero {
-    }
     &__container {
         width: 80%;
         margin: 10em auto;
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: flex-start;
+
         line-height: 3em;
         font-size: 0.8em;
+        flex-direction: row;
+        column-gap: 1em;
     }
 
     &__box {
         background-color: #8099ff83;
         border-radius: 15px;
-        padding: 2em;
-        width: 40%;
+        padding: 3em 4em;
+        // width: 40%;
+        max-width: 450px;
 
         &--grey {
             background-color: lightgrey;
+        }
+
+        @media (max-width: 1051px) {
+            margin: auto;
+        }
+
+        @media (max-width: 485px) {
+            padding: 1.5em 1em;
         }
     }
 
     &__boxtitle {
         font-size: 1.4em;
+        display: flex;
+        align-items: flex-start;
+        // column-gap: 1em;
+        line-height: 1.8em;
 
         &--bold {
             font-weight: bold;
+            width: 35%;
+        }
+
+        &--normal {
+            width: 80%;
         }
 
         &--centered {
             text-align: center;
+            display: flex;
+            justify-content: center;
             background: grey;
             border-radius: 10px;
             color: white;
             font-weight: bold;
+        }
+
+        @media (max-width: 550px) {
+            font-size: 1.2em;
+        }
+        @media (max-width: 485px) {
+            font-size: 1.2em;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
     }
 
@@ -49,8 +81,18 @@
         margin-top: 0;
     }
 
+    &__text {
+        padding-top: 1em;
+        font-size: calc(1em + 1vw);
+
+        @media (min-width: 670px) {
+            font-size: 20px;
+        }
+    }
+
     &__button {
         background-color: #142566;
+
         border: none;
         outline: none;
         min-width: 150px;
@@ -59,16 +101,24 @@
         color: white;
         font-size: 1.4em;
         font-weight: bold;
-        margin: auto;
+        margin: 2em auto 0 auto;
         display: block;
     }
 
+    &__button-container {
+        width: 100%;
+    }
+
     &__description {
-        width: 50%;
+        width: 45%;
 
         &--wide {
             width: 100%;
             margin-top: 5em;
+        }
+
+        @media (max-width: 1051px) {
+            width: 100%;
         }
     }
 }

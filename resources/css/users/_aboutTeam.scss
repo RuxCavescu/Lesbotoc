@@ -1,10 +1,52 @@
 .main__about {
-    padding: 100px 100px;
     &-teamImages {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        // padding: 100px 0px;
+        padding: 100px 100px;
+        margin-top: -150px;
+
+        @media (max-width: 500px) {
+            margin-top: 50px;
+        }
+
+        @media (max-width: 900px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 0px;
+            padding: 0 100px 100px 100px;
+        }
+
+        @media (max-width: 1200px) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 0px;
+            padding: 0 100px 100px 100px;
+        }
+    }
+
+    &-org {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 70%;
+        background-color: $header-bg1;
+        padding: 100px 100px;
+
+        & p {
+            color: white;
+        }
+
+        & h1 {
+            font-size: 50px;
+            font-weight: 700;
+            color: white;
+        }
+        & h3 {
+            color: white;
+        }
     }
     &-info {
         display: flex;
@@ -14,23 +56,66 @@
         justify-content: center;
         margin: 0 20px;
     }
+
     &-image {
         width: 200px;
         height: 200px;
+
+        @media (max-width: 1200px) {
+            margin-top: 100px;
+        }
     }
 
     &-description {
         text-align: center;
+        width: 300px;
+
+        @media (max-width: 900px) {
+            width: 70%;
+        }
+    }
+
+    &-name {
+        margin: 20px 0 50px 0;
+        text-transform: uppercase;
+        font-weight: 700;
     }
 }
 
 .about__intro {
+    &-container {
+        display: flex;
+        flex-direction: row;
+
+        @media (max-width: 500px) {
+            flex-direction: column;
+        }
+
+        @media (max-width: 900px) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
     &-headline {
-        text-align: center;
+        margin-bottom: 50px;
     }
     &-text {
-        text-align: center;
-        padding-bottom: 100px;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        margin-left: 100px;
+
+        & h3 {
+            margin-top: 50px;
+        }
+        @media (max-width: 900px) {
+            margin: 0;
+            text-align: center;
+        }
+    }
+    &-wave {
+        width: 250px;
+        margin: 50px 0;
     }
 }
 
@@ -38,10 +123,12 @@
     &-headline {
         text-align: center;
         padding: 0 100px;
+        margin-bottom: 50px;
     }
     &-text {
         text-align: center;
         padding-bottom: 100px;
         padding: 0 100px 100px 100px;
+        margin: 0;
     }
 }

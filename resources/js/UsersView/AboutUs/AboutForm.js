@@ -1,26 +1,25 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import  { useNavigate }  from 'react-router-dom';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-
-export default function AboutForm(props){
+export default function AboutForm(props) {
     const navigate = useNavigate();
-    const[formError, setFormError] = useState(null);
-    const[success, setSuccess] = useState(null);
+    const [formError, setFormError] = useState(null);
+    const [success, setSuccess] = useState(null);
 
     const [data, setData] = useState({
         name: "",
         email: "",
-        phone: "", 
-        message: ""
-    })
+        phone: "",
+        message: "",
+    });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setData((prevState) => {
             return {
                 ...prevState,
-                [name] : value,
+                [name]: value,
             };
         });
     };
@@ -29,22 +28,20 @@ export default function AboutForm(props){
         e.preventDefault();
 
         setFormError(null);
-        if(!data.name){
-            setFormError('Please provide a name.');
-            return
+        if (!data.name) {
+            setFormError("Please provide a name.");
+            return;
         }
-        if(!data.email || (!data.email.includes("@"))  ){
-            setFormError('Please provide a valid email.');
-            return
+        if (!data.email || !data.email.includes("@")) {
+            setFormError("Please provide a valid email.");
+            return;
         }
-        if(!data.message){
-            setFormError('Please provide a message.');
-            return
+        if (!data.message) {
+            setFormError("Please provide a message.");
+            return;
         }
 
-        const response = await axios.post(
-            "/api/message/store", data
-        );
+        const response = await axios.post("/api/message/store", data);
 
         const responseData = response.data;
         console.log(response);
@@ -52,16 +49,21 @@ export default function AboutForm(props){
        
         if (response != null){  
             setSuccess("Thank you for contacting us.");
-            // navigate('/about-us');
-            setTimeout(()=> {
-                navigate('/');
-                }, 2000);
-        }       
-    }
 
-    
-    return ( 
-<div className="contact-form-container">
+
+            // navigate('/about-us');
+            // setTimeout(()=> {
+            //     navigate('/');
+            //     }, 2000);
+
+            setData({
+                name: "",
+                email: "",
+                phone: "",
+                message: "",
+            });
+        }
+    };
 
     <form action="" 
             onSubmit={(e)=>handleSubmit(e)} 
@@ -116,6 +118,6 @@ export default function AboutForm(props){
         <button className="detail__button">SUBMIT</button>
             <br /> 
     </form>
-</div>
-     );
+
+
 }

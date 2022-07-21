@@ -46,16 +46,16 @@ footer {
     justify-content: center;
     padding: 50px 0;
     align-items: center;
-    width: 1000px;
+    // width: 1000px;
     margin: auto;
-    width: 1000px;
+    // width: 1000px;
 }
 
 .footer-nav {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 35%;
+
     padding-top: 20px;
 }
 
@@ -76,5 +76,8 @@ i {
     flex-direction: row;
     justify-content: space-evenly;
     padding: 0 20px;
-    width: 25%;
+
+    & a {
+        margin: 0px 10px;
+    }
 }

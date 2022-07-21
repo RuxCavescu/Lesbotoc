@@ -44,18 +44,23 @@ function EventDetail() {
                     displayModal={displayModal}
                     setDisplayModal={setDisplayModal}
                     eventId={eventDetail.id}
-                    date={eventDetail.start_date}
+                    date={Moment(eventDetail.start_date).format("Do MMMM YYYY")}
                     phoneRequired={eventDetail.is_phone_required}
+                    isPaid={eventDetail.is_paid}
                 />
                 <Hero
                     className="detail__hero"
                     path={eventDetail.image.path}
                     text={eventDetail.title_en}
-                    startDate={eventDetail.start_date}
+                    startDate={Moment(eventDetail.start_date).format(
+                        "Do MMMM YYYY"
+                    )}
                     place={eventDetail.location.name}
                     address={eventDetail.location.address}
                     price={
-                        eventDetail.price === null ? "Free" : eventDetail.price
+                        eventDetail.price === null
+                            ? "Free"
+                            : eventDetail.price + " " + "CZK"
                     }
                     position="center"
                 />
@@ -80,25 +85,29 @@ function EventDetail() {
                             <span className="detail__boxtitle--bold">
                                 When:
                             </span>{" "}
-                            {Moment(eventDetail.start_date).format(
-                                "Do MMMM YYYY"
-                            )}
+                            <span className="detail__boxtitle--normal">
+                                {Moment(eventDetail.start_date).format(
+                                    "DD.MM.YYYY"
+                                )}
+                            </span>
                         </p>
                         <p className="detail__boxtitle">
                             <span className="detail__boxtitle--bold">
                                 Where:{" "}
                             </span>
-                            {"   "}
-                            {eventDetail.location.address}
+                            <span className="detail__boxtitle--normal">
+                                {eventDetail.location.address}
+                            </span>
                         </p>
                         <p className="detail__boxtitle">
                             <span className="detail__boxtitle--bold">
                                 Price:
                             </span>
-                            {"   "}
-                            {eventDetail.price == null
-                                ? "Free"
-                                : eventDetail.price}
+                            <span className="detail__boxtitle--normal">
+                                {eventDetail.price == null
+                                    ? "Free"
+                                    : eventDetail.price + " " + "CZK"}
+                            </span>
                         </p>
 
                         {eventDetail.capacity == null ? (
@@ -106,40 +115,34 @@ function EventDetail() {
                                 <span className="detail__boxtitle--bold">
                                     Capacity:
                                 </span>
-                                {"   "}
-                                {eventDetail.capacity == null
-                                    ? "Unlimited"
-                                    : eventDetail.capacity}
+                                <span className="detail__boxtitle--normal">
+                                    {eventDetail.capacity == null
+                                        ? "Unlimited"
+                                        : eventDetail.capacity}
+                                </span>
                             </p>
                         ) : eventDetail.capacity >
                           eventDetail.already_registered ? (
                             <p className="detail__boxtitle">
                                 <span className="detail__boxtitle--bold">
-                                    Available spots :
+                                    Left spots:
                                 </span>
-                                {"   "}
-                                {eventDetail.capacity -
-                                    eventDetail.already_registered}{" "}
-                                / {eventDetail.capacity}
+                                <span className="detail__boxtitle--normal">
+                                    {eventDetail.capacity -
+                                        eventDetail.already_registered}{" "}
+                                    / {eventDetail.capacity}
+                                </span>
                             </p>
                         ) : (
                             <p className="detail__boxtitle">
                                 <span className="detail__boxtitle--bold">
-                                    Available spots :
+                                    Left spots:
                                 </span>
-                                {"   "}0 / {eventDetail.capacity}
+                                <span className="detail__boxtitle--normal">
+                                    0 / {eventDetail.capacity}
+                                </span>
                             </p>
                         )}
-
-                        {/* <p className="detail__boxtitle">
-                            <span className="detail__boxtitle--bold">
-                                Capacity:
-                            </span>
-                            {"   "}
-                            {eventDetail.capacity == null
-                                ? "Unlimited"
-                                : eventDetail.capacity}
-                        </p> */}
 
                         {eventDetail.capacity >
                             eventDetail.already_registered ||
@@ -173,7 +176,12 @@ function EventDetail() {
                             // width="450"
                             // height="270"
                             frameBorder="0"
-                            style={{ border: "0" }}
+                            style={{
+                                border: "0",
+                                marginBottom: "4em",
+                                height: "60vw",
+                                maxHeight: "700px",
+                            }}
                         ></iframe>
                     </div>
                     <div className="detail__description">

@@ -61,7 +61,7 @@ class EventSeeder extends Seeder
           'location_id' => 2, // Apartmány Na Kopečku - address: Čistá v Krkonoších 206, 543 44 Černý Důl
           'is_paid' => true,
           'price' => 1800,
-          'qr_code_image' => '',
+          'qr_code_image' => 'https://api.paylibo.com/paylibo/generator/czech/image?compress=false&size=440&accountNumber=12344556&bankCode=0800&amount=1800&currency=CZK&vs=2343214234&message=Payment+for+Camp+22nd+August+2022',
           'category_id' => 5,
           'description_cz' => '',
           'description_en' => 'The Camp is a 3 days get away usually in Krkonoše mountains. During these days participants can look forward to games prepared by Lesbotoč, walks, evening grill parties and lots of fun.',

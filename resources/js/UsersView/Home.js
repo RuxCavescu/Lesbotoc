@@ -14,7 +14,7 @@ function Home() {
         <div className="main__home">
             <Hero
                 path="images/pride/pride_parade.jpg"
-                text="Connect. Share. Make friends."
+                text="Connect. <br/>Share. <br/>Make friends."
                 position="bottom"
             />
             <AboutTeam />
