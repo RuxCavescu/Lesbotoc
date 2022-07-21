@@ -11,7 +11,7 @@ use Carbon\Carbon;
 class ContactController extends Controller
 {
     public function index() {
-        $contacts = Contact::get();
+        $contacts = Contact::orderBy('name')->get();
         $subscribedContacts = Contact::query()
             ->where('is_subscribed', 'like', '1')
             ->get();
