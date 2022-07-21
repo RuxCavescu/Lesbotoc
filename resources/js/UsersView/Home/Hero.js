@@ -14,7 +14,10 @@ function Hero({ path, text, startDate, place, address, price, position }) {
                 }}
             >
                 <div className="main__hero-overlay">
-                    <h1 className="main__hero-title">{text}</h1>
+                    <h1
+                        className="main__hero-title"
+                        dangerouslySetInnerHTML={{ __html: text }}
+                    ></h1>
                     <div className="main__hero-details">
                         {startDate && (
                             <>

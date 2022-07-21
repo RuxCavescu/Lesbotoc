@@ -55,6 +55,7 @@
     justify-content: space-between;
     width: 80%;
     margin: 0 auto;
+    position: relative;
 
     & .react-multiple-carousel__arrow--left::before {
         content: url("/assets/left-arrow.png");

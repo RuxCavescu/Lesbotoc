@@ -98,9 +98,9 @@ Route::get('/unsubscribe/{id}', [
 ])->whereNumber("id")->name("contact.unsubscribe");
 
 
-// Route::get('/send-email', function () {
-//     return view('emails/confirm-email');
-// });
+Route::get('/send-email', function () {
+    return view('emails/contact_us');
+});
 
 
 // Customized Fortify routes

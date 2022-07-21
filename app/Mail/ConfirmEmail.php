@@ -30,6 +30,7 @@ class ConfirmEmail extends Mailable
      */
     public function build()
     {
+      
         /**
          * Replace the "from" field with your valid sender email address.
          * The "email-template" is the name of the file present inside

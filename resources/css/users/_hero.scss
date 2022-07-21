@@ -1,8 +1,9 @@
 .main__hero {
+    padding-top: 4.1em;
     &-imageContainer {
         width: 100vw;
         // height: 400px;
-        height: 600px;
+        height: 650px;
     }
 
     &-overlay {
@@ -15,29 +16,47 @@
     }
 
     &-title {
-        padding-left: 100px;
-        width: 600px;
+        width: 750px;
+        font-weight: bold;
+        padding-left: 30px;
         color: white;
-        font-size: 70px;
+        font-size: calc(2em + 2vw);
+
+        @media (min-width: 500px) {
+            padding-left: 80px;
+            font-size: calc(3em + 2vw);
+        }
     }
 
     &-details {
-        padding-left: 100px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 2em;
+        font-size: calc(0.6em + 1vw);
+        @media (min-width: 500px) {
+            padding-left: 80px;
+            font-size: calc(0.4em + 2vw);
+        }
+        @media (min-width: 746px) {
+            font-size: 21px;
+        }
     }
 
     &-detail {
         color: white;
-        font-size: 1.4em;
+        // font-size: calc(0.6em + 1vw);
         display: block;
         display: flex;
         align-items: center;
         margin-bottom: 20px;
-        // justify-content: center;
 
         .fa-solid {
             font-size: 1.2em;
-            margin-right: 20px;
-            width: 40px;
+            margin-right: 10px;
+            min-width: 15px;
+            @media (min-width: 500px) {
+                margin-right: 25px;
+            }
         }
     }
 }

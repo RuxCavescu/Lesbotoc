@@ -11,6 +11,7 @@ function Modal({
     eventId,
     date,
     phoneRequired,
+    isPaid,
 }) {
     const [success, setSuccess] = useState(null);
     const [errors, setErrors] = useState(null);
@@ -31,7 +32,6 @@ function Modal({
         // auth_token: "auth",
         is_confirmed: 0,
         is_subscribed: isChecked,
-        // message: "",
     });
 
     const handleChange = (event) => {
@@ -64,9 +64,11 @@ function Modal({
             );
             const responseData = response.data;
             console.log(response);
+
             setSuccess(
-                "Thank you for your registration! Please check your inbox and click the link provided in the email to finalise your registration."
+                "Thank you for your registration! Please check your emailbox and follow provided instructions."
             );
+
             setValues({
                 name: "",
                 email: "",
@@ -252,10 +254,11 @@ function Modal({
                                 value={values.message}
                             ></textarea>
                         </label> */}
-
-                        <button className="detail__button modal_btn">
-                            REGISTER
-                        </button>
+                        <div className="detail__button-container">
+                            <button className="detail__button modal_btn">
+                                REGISTER
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>

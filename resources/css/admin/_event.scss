@@ -245,6 +245,10 @@
 
         &--nowrap {
             flex-wrap: nowrap;
+
+            @media (max-width: 610px) {
+                flex-wrap: wrap;
+            }
         }
     }
 

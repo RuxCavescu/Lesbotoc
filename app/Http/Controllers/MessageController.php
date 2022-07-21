@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Message;
+use Mail; 
+use App\Mail\ContactFormMail;
 
 
 class MessageController extends Controller
@@ -17,7 +19,7 @@ class MessageController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'nullable',
+            'phone' => 'nullable|regex:/^([0-9\s\-\+\(\)]*)$/',
             'message' => 'required'
         ]);
 
@@ -30,9 +32,9 @@ class MessageController extends Controller
 
             $contact->name = $request->input('name') ?? null;
             $contact->email = $request->input('email') ?? null;
+            $contact->source  = "Website contact form";
             $contact->phone = $request->input('phone') ?? null;
             $contact->is_subscribed = $request->input('is_subscribed') ?? false;
-
 
             $contact->save();
         }
@@ -44,6 +46,29 @@ class MessageController extends Controller
         $message->message = $request->input('message') ?? null;
         $message->contact_id = $contact->id;
         $message->save();
+
+
+        // Mail::to("lesbotoctest@gmail.com")->send(new ContactFormMail());
+
+        \Mail::send('emails/contact_us',
+        array(
+            'name' => $contact->name,
+            'email' => $contact->email,
+            'user_message' => $message->message,
+        ), function($message) use ($request)
+          {
+             $message->from($request->email);
+             $message->to('lesbotoctest@gmail.com');
+          });
+
+          
+
         return response()->json(['success_message' => 'Thank you for contacting us.'], 200);
+
     }
+
+
+
+
+    
 }
