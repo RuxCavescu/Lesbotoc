@@ -22,7 +22,7 @@
             @endif
             
                 @csrf
-                @include('locations/form-template', ["buttonLabel" => $isNew ? "CREATE" : "EDIT"])
+                @include('locations/form-template', ["buttonLabel" => $isNew ? "CREATE" : "SAVE"])
               
             </form>  <a class="button-a" href="/admin/locations"><button class="input-button blue">BACK</button></a>
         
@@ -34,7 +34,7 @@
                 </form>
             @endif    
         
-        </div>
+        </div>  
         
     
     </div>

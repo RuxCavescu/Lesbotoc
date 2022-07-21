@@ -46,8 +46,10 @@ export default function AboutForm(props) {
         const responseData = response.data;
         console.log(response);
 
-        if (response != null) {
-            setSuccess("Thank you for contacting us");
+       
+        if (response != null){  
+            setSuccess("Thank you for contacting us.");
+
 
             // navigate('/about-us');
             // setTimeout(()=> {
@@ -63,6 +65,7 @@ export default function AboutForm(props) {
         }
     };
 
+ 
     return (
         <div className="contact-form-container">
             <form
