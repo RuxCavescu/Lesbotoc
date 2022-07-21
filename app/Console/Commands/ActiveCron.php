@@ -32,6 +32,6 @@ class ActiveCron extends Command
       // \Log::info("Cron is working fine!");
 
       $current_time = date('Y-m-d'); // if you expiry date formate is diffrent get current date accordingly.
-      Event::where('start_date', '<', $current_time)->update(['is_active'=>false]);
+      // Event::where('start_date', '<', $current_time)->update(['is_active'=>false]);
     }
 }

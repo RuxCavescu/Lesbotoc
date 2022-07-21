@@ -5,6 +5,7 @@ import Event from "./Events/Event";
 import EventDetail from "./Events/EventDetail";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Moment from "moment";
+import Hero from "../UsersView/Home/Hero";
 
 function EventsList() {
     const [events, setEvents] = useState(null);
@@ -22,14 +23,19 @@ function EventsList() {
 
     return (
         <>
+            <Hero
+                path="images/women/holding_hands.jpg"
+                text="Let's meet. <br> Let's connect."
+                position="center"
+            />
             <div className="intro">
                 <h2 className="intro__headline">About our events</h2>
                 <p className="intro__text">
-                    Lorem ipsum dolor sit amet, consectetur ipiscing elit.
-                    Tincidunt etiam commodo faucibus cras felis. Ornare id dolor
-                    sit ut curabitur ac, arcu id at. Eget fermentum at duis
-                    mattis posuere nisl venenatis pellentesque. Ipsum cras diam
-                    sed sit faucibus ipsum, vitae dictum diam.
+                    Do you want to meet link-minded people in afriendly and safe
+                    environment? Let's spend time together together to talk,
+                    share our interests and hobbies, play games and celebrate
+                    our equality, diversity and inclusion. Check out our
+                    upcoming events and make sure to register in advance.
                 </p>
             </div>
 

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Image;
+use ImageOptimizer;
+use Croppa;
+
 
 class ImageController extends Controller
 {
@@ -28,10 +31,12 @@ class ImageController extends Controller
         $image_name = $request->file('uploaded_file')->getClientOriginalName();
 
         $request->file('uploaded_file')->move(
-            public_path('images'), 
+            storage_path('images'), 
             // $request->file('uploaded_file')->getClientOriginalName()
             $image_name
         );
+
+        
 
         // $this->validate($request, [
         //     'name' => 'required|max:255',
@@ -41,9 +46,11 @@ class ImageController extends Controller
         // ]);
 
         // // prepares the empty object
+        
         $image = new Image;
 
         $image->path = '/images/'.$image_name;
+        
         $image->alt = $request->alt ?? null;
 
         $image->save();
@@ -59,6 +66,8 @@ class ImageController extends Controller
     {
         // find the contact
         $image = Image::findOrFail($id);
+
+        Croppa::delete($image->path);
 
         // delete the entry from the DB
         $image->delete();
