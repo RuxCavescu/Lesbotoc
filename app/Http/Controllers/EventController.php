@@ -23,7 +23,7 @@ class EventController extends Controller
 
       // $events = Event::where('start_date', '>', date('Y-m-d'))->update(['is_active'=>true]);
 
-      $events = Event::orderBy("start_date")
+      $events = Event::orderBy("start_date", 'DESC')
                       ->get();
 
       
@@ -46,7 +46,7 @@ class EventController extends Controller
       // $registrations = Registration::query()
       //                             ->where("event_id", $id)
       //                             ->get();
-      $events = Event::orderBy("start_date")
+      $events = Event::orderBy("start_date", 'DESC')
                       ->get();
 
                       
@@ -74,7 +74,7 @@ class EventController extends Controller
       $registrations = Registration::with("contact")
                                   ->where("event_id", $id)
                                   ->get();
-      $events = Event::orderBy("start_date")
+                                  $events = Event::orderBy("start_date", 'DESC')
                                   ->get();
       $images = Image::get();
       $event = Event::with("location", "category", "images")
@@ -91,7 +91,7 @@ class EventController extends Controller
       $registrations = Registration::query()
                                   ->where("event_id", $id)
                                   ->get();
-      $events = Event::orderBy("start_date")
+                                  $events = Event::orderBy("start_date", 'DESC')
                                   ->get();
       $images = Image::get();
       $event = Event::with("location", "category")
