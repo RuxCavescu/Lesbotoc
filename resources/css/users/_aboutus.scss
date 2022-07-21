@@ -28,8 +28,8 @@ html {
     justify-content: center;
     margin: auto;
     text-align: center;
+    padding: 70px 0 0;
 }
-
 .contact-form-container{
 
     background-color: $form-bg;
@@ -45,6 +45,12 @@ html {
     justify-content: center;
     height: fit-content;
     text-align: start;
+}
+
+.contact__h3{
+    @media(max-width:700px){
+        font-size: 14px;
+    }
 }
 
 ::placeholder{
@@ -63,6 +69,10 @@ html {
     margin: 30px 0 0 0;
     padding: 0px 10px;
     width: 100%;
+    @media(max-width:700px){
+        width: 100%;
+        margin: auto;
+    }
 }
 
 .main-cont {
@@ -73,10 +83,14 @@ html {
     margin: 70px auto 80px;
     
 }
-.icons__cont{    
+
+.icons__cont{   
+    width: 100%; 
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin: 0;
+    padding-top: 40px;
 
     &-icon1{
         width: 110px;
@@ -92,6 +106,7 @@ html {
 
 .icon__cont-single{
     width: 350px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,6 +118,11 @@ html {
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 30px;
+
+    @media(max-width:700px){
+        flex-direction: column;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 }
 .description__cont{
     display: flex;
@@ -116,6 +136,11 @@ html {
         display: block;
         text-align: justify;
         width: 350px;
+
+        @media(max-width:700px) {
+                width: 250px;
+                font-size: 14px;
+            }
     }
 }
 
@@ -131,6 +156,11 @@ html {
         display: block;
         text-align: justify;
         width: 350px;
+
+        @media(max-width:700px) {
+        width: 250px;
+        font-size: 14px;
+        }
     }
 }
 
@@ -146,12 +176,17 @@ html {
         display: block;
         text-align: justify;
         width: 350px;
+
+        @media(max-width:700px) {
+        width: 250px;
+        font-size: 14px;
+        }
     }
     
     &-both{
     display: flex;
     flex-direction: row; 
-    margin: 15px;
+    
     }
     &-icon{
         width: 30px;
@@ -159,6 +194,28 @@ html {
         margin-right: 15px;
     }
 }
+
+//change later to 700!
+/* Extra small devices (phones, 600px and down) */
+
+
+// /* Large devices (laptops/desktops, 992px and up) */
+// @media only screen and (min-width: 992px) {
+//     .main-cont{
+//         background-color: yellow;
+//     }
+    
+// }
+
+// /* Small devices (portrait tablets and large phones, 600px and up) */
+// @media only screen and (min-width: 600px) {
+//     ...
+// }
+
+// /* Medium devices (landscape tablets, 768px and up) */
+// @media only screen and (min-width: 768px) {
+//     ...
+// }
 
 
 
