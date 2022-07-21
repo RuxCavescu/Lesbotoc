@@ -31,17 +31,17 @@ function AboutTeam() {
             <div className="main__about-teamImages">
                 <TeamPicture
                     name="EliŠka"
-                    path="images/lesbotoc_photos/Eliska.jpg"
+                    path="images/lesbotoc_photos/team/Eliska.jpg"
                     about="Is coming from Prague. She studied toys production in School of Arts and Crafts. Her big passion is  playing music under name Eloun. Currently  living in Prague with Mariana."
                 />
                 <TeamPicture
                     name="Mariana"
-                    path="images/lesbotoc_photos/Mariana.jpg"
+                    path="images/lesbotoc_photos/team/Mariana.jpg"
                     about="Is coming from Plzeň. She studied bioinformatics on VŠCHT. She is playing as a hockey forward in team Kobra. Currently living in Prague with Eliška."
                 />
                 <TeamPicture
                     name="Marta"
-                    path="images/lesbotoc_photos/Marta_cropped.jpg"
+                    path="images/lesbotoc_photos/team/Marta_cropped.jpg"
                     about="Is coming from Vsetín. She studied mechanical engineering on ČVUT. She loves to cook, listen to music and create tables in excel. Currently living in Prague with her two cats."
                 />
             </div>
