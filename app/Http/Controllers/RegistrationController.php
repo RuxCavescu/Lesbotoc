@@ -106,14 +106,10 @@ class RegistrationController extends Controller
       $event = Event::findOrFail($registration->event_id);
 
 
+      
+
       if ($event->already_registered === null) {
         $event->already_registered = 1;
-      } elseif ($event->already_registered >= $event->capacity) {
-
-        return response()->json(['errors' => [
-          "full" => ['Sorry, event registrations has reached full capacity.']
-        ]],422);
-
       } else {
         $event->already_registered = $event->already_registered + 1;
       }
