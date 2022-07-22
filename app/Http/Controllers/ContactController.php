@@ -143,6 +143,7 @@ class ContactController extends Controller
     {
         $subscribedContacts = Contact::query()
             ->where('is_subscribed', 'like', '1')
+            ->orderBy('name')
             ->get();
 
         return view('contacts.show-subscribed', compact('subscribedContacts'));
