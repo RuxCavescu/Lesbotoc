@@ -19,7 +19,7 @@ function ReactCalendar() {
             `/api/events?date=` + moment(date).format("YYYY-MM-DD")
         );
         const responseData = await response.json();
-        console.log(responseData);
+        // console.log(responseData);
 
         setEvents(responseData);
     };

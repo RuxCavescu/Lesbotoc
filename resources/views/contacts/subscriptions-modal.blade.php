@@ -6,6 +6,12 @@
       <h1>Subscribed contacts:</h1>
       <span class="modal__close">&times;</span>
     </div>
+
+    <button class="button download-btn"><i class="fa fa-cloud-download" aria-hidden="true"></i>
+        <a href="{{route("contacts-export")}}">
+            <div class="button__text">Download data</div>
+        </a>
+    </button>
     
     <table class="modal__table">
             <tr class="contacts__columns">
@@ -32,12 +38,6 @@
             </tr>
         @endforeach
     </table>
-
-    <button class="button download-btn"><i class="fa fa-cloud-download" aria-hidden="true"></i>
-        <a href="{{route("contacts-export")}}">
-            <div class="button__text">Download data</div>
-        </a>
-    </button>
 
   </div>
 
