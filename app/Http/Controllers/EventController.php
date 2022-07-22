@@ -30,9 +30,7 @@ class EventController extends Controller
     
       $event = new Event;
       
-      // foreach ($events as $event) {
-      //   $event->setIsActive();
-      // }
+
       
       $locations = Location::get();
       $categories = Category::get();
