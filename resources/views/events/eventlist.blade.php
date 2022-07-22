@@ -10,7 +10,7 @@ use Carbon\Carbon;
 
   @if (Request::path() === "admin/events/" . $event->id || Request::path() === "admin/events/" . $event->id . "/edit")
 
-  <li @if ($event->start_date > date("Y-m-d"))
+  <li @if ($event->start_date >= date("Y-m-d"))
     class="events__item events__item--highlighted"
     @else
     class="events__item events__item--grey"
@@ -21,7 +21,7 @@ use Carbon\Carbon;
 
   @else 
 
-  <li @if ($event->start_date > date("Y-m-d"))
+  <li @if ($event->start_date >= date("Y-m-d"))
     class="events__item"
     @else
     class="events__item events__item--grey"
